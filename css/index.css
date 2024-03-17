@@ -43,6 +43,10 @@ html {
 p {
     font-family: biasa;
 }
+
+span{
+    font-family: biasa;
+}
 .home {
     display: flex;
     align-items: center;
