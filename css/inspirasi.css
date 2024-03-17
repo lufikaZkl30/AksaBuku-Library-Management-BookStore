@@ -35,6 +35,11 @@ h1{
     padding: 10px;
     background-color: antiquewhite;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: barett;
+}
+
+p{
+    font-family: biasa;
 }
 
 .products-container {
@@ -67,6 +72,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: biasa;
 }
 
 button:hover {

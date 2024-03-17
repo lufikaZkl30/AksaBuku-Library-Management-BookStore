@@ -27,7 +27,7 @@ body{
     background-size: cover;
 }
 
-.h1{
+h1{
     position: relative;
     text-align: center;
     margin-top: 15vh;
@@ -35,9 +35,12 @@ body{
     padding: 10px;
     background-color: antiquewhite;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: peanut;
+    font-family: barett;
 }
 
+p{
+    font-family: biasa;
+}
 .products-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -68,6 +71,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: biasa;
 }
 
 button:hover {
