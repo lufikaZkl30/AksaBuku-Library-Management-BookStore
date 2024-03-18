@@ -1,19 +1,19 @@
 /* font untuk h3 */
 @font-face {
     font-family: barett;
-    src: url(/font/Barett\ Street.ttf);
+    src: url(/assets/font/Barett\ Street.ttf);
 }
 
 /* font navbar */
 @font-face {
     font-family: peanut ;
-    src: url(/font/Peanut\ Butter.ttf);
+    src: url(/assets/font/Peanut\ Butter.ttf);
 }
 
 /* font text biasa */
 @font-face {
     font-family: biasa;
-    src: url(/font/Hello\ Mickeys.ttf);
+    src: url(/assets/font/Hello\ Mickeys.ttf);
 }
  
 
@@ -51,7 +51,7 @@ span{
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background: url(/img/bg-utama1.png);
+    background: url(/assets/img/bg-utama1.png);
     background-size: cover;
     background-position: center;
     background: blur(150px);

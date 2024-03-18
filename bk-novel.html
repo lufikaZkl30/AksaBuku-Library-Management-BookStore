@@ -10,7 +10,7 @@
     <!-- icon web pengguna dll -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- icon atas web-->
-    <link rel="icon" href="/img/Icon web-ats.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="/assets/img/Icon web-ats.png" type="image/gif" sizes="16x16">
 </head>
 
 <body>
@@ -58,7 +58,7 @@
                 Eufloria menyajikan cerita berbunga-bunga hingga sajak-sajak yang menyentuh. Ilustrasi-ilustrasi manis
                 di dalamnya menemanimu hanyut dalam kisah mereka.</p>
             <p style="color: red;">Harga: $21</p>
-            <button onclick="addTocard('Buku 2', 21)">Add to Cart</button>
+            <button onclick="addToCart('Buku 2', 21)">Add to Cart</button>
         </div>
         <div class="product-box" data-price="35" data-id="2">
             <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-6223108/loveable_hidden_full02_r1vzbbto.jpg"
@@ -95,6 +95,10 @@
             <button onclick="addTocard('Buku 5', 25)">Add to Cart</button>
         </div>
     </div>
+
+    <h2>Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total">Total: $0</p>
 
     <script src="fungsi.js"></script>
 
