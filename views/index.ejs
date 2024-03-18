@@ -1,51 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/public/css/index.css">
-    <!-- <link rel="stylesheet" href="/css/navbar.css"> -->
-    <link rel="stylesheet" href="/public/css/navbar1.css">
-    <!-- icon web -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- icon atas web-->
-    <link rel="icon" href="/assets/img/Icon web-ats.png" type="image/gif" sizes="16x16">
-</head>
+<%- include('layouts/header.ejs') %>
 
 <body>
-  <!-- Navbar -->
-  <%- include('layouts/navbar.ejs') %>
+    <!-- Navbar -->
+    <%- include('layouts/navbar.ejs') %>
 
-    <!-- home -->
+    <!-- intro -->
     <section class="home" id="home">
         <div class="content">
-            <h3 style="margin-left: -10vh">All<br> Store Books</h3>
-            <span style="margin-left: -11vh">Beberapa Buku Populer Disini</span>
-            <p class="text-utm" style="margin-left: -10vh;">
-                kami memberikan rekomendasi buku terbaru dan yang sedah popular.<br><br>
-                Buku adalah kumpulan atau himpunan kertas atau lembaran yang tertulis atau mengandung tulisan.
-                Bahan-bahan tersebut bisa berbentuk potongan yang terbuat dari kayu, kertas bahkan gading gajah.
-                Kumpulan ini dihimpun atau dijilid menjadi satu pada salah satu ujungnya dan berisi tulisan, gambar atau
-                tempelan. Setiap sisi dari sebuah lembaran kertas pada buku disebut sebuah halaman.<br><br>
-                <a href="#" class="btn" style="display: inline-block;margin-top: 5vh; margin-left: 25vh;">See Now</a>
+            <h3>Aksa Buku</h3>
+            <span>
+                Memulai pertualangan buku tanpa batas, <br>
+                Memberikan rekomendasi buku terbaru dan populer.<br><br>
+            </span>
+            <p class="text-utm" > 
+                Buku merupakan kumpulan lembaran yang bertuliskan kata-kata. <br>
+                Buku juga merupakan jendela dunia yang tidak terbatas. <br>
+                Selamat datang di Aksa Buku, tempat di mana pertualangan tak terbatas menanti.
+                Segera temukan dunia mu!
+                <br><br>
+                <a href="/jelajah" class="btnMore" style="display: inline-block;margin-top: 5vh; margin-left: 25vh;">See More</a>
         </div>
     </section>
 
-
-
-    <!-- about -->
+    <!-- other information -->
     <section class="about" id="about">
         <div class="row">
-
+    
             <div class="vidio-container">
                 <video src="/assets/Video/video book.mp4" loop autoplay muted></video>
                 <h3>Store Books</h3>
             </div>
-
+    
             <div class="content">
-                <h1 class="heading">Other <span>Information</span></h1>
+                <h1 class="headings">Other <span>Information</span></h1>
                 <p style="color: black;">
                     Ada berbagai sumber yang menguak sejarah tentang buku. Awalnya, buku pertama disebutkan lahir di
                     Mesir pada tahun 2400-an SM setelah orang Mesir menciptakan kertas papirus. Kertas papirus yang
@@ -57,11 +46,12 @@
                     dari atas ke bawah.<br><br>
                 </p>
             </div>
-
+    
         </div>
     </section>
 
-    <!-- contribusi = taruh di sini seperti iklan -->
+
+    <!-- contribution -->
     <section class="distri-container">
         <div class="icon">
             <img src="/assets/img/3.png" alt="">
@@ -94,45 +84,46 @@
     </section>
 
 
-    <!-- bagian produk Popular-->
+    <!--Popular product-->
     <section class="products" id="products">
 
-        <h1 class="heading">Products <span>Hot</span> </h1>
+        <h1 class="heading">Hot <span>Products</span> </h1>
 
-        <!-- beda -->
+        
         <div class="grid-container">
-            <div class="card">
+            <div class="card" id="card-1">
                 <div class="img-2">
                     <img src="/assets/img/produk/7.png" alt="...">
                 </div>
                 <h3 class="card-text">How To See?</h3><br>
-                <p>"how to see?" adalah novel karya Asabell Audida yang menceritakan tentang perjalanan seorang gadis
+                <h4>Asabell Audiya</h4>
+                <!-- <p>"How To See?" adalah novel karya Asabell Audida yang menceritakan tentang perjalanan seorang gadis
                     bernama Claire. Novel ini menyoroti perjalanan pencarian jati diri dan makna hidup Claire yang
                     dipenuhi dengan perasaan kebingungan dan kekosongan.</p><br>
                 <p>Novel ini menyoroti tema-tema universal seperti pencarian jati diri, pertumbuhan pribadi, dan makna
                     hidup. Dengan gaya narasi yang indah dan penuh imajinasi,<br> "how to see?" mengajak pembaca untuk
                     mempertanyakan arti sejati dari keberadaan mereka dan menggali lebih dalam untuk menemukan makna
-                    yang lebih dalam dalam hidup.</p><br>
+                    yang lebih dalam dalam hidup.</p><br> -->
                 <h3 style="color: brown; font-size: 25px;">$10.0</h3>
-                <a class="btn">Buy Now</a>
+                <button onclick="">BUY NOW</button>
             </div>
             <div class="grid-container">
-                <div class="card">
+                <div class="card" id="card-2">
                     <div class="img-2">
                         <img src="/assets/img/produk/book jerome.png" alt="...">
                     </div>
                     <h3 class="card-text">Mantappu Jiwa</h3><br>
-                    <p>"Mantappu Jiwa" adalah buku yang ditulis oleh Helvy Tiana Rosa, seorang sastrawan Indonesia yang
+                    <h4>Jerome Polin</h4>
+                    <!-- <p>"Mantappu Jiwa" adalah buku yang ditulis oleh Helvy Tiana Rosa, seorang sastrawan Indonesia yang
                         terkenal. Buku ini merupakan kumpulan puisi yang menggambarkan perjalanan spiritual dan
                         pencarian makna dalam kehidupan. Helvy Tiana Rosa menggunakan kata-kata yang mendalam dan puitis
                         untuk mengungkapkan pemikirannya tentang hubungan antara manusia dengan Tuhan, cinta, kehidupan,
-                        dan keberadaan</p><br>
-                    <h3 style="color: brown; font-size: 25px;">$11.0</h3>
-                    <a class="btn">Buy Now</a>
+                        dan keberadaan</p><br> -->
+                    <h3 style="color: brown; font-size: 25px;">78400</h3>
+                    <button onclick="">BUY NOW</button>
                 </div>
             </div>
             <script src="fungsi.js"></script>
-
 </body>
 
 </html>

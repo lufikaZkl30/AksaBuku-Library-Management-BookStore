@@ -15,7 +15,7 @@
     font-family: biasa;
     src: url(/assets/font/Hello\ Mickeys.ttf);
 }
- 
+
 
 /* warna */
 :root{
@@ -23,14 +23,10 @@
 }
 
 *{
-    padding: 0;
     margin: 0;
     outline: none;
     box-sizing: border-box;
-    border: none;
     text-decoration: none;
-    text-transform: capitalize;
-    transition: .2rem linear;
 }
 
 html {
@@ -44,9 +40,6 @@ p {
     font-family: biasa;
 }
 
-span{
-    font-family: biasa;
-}
 .home {
     display: flex;
     align-items: center;
@@ -63,9 +56,9 @@ span{
     height: 160px;
     padding: 20px;
     border-radius: 10px;
-    font-size: 12px;
+    font-size: 14px;
     color: #eee;
-    text-align: left;
+    text-align: justify;
 }
 
 /* content */
@@ -78,23 +71,16 @@ span{
 }
 
 .home .content{
-  max-width: 50rem;
-  margin-left: 5vh;
-  margin-top: 15vh;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    margin-left: 15px;
+    margin-top: 15vh;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 } 
 
 .home .content h3 {
     font-family: barett;
     font-size: 6rem;
     color: rgb(255, 255, 255);
-}
-
-.home .content span{
-    font-size: 3.5rem;
-    color: rgb(67, 81, 93);
-    padding: 1rem 0;
-    line-height: 1.5;
 }
 
 .home .content span{
@@ -106,7 +92,7 @@ span{
 }
 
 /* button */
-.btn {
+.btnMore {
     display: inline-block;
     margin-top: 1rem;
     border-radius: 5rem;
@@ -118,8 +104,8 @@ span{
     text-decoration: none;
 }
 
-.btn:hover{
-    background-color: burlywood;
+.btnMore:hover{
+    color: burlywood;
 }
 
 .heading {
@@ -135,6 +121,7 @@ span{
     color: rgb(153, 0, 0);
 }
 
+/* ABOUT */
 .about {
     display: flex;
     align-items: center;
@@ -168,35 +155,31 @@ span{
     object-fit: cover;
 }
 
-.about .row .vidio-container h3{
-    position: absolute;
-    top: 50%; transform: translateY(-50%);
-    font-size: 3rem;
-    color: #fff;
-    background: #000000;
-    width: 100%;
-    padding: 1rem 2rem;
-    text-align: center;
-    mix-blend-mode: screen;
-}
-
 .about .row .content{
     flex: 1 1 40rem;
+    padding: 25px;
 }
 
 .about .row .content h3{
-    font-size: 3rem;
-    color: #ffffff;
+    color: #333;
+    padding: 5rem 0;
+    padding-top: 1rem;
+    line-height: 1.5;
 }
 
 .about .row .content p{
-    font-size: 1.5rem;
+    font-size: 14px;
     color: #ffffff;
     padding: 5rem 0;
-    padding-top: 5rem;
-    line-height: 1.5;
-    text-align:start;
+    line-height: 2;
+
+    margin-top: -40px;
+    margin-left: -50px;
+    padding-right: 25px;
+    font-size: 12px; 
+    text-align: justify;   
 }
+
 
 .about .row .vidio-container video{
     width: 100%;
@@ -217,29 +200,29 @@ span{
     margin-top: -12vh;
     margin-left: 10vh;
     text-shadow: #000000;
+    color: #fff;
+    width: 100%;
 }
 
-.about.row.content{
-    flex: 1 1 40rem;
-}
-
-.about .row .content h3{
-    font-size: 3rem;
+.headings {
+    text-align: center;
+    font-size: 4rem;
     color: #333;
-    padding: 5rem 0;
-    padding-top: 1rem;
+
+    margin-top: 20px;
+    margin-left: -50px;
+    margin-right: 25px;  
+
+    background-color: rgba(255, 51, 153, .05);
+    padding: 15px;
     line-height: 1.5;
 }
 
-.about .row .content p{
-    margin-top: -50px;
-    margin-left: -15vh;
-    font-size: 12px;
+.headings span {
+    color: rgb(153, 0, 0);
 }
 
-.about .row .content .btn{
-    margin-top: -.9rem;
-}
+
 
 /* distribusi */
 .dis-jdl {
@@ -364,15 +347,6 @@ section{
     line-height: 1.6rem;
     color: var(--peru);
 }
-
-
-
-
-
-
-
-
-
 
 
 /* media */

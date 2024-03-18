@@ -5,49 +5,49 @@
 
 /* font navbar */
 @font-face {
-    font-family: peanut ;
-    src: url(/assets/font/Peanut\ Butter.ttf);
+  font-family: peanut ;
+  src: url(/assets/font/Peanut\ Butter.ttf);
 }
 
 /* font text biasa */
 @font-face {
-    font-family: biasa;
-    src: url(/assets/font/Hello\ Mickeys.ttf);
+  font-family: biasa;
+  src: url(/assets/font/Hello\ Mickeys.ttf);
 }
- 
+    
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url(/assets/img/bg-sukses1.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: biasa;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url(/assets/img/bg-sukses1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: biasa;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .success-box {
-    background-color: transparent;
-    text-align: center;
-    padding: 20px;
-    border: 2px solid grey;
-    border-radius: 10px;
+  background-color: transparent;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid grey;
+  border-radius: 10px;
 }
 
 button {
-    background-color: rgb(147, 112, 61);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
+  background-color: rgb(147, 112, 61);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 button:hover {
