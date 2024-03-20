@@ -1,0 +1,137 @@
+/* judul */
+@font-face {
+  font-family: barett;
+  src: url(/assets/font/Barett\ Street.ttf);
+}
+
+/* font navbar */
+@font-face {
+  font-family: peanut ;
+  src: url(/assets/font/Peanut\ Butter.ttf);
+}
+
+/* font text biasa */
+@font-face {
+  font-family: biasa;
+  src: url(/assets/font/Hello\ Mickeys.ttf);
+}
+
+
+body{
+  background-color: rgba(120, 90, 32, 0.567);
+  text-decoration: none;
+}
+
+h3{
+  font-family: biasa;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: .2rem linear;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  overflow-x: hidden;
+}
+
+/* terpisah */
+.contact {
+  padding: 150px 0;
+}
+
+.contact .heading h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  font-family: biasa;
+}
+
+.contact .heading h2 span {
+  color: #5d3d12;
+}
+
+.contact .heading p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #000000;
+  margin: 20px 0 60px;
+  padding: 0;
+  font-family: biasa;
+}
+
+.contact .form-control {
+  padding: 25px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+  border: 0;
+  border-radius: 10px;
+}
+
+.contact button.btn {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #5a320b;
+  color: #ffffff;
+}
+
+.contact .title h3 {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: biasa;
+}
+
+.contact .title p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #999;
+  line-height: 1.6;
+  margin: 0 0 40px;
+  font-family: biasa;
+}
+
+.contact .content .info {
+  margin-top: 30px;
+}
+.contact .content .info i {
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+  color: #02434b;
+  margin-right: 20px;
+  text-align: center;
+  width: 20px;
+}
+.contact .content .info h4 {
+  font-size: 13px;
+  line-height: 1.4;
+  font-family: biasa;
+}
+
+.contact .content .info h4 span {
+  font-size: 13px;
+  font-weight: 450;
+  color: #787878;
+  font-family: biasa;
+}
+
+.col-md-5{
+  background-color: white;
+  border-radius: 15px;
+  margin:10px;
+  padding:30px;
+}

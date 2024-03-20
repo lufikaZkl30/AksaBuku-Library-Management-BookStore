@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('layouts/header.ejs') %>
+    </head>
+<body>
+    <!-- Navbar -->
+    <%- include('layouts/navbar.ejs') %>
+
+    <!-- intro -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Aksa Buku</h3>
+            <span>
+                Memulai pertualangan buku tanpa batas, <br>
+                Memberikan rekomendasi buku terbaru dan populer.<br><br>
+            </span>
+            <p class="text-utm" > 
+                Buku merupakan kumpulan lembaran yang bertuliskan kata-kata. <br>
+                Buku juga merupakan jendela dunia yang tidak terbatas. <br>
+                Selamat datang di Aksa Buku, tempat di mana pertualangan tak terbatas menanti.
+                Segera temukan dunia mu!
+                <br><br>
+                <a href="/jelajah" class="btnMore" style="display: inline-block;margin-top: 5vh; margin-left: 25vh;">See More</a>
+        </div>
+    </section>
+
+    <!-- other information -->
+    <section class="about" id="about">
+        <div class="row">
+    
+            <div class="vidio-container">
+                <video src="/assets/Video/video book.mp4" loop autoplay muted></video>
+                <h3>Store Books</h3>
+            </div>
+    
+            <div class="content">
+                <h1 class="headings">Other <span>Information</span></h1>
+                <p style="color: black;">
+                    Ada berbagai sumber yang menguak sejarah tentang buku. Awalnya, buku pertama disebutkan lahir di
+                    Mesir pada tahun 2400-an SM setelah orang Mesir menciptakan kertas papirus. Kertas papirus yang
+                    berisi tulisan ini digulung dan gulungan tersebut merupakan bentuk buku yang pertama. Ada pula yang
+                    mengatakan buku sudah ada sejak zaman Sang Budha di Kamboja karena pada saat itu Sang Budha
+                    menuliskan wahyunya di atas daun kemudian membacanya berulang-ulang. Berabad-abad kemudian di
+                    Tiongkok, para cendekiawan menuliskan ilmu-ilmunya di atas lidi yang diikatkan menjadi satu. Hal
+                    tersebut memengaruhi sistem penulisan di Tiongkok yang huruf-hurufnya ditulis secara vertikal yaitu
+                    dari atas ke bawah.<br><br>
+                </p>
+            </div>
+    
+        </div>
+    </section>
+
+
+    <!-- contribution -->
+    <section class="distri-container">
+        <div class="icon">
+            <img src="/assets/img/3.png" alt="">
+            <div class="distri">
+                <h3>535220187</h3>
+                <span>Jessica Ho</span>
+            </div>
+        </div>
+        <div class="icon">
+            <img src="/assets/img/4.png" alt="">
+            <div class="distri">
+                <h3>535220178</h3>
+                <span>Aulia Dwi</span>
+            </div>
+        </div>
+        <div class="icon">
+            <img src="/assets/img/5.png" alt="">
+            <div class="distri">
+                <h3>535220226</h3>
+                <span>Parveen Uzma</span>
+            </div>
+        </div>
+        <div class="icon">
+            <img src="/assets/img/6.png" alt="">
+            <div class="distri">
+                <h3>535220223</h3>
+                <span>Lufika Ayu</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Popular product-->
+    <section class="products" id="products">
+
+        <h1 class="heading">Hot <span>Products</span> </h1>
+
+        
+        <div class="grid-container">
+            <div class="card" id="card-1">
+                <div class="img-2">
+                    <img src="/assets/img/produk/7.png" alt="...">
+                </div>
+                <h3 class="card-text">How To See?</h3><br>
+                <h4>Asabell Audiya</h4>
+                <!-- <p>"How To See?" adalah novel karya Asabell Audida yang menceritakan tentang perjalanan seorang gadis
+                    bernama Claire. Novel ini menyoroti perjalanan pencarian jati diri dan makna hidup Claire yang
+                    dipenuhi dengan perasaan kebingungan dan kekosongan.</p><br>
+                <p>Novel ini menyoroti tema-tema universal seperti pencarian jati diri, pertumbuhan pribadi, dan makna
+                    hidup. Dengan gaya narasi yang indah dan penuh imajinasi,<br> "how to see?" mengajak pembaca untuk
+                    mempertanyakan arti sejati dari keberadaan mereka dan menggali lebih dalam untuk menemukan makna
+                    yang lebih dalam dalam hidup.</p><br> -->
+                <h3 style="color: brown; font-size: 25px;">84150</h3>
+                <button onclick="">BUY NOW</button>
+            </div>
+            <div class="grid-container">
+                <div class="card" id="card-2">
+                    <div class="img-2">
+                        <img src="/assets/img/produk/book jerome.png" alt="...">
+                    </div>
+                    <h3 class="card-text">Mantappu Jiwa</h3><br>
+                    <h4>Jerome Polin</h4>
+                    <!-- <p>"Mantappu Jiwa" adalah buku yang ditulis oleh Helvy Tiana Rosa, seorang sastrawan Indonesia yang
+                        terkenal. Buku ini merupakan kumpulan puisi yang menggambarkan perjalanan spiritual dan
+                        pencarian makna dalam kehidupan. Helvy Tiana Rosa menggunakan kata-kata yang mendalam dan puitis
+                        untuk mengungkapkan pemikirannya tentang hubungan antara manusia dengan Tuhan, cinta, kehidupan,
+                        dan keberadaan</p><br> -->
+                    <h3 style="color: brown; font-size: 25px;">78400</h3>
+                    <button onclick="">BUY NOW</button>
+                </div>
+            </div>
+            <script src="fungsi.js"></script>
+</body>
+
+</html>

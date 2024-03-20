@@ -1,0 +1,84 @@
+@font-face {
+    font-family: barett;
+    src: url(/assets/font/Barett\ Street.ttf);
+}
+@font-face {
+    font-family: peanut ;
+    src: url(/assets/font/Peanut\ Butter.ttf);
+}
+
+/* font text biasa */
+@font-face {
+  font-family: biasa;
+  src: url(/assets/font/Hello\ Mickeys.ttf);
+}
+
+header{
+    font-family: biasa;
+    position: fixed;
+    width: 100%;
+    padding: 12px 10%;
+    background-color: rgba(251, 255, 255, 0.685);
+    justify-content: space-between;
+    z-index: 100;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.192);
+}
+
+.navbar .logo {
+    font-size: 30px;
+    color: #333;
+    font-weight: bolder;
+    font-family: barett;
+}
+
+.navbar .logo:hover {
+  text-decoration: solid;
+}
+
+.navbar .isi{
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    color: #333;
+}
+
+.navbar .isi:hover{
+    color: #181818;
+}
+
+header .icons a{
+    font-size: 2.5rem;
+    color: #333;
+    margin-left: 1.5rem;
+}
+
+/* dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin-bottom: 60px;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    color: #333;
+}
+
+.dropdown-content a:hover {
+  color: black;
+}

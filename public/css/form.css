@@ -1,0 +1,112 @@
+@font-face {
+    font-family: barett;
+    src: url(/assets/font/Barett\ Street.ttf);
+}
+
+/* font navbar */
+@font-face {
+    font-family: peanut ;
+    src: url(/assets/font/Peanut\ Butter.ttf);
+}
+
+/* font text biasa */
+@font-face {
+    font-family: biasa;
+    src: url(/assets/font/Hello\ Mickeys.ttf);
+}
+ 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+Body {
+    background: url(/assets/img/bg-form.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: biasa;
+}
+
+h1 {
+    font-size: 3vh;
+    text-align: center;
+}
+
+.container {
+    margin: auto;
+    width: 500px;
+    max-width: 90%;
+}
+
+.container form {
+    margin-top: 10vh;
+    margin-left: 40vh;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 4px;
+    box-shadow: 0 8px rgba(0,0,0,.3);
+}
+
+.all-container{
+    padding: 16vh;
+}
+
+.container form h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: black;
+}
+
+.container form .form-control {
+    width: 100%;
+    height: 40px;
+    background: #ccc;
+    border-radius: 4px;
+    border: 1px solid silver;
+    margin:10px 0 18px 0;
+    padding: 0 10px;
+}
+
+.container form .btn {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: gray;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.container form .btn:hover{
+    opacity: .7;
+    background-color: #7d6215;
+}
+
+button {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7d6215;
+}
+
+
+
+

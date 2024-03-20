@@ -1,0 +1,114 @@
+@font-face {
+    font-family: barett;
+    src: url(/assets/font/Barett\ Street.ttf);
+}
+
+/* font navbar */
+@font-face {
+    font-family: peanut ;
+    src: url(/assets/font/Peanut\ Butter.ttf);
+}
+
+/* font text biasa */
+@font-face {
+    font-family: biasa;
+    src: url(/assets/font/Hello\ Mickeys.ttf);
+}
+ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}  
+
+body{
+    background: url(/assets/img/bg-book.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.all-container h1{
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: barett;
+    margin-top: 10vh;
+    background-color: antiquewhite;
+}
+
+.all-container{
+    padding-top: 8vh;
+}
+
+
+p{
+    font-family: biasa;
+}
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    justify-content: center;
+    margin:80px;
+    max-width: 90%;
+}
+
+.product-box {
+    text-align: center;
+    cursor: pointer;
+    width: 200px;
+}
+
+.product-box img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: biasa;
+}
+
+button:hover {
+    background-color: #7d6215;
+}
+
+.item {
+text-align: center;
+margin-bottom: 20px;
+width: 200px;
+}
+
+button {
+background-color: grey;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+#card {
+margin-top: 50px;
+text-align: center;
+}
+
+#card-items {
+list-style-type: none;
+padding: 0;
+}
+
+#card-items li {
+margin-bottom: 10px;
+}

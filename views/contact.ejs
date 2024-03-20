@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('layouts/header.ejs') %>
+    </head>
+<body>
+    <!-- Navbar -->
+    <%- include('layouts/navbar.ejs') %>
+
+        <!-- form -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="heading text-center">
+                    <h2>Hubungi <span>Kami</span></h2>
+                    <p>Untuk Informasi & Kerjasama
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="title">
+                            <h3>Detail Kontak</h3>
+                        </div>
+                        <div class="content">
+                            <!-- Info-1 -->
+                            <div class="info">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h4 class="d-inline-block">PHONE:<br>
+                                    <span>(+62) 366 248 4151
+                                    </span>
+                                </h4>
+                            </div>
+                            <!-- Info-2 -->
+                            <div class="info">
+                                <i class="far fa-envelope"></i>
+                                <h4 class="d-inline-block">EMAIL:<br>
+                                    <span>marketing@aksabuku</span>
+                                </h4>
+                            </div>
+                            <!-- Info-3 -->
+                            <div class="info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4 class="d-inline-block">ADDRESS:<br>
+                                    <span> Jl. Medan Merdeka Sel. No.11, Gambir, Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10110
+                                    </span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <form id="submitForm">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="text" id="name" class="form-control" placeholder="Nama">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="email" id="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="col-sm-12">
+                                    <input type="text" id="subjek" class="form-control" placeholder="Subjek">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" id="comment" placeholder="Pesan"></textarea>
+                            </div>
+                            <button class="btn btn-block" type="submit" id="submitform">Kirim</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="javascript/contact.js"></script>
+    </body>
+    <!-- css for contact -->
+    <link rel="stylesheet" href="css/contact.css">
+</html>

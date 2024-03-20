@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('layouts/header.ejs') %>
+        <!-- css for sukses -->
+        <link rel="stylesheet" href="/css/sukses.css">
+    </head>
+  <body>
+      <!-- Navbar -->
+      <%- include('layouts/navbar.ejs') %>
+
+  <div class="container">
+    <div class="success-box">
+      <h2>Save Successful</h2>
+      <button onclick="redirectToHome()">Kembali ke Halaman Utama</button>
+    </div>
+  </div>
+
+  <script>
+    function redirectToHome() {
+      window.location.href = "/";
+    }
+  </script>
+
+  </body>
+</html>
