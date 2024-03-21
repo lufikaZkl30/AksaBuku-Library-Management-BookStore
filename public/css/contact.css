@@ -31,7 +31,6 @@ h3{
   margin: 0;
   box-sizing: border-box;
   outline: none;
-  box-sizing: border-box;
   border: none;
   text-decoration: none;
   text-transform: capitalize;
@@ -112,15 +111,30 @@ html {
   padding: 0;
   margin: 0;
   color: #02434b;
-  margin-right: 20px;
-  text-align: center;
+  margin-left: -60vh;
+  margin-bottom: 10vh;
   width: 20px;
+  align-items: first baseline;
 }
 .contact .content .info h4 {
+  margin: 0;
   font-size: 13px;
   line-height: 1.4;
+  text-align: start;
   font-family: biasa;
+  margin-left: 5vh;
+  margin-bottom: 10vh;
 }
+
+.d-inline-block {
+  margin-top: 10vh;
+  margin-left: -30vh;
+}
+
+.fas fa-map-marker-alt {
+  margin-top: 10vh;
+}
+
 
 .contact .content .info h4 span {
   font-size: 13px;
