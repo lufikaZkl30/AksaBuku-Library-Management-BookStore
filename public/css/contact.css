@@ -18,9 +18,9 @@
 
 
 body{
-  background-color: rgba(120, 90, 32, 0.567);
-  text-decoration: none;
-  background-image: url();
+  background: url(/public/assets/img/bg-hubungi.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h3{
