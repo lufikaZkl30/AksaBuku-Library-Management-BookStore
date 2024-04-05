@@ -93,7 +93,7 @@ h1 {
 }
 
 button .submit{
-    width: 100%;
+    width: 200px;
     padding: 0.5rem;
     margin-top: 1rem;
     background-color: grey;
@@ -101,7 +101,6 @@ button .submit{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    justify-items: center;
 }
 
 button:hover {

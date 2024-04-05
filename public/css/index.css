@@ -120,7 +120,7 @@ button{
     height: 50px;
     font-family: biasa;
     font-size: 18px;
-    transition: all .3s ease-in;
+    transition: all .2s ease-in;
 }
 
 button:hover {
