@@ -49,6 +49,7 @@ html {
 /* terpisah */
 .contact {
   padding: 150px 0;
+  height: 80px;
 }
 
 .contact .heading h2 {
