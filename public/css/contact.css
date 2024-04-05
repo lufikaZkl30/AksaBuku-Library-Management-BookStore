@@ -20,6 +20,7 @@
 body{
   background-color: rgba(120, 90, 32, 0.567);
   text-decoration: none;
+  background-image: url();
 }
 
 h3{
@@ -55,6 +56,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: biasa;
+  margin-right: 10px;
 }
 
 .contact .heading h2 span {
@@ -81,6 +83,7 @@ html {
 }
 
 .contact button.btn {
+  margin-left: 4px;
   padding: 10px;
   border-radius: 10px;
   font-size: 15px;
@@ -111,7 +114,7 @@ html {
   padding: 0;
   margin: 0;
   color: #02434b;
-  margin-left: -60vh;
+  margin-left: -50vh;
   margin-bottom: 10vh;
   width: 20px;
   align-items: first baseline;
@@ -122,7 +125,7 @@ html {
   line-height: 1.4;
   text-align: start;
   font-family: biasa;
-  margin-left: 5vh;
+  margin-left: 3vh;
   margin-bottom: 10vh;
 }
 
