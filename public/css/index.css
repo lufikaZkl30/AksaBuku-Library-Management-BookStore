@@ -285,17 +285,70 @@ button:hover {
     font-size: 1.5rem;
 }
 
+/* banner */
+.banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    align-items: center;
+    gap: 2.5rem;
+}
+.banner-img {
+    overflow: hidden;
+}
+.banner-img img {
+    margin: 40px 20px 20px 40px;
+    width: 80%;
+    display: block;
+    transition: transform 0.5s;
+    align-items: center;
+}
+.banner-img:hover img {
+    transform: scale(1.1);
+}
 
-/* product */
+/* content produk 1 dan 2 */
+.center-text h2{
+    text-align: center;
+    font-weight: 800;
+    font-size: vae(--h2-font);
+    color: var(--text-color);
+}
+.new-content {
+    display: grid;
+    grid-template-columns: repeat(outo-fit, minimax(300px, auto));
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 4.5rem;
+    text-align: center;
+}
+.row{
+    position: relative;
+    cursor: pointer;
+}
+.row img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+.row h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: all .50s  ease;
+}
+
 .sec {
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px 5%;
     flex-direction: column;
 }
 
 .products{
     display: grid;
-    grid-template-columns: repeat(outo-fit, minmax(320px));
+    grid-template-columns: repeat(outo-fit, minmax(320px, 1fr));
 }
 
 .products .card{
@@ -349,7 +402,7 @@ button:hover {
     cursor: pointer;
     background-color: #7d6215;
     color: white;
-}
+} 
 
 
 

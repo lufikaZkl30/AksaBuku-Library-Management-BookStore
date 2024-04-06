@@ -1,73 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('layouts/header.ejs') %>
-    </head>
+
+<head>
+    <%- include('layouts/header.ejs') %>
+</head>
+
 <body>
     <!-- Navbar -->
     <%- include('layouts/navbar.ejs') %>
 
-    <!-- intro -->
-    <section class="home" id="home">
-        <div class="content">
-            <h3>Aksa Buku</h3>
-            <span>
-                Memulai pertualangan buku tanpa batas, <br>
-                Memberikan rekomendasi buku terbaru dan populer.<br><br>
-            </span>
-            <p class="text-utm" style="margin-right: 10vh;"> 
-                Buku merupakan kumpulan lembaran yang bertuliskan kata-kata. <br>
-                Buku juga merupakan jendela dunia yang tidak terbatas. <br>
-                Selamat datang di Aksa Buku, tempat di mana pertualangan tak terbatas menanti.
-                Segera temukan dunia mu!
-                <br><br>
-                <a href="/jelajah" class="btnMore" style="display: inline-block;margin-top: 5vh; margin-left: 25vh;">Buy Now</a>
-        </div>
-    </section>
-
-    <!-- banner promosi -->
-    <section class="banner">
-        <div class="banner-img">
-            <img src="../public/assets/img/banner/1.png">
-        </div>    
-        <div class="banner-img">
-            <img src="../public/assets/img/banner/2.png">
-        </div>    
-    </section>
-
-    
-    
-    <!--Popular product-->
-    <section class="products" id="products">
-        <h1 class="heading">Hot <span>Products</span> </h1>
-        
-        <section class="sec">
-            <div class="products">
-                <!-- content -->
-                <div class="card" id="card-1">
-                    <div class="img">
-                        <img src="/assets/img/produk/7.png" alt="...">
-                    </div>
-                    <div class="desc">Buku Inspirasi</div>
-                <div class="title">How To See ?</div>
-                <div class="box">
-                    <div class="price">Rp. 90.000</div>
-                    <button class="btn">Buy Now</button>
-                </div>
-            <!-- card-2 -->
-                <div class="img">
-                    <img src="/assets/img/produk/7.png" alt="...">
-                </div>
-                <div class="desc">Buku Inspirasi</div>
-                <div class="title">How To See ?</div>
-                <div class="box">
-                    <div class="price">Rp. 90.000</div>
-                    <button class="btn">Buy Now</button>
-                </div>
-            </section>
-            
+        <!-- intro -->
+        <section class="home" id="home">
+            <div class="content">
+                <h3>Aksa Buku</h3>
+                <span>
+                    Memulai pertualangan buku tanpa batas, <br>
+                    Memberikan rekomendasi buku terbaru dan populer.<br><br>
+                </span>
+                <p class="text-utm" style="margin-right: 10vh;">
+                    Buku merupakan kumpulan lembaran yang bertuliskan kata-kata. <br>
+                    Buku juga merupakan jendela dunia yang tidak terbatas. <br>
+                    Selamat datang di Aksa Buku, tempat di mana pertualangan tak terbatas menanti.
+                    Segera temukan dunia mu!
+                    <br><br>
+                    <a href="/jelajah" class="btnMore"
+                        style="display: inline-block;margin-top: 5vh; margin-left: 25vh;">Buy Now</a>
+            </div>
         </section>
-        
+
+        <!-- banner promosi -->
+        <section class="banner">
+            <div class="banner-img">
+                <img src="/assets/img/banner/1.png">
+            </div>
+            <div class="banner-img">
+                <img src="/assets/img/banner/2.png">
+            </div>
+            <div class="banner-img">
+                <img src="/assets/img/banner/2.png">
+            </div>
+        </section>
+
+        <!--Popular product-->
+        <section class="products" id="products">
+            <h1 class="heading">Hot <span>Products</span> </h1>
+            <!-- produk -->
+            <section class="sec">
+                <div class="products">
+
+                    <!-- card 1 -->
+                    <div class="card">
+                        <div class="img"><img
+                                src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-4280180/gramedia_pustaka_utama_gramedia_pustaka_utama_mantappu_jiwa_buku_latihan_soal_by_jerome_polin_sijabat_buku_edukasi_full02.jpg">
+                        </div>
+                        <div class="desc">Buku Inspirasi</div>
+                        <div class="title">Mantappu Jiwa</div>
+                        <div class="box">
+                            <div class="price">Rp. 90.000</div>
+                            <button class="btn">Buy Now</button>
+                        </div>
+                    </div>
+                    <!-- card end 1 -->
+                    <!-- card 1 -->
+                    <div class="card">
+                        <div class="img"><img
+                                src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-4280180/gramedia_pustaka_utama_gramedia_pustaka_utama_mantappu_jiwa_buku_latihan_soal_by_jerome_polin_sijabat_buku_edukasi_full02.jpg">
+                        </div>
+                        <div class="desc">Buku Inspirasi</div>
+                        <div class="title">Mantappu Jiwa</div>
+                        <div class="box">
+                            <div class="price">Rp. 90.000</div>
+                            <button class="btn">Buy Now</button>
+                        </div>
+                    </div>
+                    <!-- card end 1 -->
+                    <!-- card 1 -->
+                    <div class="card">
+                        <div class="img"><img
+                                src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//88/MTA-4280180/gramedia_pustaka_utama_gramedia_pustaka_utama_mantappu_jiwa_buku_latihan_soal_by_jerome_polin_sijabat_buku_edukasi_full02.jpg">
+                        </div>
+                        <div class="desc">Buku Inspirasi</div>
+                        <div class="title">Mantappu Jiwa</div>
+                        <div class="box">
+                            <div class="price">Rp. 90.000</div>
+                            <button class="btn">Buy Now</button>
+                        </div>
+                    </div>
+                    <!-- card end 1 -->
+
             <!-- contribution -->
             <section class="distri-container">
                 <div class="icon">
@@ -101,7 +121,7 @@
             </section>
 
 
-        <script src="fungsi.js"></script>
+                    <script src="fungsi.js"></script>
 </body>
 
 </html>
