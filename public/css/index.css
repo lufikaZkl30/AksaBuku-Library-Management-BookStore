@@ -44,7 +44,7 @@ p {
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background: url(/assets/img/bg-utama1.png);
+    background: url(/assets/img/bg-utama2.png);
     background-size: cover;
     background-position: center;
     background: blur(150px);
@@ -57,8 +57,11 @@ p {
     padding: 20px;
     border-radius: 10px;
     font-size: 14px;
+    line-height: 1.7;
+    margin-right: 30vh;
     color: #eee;
-    text-align: justify;
+    text-align: start;
+    padding-left: 50px;
 }
 
 /* content */
@@ -285,7 +288,14 @@ button:hover {
 
 /* product */
 .sec {
+    display: flex;
     padding: 10px 5%;
+    flex-direction: column;
+}
+
+.products{
+    display: grid;
+    grid-template-columns: repeat(outo-fit, minmax(320px));
 }
 
 .products .card{
@@ -328,16 +338,16 @@ button:hover {
 
 .products .card .box .btn{
     font-size: 13px;
-    color: red;
+    color: black;
     padding: 10px 18px;
     font-weight: 900;
-    border:1px solid red ;
+    border:1px solid black ;
     border-radius: 20px;
 }
 
 .products .card .box .btn:hover{
     cursor: pointer;
-    background-color: bisque;
+    background-color: #7d6215;
     color: white;
 }
 
