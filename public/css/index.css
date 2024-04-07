@@ -34,6 +34,14 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
     overflow-x: hidden;
+    flex: 1;
+}
+
+Body {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
 }
 
 p {
@@ -161,47 +169,6 @@ button:hover {
     color: rgb(153, 0, 0);
 }
 
-/* distribusi */
-.dis-jdl {
-    text-align: center;
-    background-color: rgba(190, 148, 97, 0.311);
-    font-size: 30px;
-}
-
-.distri-container {
-    background: #eee;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    margin-top: 50%;
-}
-
-.distri-container .icon {
-    background: #fff;
-    border: 1rem solid rgb(208, 201, 201);
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    flex: 1 25rem;
-}
-
-.distri-container .icon img {
-    height: 5rem;
-    margin-right: 2rem;
-}
-
-.distri-container .icon h3 {
-    color: #333;
-    padding-bottom: .5rem;
-    font-size: 1.5rem;
-}
-
-.distri-container .icon span {
-    color: #999;
-    font-size: 1.5rem;
-}
 
 /* banner */
 .banner {
@@ -214,7 +181,7 @@ button:hover {
     overflow: hidden;
 }
 .banner-img img {
-    margin: 20px 20px;
+    margin: 30px 30px 30px 65px;
     width: 80%;
     display: block;
     transition: transform 0.5s;
@@ -291,6 +258,75 @@ button:hover {
 }   
 
 
+/* distribusi */
+.dis-jdl {
+    text-align: center;
+    background-color: rgba(190, 148, 97, 0.311);
+    font-size: 30px;
+}
+
+.distri-container {
+    background: #eee;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    margin-top: 50%;
+}
+
+.distri-container .icon {
+    background: #fff;
+    border: 1rem solid rgb(208, 201, 201);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    flex: 1 25rem;
+}
+
+.distri-container .icon img {
+    height: 5rem;
+    margin-right: 2rem;
+}
+
+.distri-container .icon h3 {
+    color: #333;
+    padding-bottom: .5rem;
+    font-size: 1.5rem;
+}
+
+.distri-container .icon span {
+    color: #999;
+    font-size: 1.5rem;
+}
+
+/* footer */
+.footer section{
+    padding: 80px 13% 70px;
+    font-family: biasa;
+}
+.footer .img-footer{
+    width: 13vh;
+}
+.footer{
+    position: absolute;
+    display: grid;
+    gap: 3.5rem;
+    grid-template-columns: repeat(outo-fit, minmax(200px, auto));
+    background-color: #999;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.box-1 {
+    margin-top: 100vh;
+}
+
+.footer-content h4{
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 20px;
+}
 
 
 
