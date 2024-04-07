@@ -34,7 +34,6 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
     overflow-x: hidden;
-    flex: 1;
 }
 
 Body {
