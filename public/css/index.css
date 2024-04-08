@@ -54,10 +54,12 @@ Body {
 
 .content h1 {
     font-size: 40px;
+    font-family: barett;
 }
 .content p{
     font-size: 20px;
     margin-top: 20px;
+    font-family: biasa;
 }
 .content button {
     margin:  30px;
@@ -67,6 +69,7 @@ Body {
     cursor: pointer;
     font-size: 20px;
     border-radius: 10px;
+    font-family: peanut;
 }
 
 /* border */
@@ -100,6 +103,7 @@ button:hover{
     text-align: center;
     margin: 50px 0;
     color: #4a4a4a;
+    font-size: 40px;
 }
 
 /* produk */
@@ -217,20 +221,22 @@ span {
 
 /* footer */
 footer{
-    padding: 20px;
+    padding: 30px;
     margin: 0;
     margin-top: auto;
     box-sizing: border-box;
 
 }
-.footer-1 {
+.footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, auto));
-    background-color: #1a242f;
-    position: absolute;
+    background-color: #342c16;
+    position:relative;
     left: 0;
     right: 0;
     bottom: 0;
+    border-radius: 60px 60px 0 0;
+    font-family: biasa;
 }
 
 .footer-content h4 {
@@ -274,7 +280,10 @@ footer{
     color: #fff;
     transform: translateY(-5px);
 }
-
+ 
+li:hover {
+    transform: translateY(-5px);
+}
 
 
 
@@ -298,32 +307,3 @@ footer{
         display: block;
     }
 }
-
-/* @media (max-widh:450px) {
-    
-    htmml {
-        font-size: 50%;
-    }
-    
-    .heading {
-        font-size: 3rem;
-    }
-}
-
-@media (max-widh:991px) {
-    html{
-        font-size: 55%;
-    }
-
-    header{
-        padding: 2rem;
-    }
-
-    selection{
-        padding: 2rem;
-    }
-
-    .home {
-        background-position: left;
-    }
-} */
