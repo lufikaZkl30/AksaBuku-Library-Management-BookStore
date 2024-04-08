@@ -137,7 +137,6 @@ span {
 .products .card img {
     height: 250px;
     width: 100%;
-    
 }
 .products .card .sale {
     position: absolute;
@@ -173,9 +172,29 @@ span {
     align-items: center;
     padding: 20px;
 }
-
 .products .card .box .price {
     color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* diskon item */
+.products .card .discount {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    padding: .7rem 1rem;
+    font-size: 20px;
+    color: var(--white);
+    font-size: bold;
+    background-color: rgba(228, 82, 111, 0.629);
+    z-index: 1;
+    border-radius: .5rem;
+}
+.products .card .discount img{
+
+}
+.products .card .price-dis {
+    color: #4a4a4a;
     font-size: 20px;
     font-weight: bold;
 }
@@ -195,12 +214,6 @@ span {
     color: white;
 }  
 
-/* diskon item */
-.price-dis {
-    color: #4a4a4a;
-    font-size: 20px;
-    font-weight: bold;
-}
 
 /* footer */
 footer{
@@ -266,8 +279,6 @@ li:hover {
     transition: all .40s ease;
 
 }
-
-
 
 
 
