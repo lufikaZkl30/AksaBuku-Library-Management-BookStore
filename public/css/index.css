@@ -22,8 +22,8 @@
     padding: 0;
     outline: none;
     box-sizing: border-box;
-    text-decoration: none;
     list-style: none;
+    text-decoration: none;
 }
 
 html {
@@ -109,6 +109,7 @@ button:hover{
 /* produk */
 .sec {
     padding: 10px 5%;
+    margin-bottom: 10vh;
 }
 
 span {
@@ -134,10 +135,25 @@ span {
     width: 100%;
     
 }
+.products .card .sale {
+    position: absolute;
+    margin-right: 10vh;
+    background-color: rgb(223, 87, 110);
+    width: 40px;
+    font-size: 20px;
+    border-radius: 20px;
+    font-family: baratt;
+    color: white;
+}
 
 .products .card .desc {
     padding: 5px;
     opacity: 0.8;
+}
+
+.products .card .penulis{
+    padding: 2px;
+    margin-left: 20px;
 }
 
 .products .card .title {
@@ -174,6 +190,7 @@ span {
     background-color: #7d6215;
     color: white;
 }  
+
 
 
 
