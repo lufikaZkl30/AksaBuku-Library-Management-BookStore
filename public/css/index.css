@@ -190,9 +190,9 @@ span {
     z-index: 1;
     border-radius: .5rem;
 }
-.products .card .discount img{
+/* .products .card .discount img{
 
-}
+} */
 .products .card .price-dis {
     color: #4a4a4a;
     font-size: 20px;
@@ -215,60 +215,13 @@ span {
 }  
 
 
-/* footer */
-footer{
-    padding: 30px 13% 50px;
-    font-family: biasa;
-}
-
-.footer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, auto));
-    background-color: #322910ec;
-    position: relative;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.footer-content h4 {
-    color: white;
-    margin-bottom: 1.5rem;
-    font-size: 20px;
-}
-
-.footer-content li {
-    margin-bottom: 15px;
-    margin-right: 10px;
-}
-.footer-content li a{
-    display: block;
-    color: #d6d6d6;
-    font-size: 15px;
-    font-weight: 400;
-    transition: all .40s ease;
-}
-
-.footer-content li a{
-    transform: translateY(-3px) translateX(-5px);
-    color: #fff;
-}
-
-.footer-content p {
-    color: #d6d6d6;
-    font-size: 16px;
-    line-height: 30px;
-    margin: 20px 0;
-}
-.icons a{
-    display: inline-block;
-    font-size: 22px;
-    color: #d6d6d6;
-    margin-right: 17px;
-    transition: all .40s ease;
-}
-
+/* hover */
 .icons a:hover {
+    color: bisque;
+    transform: translateY(-5px);
+    transition: all .40s ease;
+}
+.icons-footer a:hover {
     color: bisque;
     transform: translateY(-5px);
     transition: all .40s ease;
@@ -279,6 +232,7 @@ li:hover {
     transition: all .40s ease;
 
 }
+
 
 
 
