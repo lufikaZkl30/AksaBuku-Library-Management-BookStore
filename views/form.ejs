@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('layouts/header.ejs') %>
+
+<head>
+    <%- include('layouts/header.ejs') %>
         <!-- css for form -->
         <link rel="stylesheet" href="/css/form.css">
-    </head>
+</head>
+
 <body>
     <!-- Navbar -->
     <%- include('layouts/navbar.ejs') %>
 
-    <div class="all-container">
-    <!-- form -->
-    <div class="container" id="berhasil">
-        <form action="submit" method="post" id="form">
-                <div class="form-group">
-                    <label for="">Email Id :</label>
+        <!-- <div class="container" id="berhasil"> -->
+        <!-- form -->
+        <section class="contact" id="berhasil">
+            <div class="container-box">
+                <!-- content -->
+                <div class="contactForm">
+                    <form>
+                        <h2>Form Peminjaman atau <br>
+                            Pengembalian Buku</h2>
+                        <div class="inputBox">
+                            <input type="text" name="" required="required">
+                            <span>Full Name</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" name="" required="required">
+                            <span>Email</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" name="" required="required">
+                            <span>Name book</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" name="" required="required">
+                            <span>Tanggal pengambilan dan pengembalian buku</span>
+                        </div>
+                        
+                        <div class="inputBox">
+                            <input class="btn" type="submit" name="" value="Send">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- end contact -->
+
+
+
+
+
+
+
+
+
+
+        <!-- <form action="submit" method="post" id="form">
+            <div class="form-group">
+                <label for="">Email Id :</label>
                     <input type="text"class="form-control" required>
                 </div>
                 <div class="form-group">
@@ -29,11 +73,11 @@
                 <label for="">Tanggal pengambilan / pengembalian buku :</label>
                 <input type="text" class="form-control" required>
             </div>
-            <button type="submit" style="margin-left: 35%;">Kirim</button>
-        </form>
-    </div>
-</div>
+            <button type="submit">Kirim</button>
+        </form> -->
+        </div>
 
-    <script src="javascript/fungsi.js"></script>
+        <script src="javascript/fungsi.js"></script>
 </body>
+
 </html>
