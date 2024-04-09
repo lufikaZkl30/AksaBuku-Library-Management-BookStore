@@ -122,10 +122,6 @@ span {
     border-radius: 10px;
     grid-template-columns: repeat(outo-fit, minmax(320px, 1fr));
 }
-.discount {
-    background-color: pink;
-    font-weight: 100;
-}
 .products .card{
     width: 310px;
     background-color: white;
@@ -149,14 +145,17 @@ span {
     color: white;
 }
 
+/* tulisan dalam produk */
 .products .card .desc {
     padding: 5px;
     opacity: 0.8;
+    font-size: 12px;
 }
 
 .products .card .penulis{
     padding: 2px;
     margin-left: 20px;
+    font-size: 12px;
 }
 
 .products .card .title {
@@ -164,6 +163,7 @@ span {
     font-size: 20px;
     color: #424142;
     padding: 0 20px;
+    font-size: 20px;
 }
 
 .products .card .box {
@@ -179,6 +179,11 @@ span {
 }
 
 /* diskon item */
+.discount {
+    background-color: pink;
+    font-weight: 100;
+}
+
 .products .card .discount {
     position: absolute;
     top: 1rem; left: 1rem;
@@ -190,9 +195,7 @@ span {
     z-index: 1;
     border-radius: .5rem;
 }
-/* .products .card .discount img{
 
-} */
 .products .card .price-dis {
     color: #4a4a4a;
     font-size: 20px;
