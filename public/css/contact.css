@@ -19,7 +19,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
 }
 
 
@@ -76,6 +75,18 @@ body{
   display: flex;
 }
 
+/* text font */
+.container .contactInfo .box h2{
+  font-family: peanut;
+}
+.container .contactInfo .box p{
+  font-family: biasa;
+}
+span {
+  font-family: biasa;
+}
+
+
 .container .contactInfo .box .icon {
   min-width: 60px;
   height: 60px;
@@ -93,7 +104,6 @@ body{
   color: black;
   flex-direction: column;
   font-weight: 300;
-  font-family: peanut;
 }
 
 .container .contactInfo .box .text h2 {
@@ -128,6 +138,7 @@ body{
   border-bottom: 2px solid #333;
   outline: none;
   resize: none;
+  font-family: biasa;
 }
 .contactForm .inputBox span {
   position: absolute;
@@ -155,6 +166,7 @@ body{
   padding: 10px;
   font-size: 18px;
   border-radius: 10px;
+  font-family: biasa;
 }
 
 .btn:hover{
