@@ -184,23 +184,26 @@ span {
     font-weight: 100;
 }
 
+/* text diskon coretan */
+.products .price-dis {
+    color: #4a4a4a;
+    font-size: 20px;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
 .products .card .discount {
     position: absolute;
     top: 1rem; left: 1rem;
     padding: .7rem 1rem;
-    font-size: 20px;
+    font-size: 15px;
     color: var(--white);
-    font-size: bold;
-    background-color: rgba(228, 82, 111, 0.629);
+    background-color: rgba(255, 0, 0, 0.492);
     z-index: 1;
-    border-radius: .5rem;
+    border-radius: 2rem;
+    font-weight: bolder;
 }
 
-.products .card .price-dis {
-    color: #4a4a4a;
-    font-size: 20px;
-    font-weight: bold;
-}
 
 .products .card .box .btn{
     font-size: 13px;
@@ -211,14 +214,13 @@ span {
     border-radius: 20px;
 }
 
+/* hover */
 .products .card .box .btn:hover{
     cursor: pointer;
     background-color: #7d6215;
     color: white;
 }  
 
-
-/* hover */
 .icons a:hover {
     color: bisque;
     transform: translateY(-5px);
