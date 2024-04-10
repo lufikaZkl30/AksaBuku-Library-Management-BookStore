@@ -1,17 +1,39 @@
 var express = require('express');
+const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const randomstring = require('randomstring')
+
+dotenv.config();
+
 var app = express();
-
-// set the view engine to ejs
 app.set('view engine', 'ejs');
-
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-//  beranda
+//VARIABEL
+const port = process.env.PORT
+const sender = process.env.EMAIL_SENDER
+const notifier = process.env.EMAIL_NOTIFIER
+const passw = process.env.EMAIL_PASSWORD
+let messageCode = randomstring.generate(8)
+//----------------
+
+//NODEMAILER AUTH
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: sender,
+    pass: passw,
+  }
+});
+//--------------
+
+//PAGES
 app.get("/", (req, res) => {
   res.render("index.ejs", {title: 'Beranda'});
 });
 
-// jelajah
 app.get("/novel", (req, res) => {
   res.render("novel.ejs", {title: 'Buku Novel'});
 });
@@ -20,12 +42,10 @@ app.get("/inspirasi", (req, res) => {
   res.render("Inspirasi.ejs", {title: 'Buku Inspirasi'});
 });
 
-// contact
 app.get("/contact", (req, res) => {
-  res.render("contact.ejs", {title: 'Hubungi Kami'});
+  res.render("contact.ejs", {title: 'Hubungi Kami', msgCode: messageCode});
 });
 
-// form
 app.get("/form", (req, res) => {
   res.render("form.ejs", {title: 'Form Peminjaman'});
 });
@@ -33,6 +53,68 @@ app.get("/form", (req, res) => {
 app.get("/sukses", (req, res) => {
   res.render("sukses.ejs", {title: 'Sukses Meminjam'});
 });
+//----------------
 
-app.listen(8080);
-console.log('Server is listening on port 8080');
+//POST REQUEST
+app.post('/contact', (req,res) => {
+  const output = `
+    <h3>Detail Kontak:</h3>
+    <p>Name: ${req.body.name}</p>
+    <p>Email: ${req.body.email}</p>
+    <h3>Message:</h3>
+    <p>${req.body.message}</p>
+    <hr>
+    <p>Nomor Referensi: ${messageCode}</p>
+  `;
+
+  const thankyou = `
+    <p>Halo, ${req.body.name}</p>
+    <p>Nomor Referensi Anda: ${messageCode}</p>
+    <p>Terima kasih telah menghubungi tim AKSA BUKU.
+    Kami akan segera menghubungi Anda.</p><br>
+    <p>Salam,</p>
+    <p>Aksa Buku</p>
+  `;
+
+  //NOTIFICATION FOR NEW MESSAGE
+  let mailOptions = {
+    from: sender,
+    to: notifier,
+    subject: 'You have a new email request!',
+    html: output
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }  
+      console.log('Message sent: %s' + info.messageId);
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      res.render("contact.ejs", { title: 'Hubungi Kami'});
+  });
+
+  //THANK YOU EMAIL
+  let mailOptionsThankYou = {
+    from: sender,
+    to: `${req.body.email}`,
+    subject: 'Thank you for contacting us!',
+    html: thankyou
+  };
+
+  transporter.sendMail(mailOptionsThankYou, (error, info) => {
+    if (error) {
+      console.log('Error sending thank you email:', error);
+    } else {
+      console.log('Thank you email sent:', info.messageId);
+    }
+  });
+  messageCode = randomstring.generate(8);
+  res.redirect('/contact');
+})
+//------------------
+
+//LISTEN TO PORT
+app.listen(port, ()=>{
+  console.log(`Listening on port ${port}`);
+  console.log(`http://localhost:${port}`);
+});
