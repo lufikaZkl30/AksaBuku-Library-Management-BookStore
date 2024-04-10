@@ -34,5 +34,6 @@ app.get("/sukses", (req, res) => {
   res.render("sukses.ejs", {title: 'Sukses Meminjam'});
 });
 
-app.listen(8080);
-console.log('Server is listening on port 8080');
+app.listen(8050);
+console.log('Server is listening on port 8050');
+console.log('http://localhost:8050');
