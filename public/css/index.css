@@ -55,6 +55,7 @@ Body {
 .column {
     float: left;
     width: 50%;
+    margin-top: 100px;
 }
 
 .column h1 {
