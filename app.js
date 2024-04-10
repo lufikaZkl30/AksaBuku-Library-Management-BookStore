@@ -2,7 +2,9 @@ var express = require('express');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const randomstring = require('randomstring')
+const randomstring = require('randomstring');
+const mongoose = require('mongoose');
+const session = require('express-session');
 
 dotenv.config();
 
@@ -28,6 +30,30 @@ const transporter = nodemailer.createTransport({
   }
 });
 //--------------
+
+//MONGODB CONFIG
+mongoose.connect(process.env.MONGO_URI);
+const db = mongoose.connection;
+db.on('error', (error) => console.log(error));
+db.once('open', ()=> console.log("Connected to MongoDB"));
+//----------------
+
+//MIDDLEWARE
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+
+app.use(session({
+  secret: 'tempatrahasia',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use((req, res, next) => {
+  res.locals.message = req.session.message;
+  delete req.session.message;
+  next();
+});
+//----------------
 
 //PAGES
 app.get("/", (req, res) => {
@@ -115,6 +141,5 @@ app.post('/contact', (req,res) => {
 
 //LISTEN TO PORT
 app.listen(port, ()=>{
-  console.log(`Listening on port ${port}`);
   console.log(`http://localhost:${port}`);
 });
