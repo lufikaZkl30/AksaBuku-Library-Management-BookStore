@@ -46,27 +46,23 @@ Body {
     background-repeat: no-repeat;
     padding: 0 5%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     color: white;
     height: 100vh;
-    align-items: center;
 }
 
-.column {
-    float: left;
-    width: 50%;
-}
-
-.column h1 {
+.content h1 {
     font-size: 40px;
     font-family: barett;
 }
-.column p{
+.content p{
     font-size: 20px;
     margin-top: 20px;
     font-family: biasa;
 }
-.column button {
+.content button {
     margin:  30px;
     padding: 15px 30px;
     border: none;
