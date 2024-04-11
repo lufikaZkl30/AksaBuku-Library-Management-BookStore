@@ -21,8 +21,8 @@ const bukuSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  tahun: {
-    type: Number,
+  tanggal: {
+    type: Date,
     required: true
   },
   halaman: {
@@ -33,9 +33,9 @@ const bukuSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  stok: {
-    type: Number,
-    required: true
+  ISBN: {
+    type: String,
+    required: false
   },
   kategori: {
     type: String,

@@ -107,24 +107,24 @@ app.get('/admin/editbooks/:id', async (req, res) => {
   }
 });
 
-//JELAJAH
-app.get('/novel', async (req, res) => {
-  try {
-    const novelBooks = await Books.find({category: 'novel'});
-    res.render('novelPage', { books: novelBooks});
-  } catch (err) {
-    res.status(500).json({message: err.message});
-  }
-});
+//JELAJAH - dibuka pas udah bener
+// app.get('/novel', async (req, res) => {
+//   try {
+//     const novel = await Books.find({kategori: 'Novel'});
+//     res.render('novelPage', { books: novel, title: 'Buku Novel'});
+//   } catch (err) {
+//     res.status(500).json({message: err.message});
+//   }
+// });
 
-app.get('/inspirasi', async (req, res) => {
-  try {
-    const inspirasiBooks = await Books.find({category: 'inspirasi'});
-    res.render('inspirasiPage', {books: inspirasiBooks});
-  } catch (err) {
-    res.status(500).json({message: err.message });
-  }
-});
+// app.get('/inspirasi', async (req, res) => {
+//   try {
+//     const inspi = await Books.find({kategori: 'Inspirasi'});
+//     res.render('inspirasiPage', {books: inspi, title: 'Buku Inspirasi'});
+//   } catch (err) {
+//     res.status(500).json({message: err.message });
+//   }
+// });
 //--------
 
 //POST REQUEST
