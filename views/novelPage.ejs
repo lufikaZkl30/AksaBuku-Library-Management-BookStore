@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('layouts/header.ejs') %>
+    <!-- css for novel page -->
+    <link rel="stylesheet" href="/css/novel.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('layouts/navbar.ejs') %>
+
+    <div class="container-novel">
+        <section class="sec">
+            <h1 class="pheading"> Buku Novel</h1>
+            <div class="products">
+                <% books.forEach(function(book) { %>
+                  <div class="card">
+                    <div class="img"><img src="<%= book.image %>"></div>
+                    <div class="desc">Buku Inspirasi</div>
+                    <div class="title"><%= book.title %></div>
+                    <div class="penulis">Penulis: <%= book.author %></div>
+                    <div class="box">
+                        <div class="price">Rp. <%= book.price %></div>
+                        <button class="btn">Buy Now</button>
+                    </div>
+                </div>
+            <% }); %>
+            </div>
+        </section>
+    </div>
+
+    <script src="/javascript/fungsi.js"></script>
+</body>
+</html>

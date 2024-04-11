@@ -5,15 +5,18 @@ const nodemailer = require('nodemailer');
 const randomstring = require('randomstring');
 const mongoose = require('mongoose');
 const session = require('express-session');
-
-dotenv.config();
+const Books = require('./models/books');
+const booksRouter = require('./routes/api/books');
 
 var app = express();
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use('/api/books', booksRouter);
 
 //VARIABEL
+dotenv.config();
 const port = process.env.PORT
 const sender = process.env.EMAIL_SENDER
 const notifier = process.env.EMAIL_NOTIFIER
@@ -39,9 +42,6 @@ db.once('open', ()=> console.log("Connected to MongoDB"));
 //----------------
 
 //MIDDLEWARE
-app.use(express.urlencoded({extended: false}));
-app.use(express.json());
-
 app.use(session({
   secret: 'tempatrahasia',
   resave: false,
@@ -79,7 +79,53 @@ app.get("/form", (req, res) => {
 app.get("/sukses", (req, res) => {
   res.render("sukses.ejs", {title: 'Sukses Meminjam'});
 });
-//----------------
+
+
+//ADMIN
+app.get("/admin/addbooks", (req, res) => {
+  res.render("admin/addbooks.ejs", {title: 'Tambah Buku'});
+});
+
+app.get('/admin/booklists', async (req, res) => {
+  try {
+    const books = await Books.find({});
+    res.render('admin/booklists', { title: 'Book List', books: books });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+app.get('/admin/editbooks/:id', async (req, res) => {
+  try {
+    const book = await Books.findById(req.params.id);
+    if (!book) {
+      return res.status(404).json({ message: 'Book not found' });
+    }
+    res.render('admin/editbooks', { title: 'Edit Book', book: book });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+//JELAJAH
+app.get('/novel', async (req, res) => {
+  try {
+    const novelBooks = await Books.find({category: 'novel'});
+    res.render('novelPage', { books: novelBooks});
+  } catch (err) {
+    res.status(500).json({message: err.message});
+  }
+});
+
+app.get('/inspirasi', async (req, res) => {
+  try {
+    const inspirasiBooks = await Books.find({category: 'inspirasi'});
+    res.render('inspirasiPage', {books: inspirasiBooks});
+  } catch (err) {
+    res.status(500).json({message: err.message });
+  }
+});
+//--------
 
 //POST REQUEST
 app.post('/contact', (req,res) => {

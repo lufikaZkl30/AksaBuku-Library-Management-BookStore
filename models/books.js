@@ -39,7 +39,8 @@ const bukuSchema = new mongoose.Schema({
   },
   kategori: {
     type: String,
-    required: true
+    required: true,
+    enum: ['Novel', 'Inspirasi']
   }
 });
 

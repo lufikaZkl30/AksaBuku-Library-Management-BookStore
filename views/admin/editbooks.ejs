@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Buku</title>
+</head>
+<body>
+  <h1>Edit Buku</h1>
+  <form action="/api/books/<%= book._id %>" method="POST">
+    <label for="judul">Judul:</label>
+    <input type="text" id="judul" name="judul" value="<%= book.judul %>" required><br>
+    
+    <label for="author">Penulis:</label>
+    <input type="text" id="author" name="author" value="<%= book.author %>" required><br>
+    
+    <label for="penerbit">Penerbit:</label>
+    <input type="text" id="penerbit" name="penerbit" value="<%= book.penerbit %>" required><br>
+    
+    <label for="imageUrl">URL Gambar:</label>
+    <input type="text" id="imageUrl" name="imageUrl" value="<%= book.imageUrl %>" required><br>
+    
+    <label for="sinopsis">Sinopsis:</label>
+    <textarea id="sinopsis" name="sinopsis" rows="4" required><%= book.sinopsis %></textarea><br>
+    
+    <label for="tahun">Tahun Terbit:</label>
+    <input type="number" id="tahun" name="tahun" value="<%= book.tahun %>" required><br>
+    
+    <label for="halaman">Jumlah Halaman:</label>
+    <input type="number" id="halaman" name="halaman" value="<%= book.halaman %>" required><br>
+    
+    <label for="harga">Harga:</label>
+    <input type="number" id="harga" name="harga" value="<%= book.harga %>" required><br>
+    
+    <label for="stok">Stok:</label>
+    <input type="number" id="stok" name="stok" value="<%= book.stok %>" required><br>
+    
+    <label for="kategori">Kategori:</label>
+    <select id="kategori" name="kategori" required>
+      <option value="Novel" <%= book.kategori === 'Novel' ? 'selected' : '' %>>Novel</option>
+      <option value="Inspirasi" <%= book.kategori === 'Inspirasi' ? 'selected' : '' %>>Inspirasi</option>
+    </select><br>
+
+    <button type="submit">Simpan Perubahan</button>
+  </form>
+</body>
+</html>

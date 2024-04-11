@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('layouts/header.ejs') %>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <%- include('admin/adminnavbar.ejs') %>
+
+    <!-- Form Tambah Buku -->
+    <h2>Formulir Tambah Buku</h2>
+    <form action="/api/books" method="POST">
+      <label for="judul">Judul:</label>
+      <input type="text" id="judul" name="judul" required><br>
+      
+      <label for="author">Penulis:</label>
+      <input type="text" id="author" name="author" required><br>
+      
+      <label for="penerbit">Penerbit:</label>
+      <input type="text" id="penerbit" name="penerbit" required><br>
+      
+      <label for="imageUrl">URL Gambar:</label>
+      <input type="text" id="imageUrl" name="imageUrl" required><br>
+      
+      <label for="sinopsis">Sinopsis:</label>
+      <textarea id="sinopsis" name="sinopsis" rows="4" required></textarea><br>
+      
+      <label for="tahun">Tahun Terbit:</label>
+      <input type="number" id="tahun" name="tahun" required><br>
+      
+      <label for="halaman">Jumlah Halaman:</label>
+      <input type="number" id="halaman" name="halaman" required><br>
+      
+      <label for="harga">Harga:</label>
+      <input type="number" id="harga" name="harga" required><br>
+      
+      <label for="stok">Stok:</label>
+      <input type="number" id="stok" name="stok" required><br>
+      
+      <label for="kategori">Kategori:</label>
+      <select id="kategori" name="kategori" required>
+        <option value="Novel">Novel</option>
+        <option value="Inspirasi">Inspirasi</option>
+      </select><br>
+      
+      <button type="submit">Simpan</button>
+    </form>
+    <%- include('../layouts/footer.ejs') %>
+</body>
+<link rel="stylesheet" href="../css/addbooks.css">
+</html>
