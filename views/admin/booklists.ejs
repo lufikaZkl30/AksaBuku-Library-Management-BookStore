@@ -9,7 +9,7 @@
     <!-- Navbar -->
     <%- include('adminnavbar.ejs') %>
 
-  <h1>Data Buku</h1>
+  <h2>Data Buku</h2>
   <table>
     <thead>
       <tr>
@@ -20,12 +20,12 @@
     </thead>
     <tbody>
       <% books.forEach(function(book) { %>
-        <tr>
+        <tr class="icons">
           <td><%= book.judul %></td>
           <td><%= book.author %></td>
           <td>
-            <span class="edit-icon" onclick="editBook('<%= book._id %>')"><i class="fas fa-pencil-alt"></i></span>
-            <span class="delete-icon" onclick="deleteBook('<%= book._id %>')"><i class="fas fa-times"></i></span>
+            <span class="edit-icon icon" onclick="editBook('<%= book._id %>')"><i class="fas fa-pencil-alt"></i></span>
+            <span class="delete-icon icon" onclick="deleteBook('<%= book._id %>')"><i class="fas fa-times"></i></span>
           </td>
         </tr>
       <% }); %>

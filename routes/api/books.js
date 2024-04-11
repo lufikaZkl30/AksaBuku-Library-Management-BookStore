@@ -38,7 +38,7 @@ router.post('/:id', async (req, res) => {
     if (!updatedBook) {
       return res.status(404).json({ message: 'Book not found' });
     }
-    res.redirect('/admin/booklists'); // Redirect ke halaman booklist setelah berhasil diperbarui
+    res.redirect('/admin/booklists');
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

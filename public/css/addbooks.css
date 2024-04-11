@@ -55,6 +55,7 @@ h2{
 label {
   display: block;
   font-weight: bold;
+  margin-top: 20px;
 }
 
 input[type="text"],
@@ -63,7 +64,6 @@ textarea,
 select {
   width: 80%;
   padding: 8px;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: none;
