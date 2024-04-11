@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('layouts/header.ejs') %>
+    <%- include('../layouts/header.ejs') %>
     <!-- css for novel page -->
     <link rel="stylesheet" href="/css/novel.css">
 </head>
 <body>
     <!-- Navbar -->
-    <%- include('layouts/navbar.ejs') %>
+    <%- include('../layouts/navbar.ejs') %>
 
     <div class="container-novel">
         <section class="sec">
@@ -15,12 +15,12 @@
             <div class="products">
                 <% books.forEach(function(book) { %>
                   <div class="card">
-                    <div class="img"><img src="<%= book.image %>"></div>
+                    <div class="img"><img src="<%= book.image_URL %>"></div>
                     <div class="desc">Buku Inspirasi</div>
-                    <div class="title"><%= book.title %></div>
+                    <div class="title"><%= book.judul %></div>
                     <div class="penulis">Penulis: <%= book.author %></div>
                     <div class="box">
-                        <div class="price">Rp. <%= book.price %></div>
+                        <div class="price">Rp. <%= book.harga %></div>
                         <button class="btn">Buy Now</button>
                     </div>
                 </div>
