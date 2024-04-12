@@ -25,9 +25,25 @@
     
     <label for="sinopsis">Sinopsis:</label>
     <textarea id="sinopsis" name="sinopsis" rows="4" required><%= book.sinopsis %></textarea><br>
-    
+
     <label for="tanggal">Tanggal Terbit:</label>
-    <input type="date" id="tanggal" name="tanggal" value="<%= book.tanggal %>" required><br>
+        <input type="number" id="tanggal" name="tanggal" value="<%= book.tanggal %>"><br>
+        <select id="bulan" name="bulan">
+          <option value="" <%= book.bulan === '' ? 'selected' : ''  %>>((none))</option>
+          <option value="Januari" <%= book.bulan === 'Januari' ? 'selected' : '' %>>Jan</option>
+          <option value="Februari" <%= book.bulan === 'Februari' ? 'selected' : '' %>>Feb</option>
+          <option value="Maret" <%= book.bulan === 'Maret' ? 'selected' : '' %>>Mar</option>
+          <option value="April" <%= book.bulan === 'April' ? 'selected' : '' %>>Apr</option>
+          <option value="Mei" <%= book.bulan === 'Mei' ? 'selected' : '' %>>Mei</option> 
+          <option value="Juni" <%= book.bulan === 'Juni' ? 'selected' : '' %>>Jun</option>
+          <option value="Juli" <%= book.bulan === 'Juli' ? 'selected' : '' %>>Jul</option>
+          <option value="Agustus" <%= book.bulan === 'Agustus' ? 'selected' : '' %>>Agu</option>
+          <option value="September" <%= book.bulan === 'September' ? 'selected' : '' %>>Sep</option>
+          <option value="Oktober" <%= book.bulan === 'Oktober' ? 'selected' : '' %>>Okt</option>
+          <option value="November" <%= book.bulan === 'November' ? 'selected' : '' %>>Nov</option>
+          <option value="Desember" <%= book.bulan === 'Desember' ? 'selected' : '' %>>Des</option>
+        </select><br>
+        <input type="number" id="tahun" name="tahun" value="<%= book.tahun %>" required><br>
     
     <label for="halaman">Jumlah Halaman:</label>
     <input type="number" id="halaman" name="halaman" value="<%= book.halaman %>" required><br>

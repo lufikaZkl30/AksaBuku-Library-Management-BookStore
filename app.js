@@ -129,6 +129,19 @@ app.get('/admin/editbooks/:id', async (req, res) => {
 //     res.status(500).json({message: err.message });
 //   }
 // });
+
+// app.get('/inspirasi/:id', async (req, res) => {
+//   try {
+//       const book = await Books.findById(req.params.id);
+//       if (!book) {
+//           return res.status(404).json({ message: 'Buku tidak ditemukan.' });
+//       }
+//       res.render('detailBuku', { book, title: 'Detail Buku' });
+//   } catch (err) {
+//       res.status(500).json({ message: err.message });
+//   }
+// });
+
 //--------
 
 //POST REQUEST

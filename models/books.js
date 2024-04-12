@@ -22,7 +22,18 @@ const bukuSchema = new mongoose.Schema({
     required: true
   },
   tanggal: {
-    type: Date,
+    type: Number,
+    required: false
+  },
+  bulan: {
+    type: String,
+    enum: ['', 'Januari', 'Februari', 'Maret', 'April', 
+    'Mei', 'Juni', 'Juli', 'Agustus', 'September', 
+    'Oktober', 'November', 'Desember'],
+    required: false
+  },
+  tahun: {
+    type: Number,
     required: true
   },
   halaman: {

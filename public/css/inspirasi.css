@@ -122,3 +122,11 @@ span {
     color: white;
 }
 
+.card:hover{
+    cursor: pointer;
+}
+
+.title:hover, .penulis:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
