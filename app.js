@@ -68,6 +68,10 @@ app.get("/inspirasi", (req, res) => {
   res.render("Inspirasi.ejs", {title: 'Buku Inspirasi'});
 });
 
+app.get("/login", (req, res) => {
+  res.render("login.ejs", {title: 'login'});
+});
+
 app.get("/contact", (req, res) => {
   res.render("contact.ejs", {title: 'Hubungi Kami', msgCode: messageCode});
 });
