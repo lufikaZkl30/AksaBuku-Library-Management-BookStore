@@ -4,6 +4,12 @@
         <%- include('layouts/header.ejs') %>
         <!-- css for inspirasi -->
         <link rel="stylesheet" href="/css/inspirasi.css">
+
+        <script>
+            function showBookDetail(bookId) {
+                window.location.href = '/inspirasi/' + bookId;
+            }
+        </script>
     </head>
     <body>
         <!-- Navbar -->

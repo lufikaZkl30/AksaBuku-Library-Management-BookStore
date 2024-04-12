@@ -3,7 +3,7 @@
         <h1 class="pheading"> Buku Inspirasi</h1>
         <div class="products">
             <% books.forEach(function(book) { %>
-                <div class="card">
+                <div class="card" onclick="showBookDetail('<%= book._id %>')">
                 <div class="img"><img src="<%= book.imageUrl %>"></div>
                 <div class="desc">Buku Inspirasi</div>
                 <div class="title"><%= book.judul %></div>

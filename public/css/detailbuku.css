@@ -1,0 +1,106 @@
+@font-face {
+  font-family: barett;
+  src: url(/assets/font/Barett\ Street.ttf);
+}
+
+/* font navbar */
+@font-face {
+  font-family: peanut ;
+  src: url(/assets/font/Peanut\ Butter.ttf);
+}
+
+/* font text biasa */
+@font-face {
+  font-family: biasa;
+  src: url(/assets/font/Hello\ Mickeys.ttf);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-padding-top: 6rem;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body{
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.container h1{
+  padding: 100px 0 10px 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.book-details {
+  display: flex;
+}
+
+.image-container {
+  margin-right: 50px;
+}
+
+.image-container img {
+  max-width: 200px;
+  height: auto;
+}
+
+.info-container {
+  flex-grow: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  text-align: justify;
+  margin-bottom: 100px;
+}
+
+table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+table td:first-child {
+  font-weight: bold;
+  width: 120px;
+}
+
+.sinopsis {
+  max-height: 100px;
+  overflow: hidden;
+  white-space: pre-line;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.expand-btn:hover {
+  color: darkblue;
+}
