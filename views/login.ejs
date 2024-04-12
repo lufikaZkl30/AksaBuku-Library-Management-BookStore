@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('layouts/header.ejs') %>
+
+<head>
+    <%- include('layouts/header.ejs') %>
         <!-- css for form -->
         <link rel="stylesheet" href="/css/login.css">
-    </head>
+</head>
 
-    <body>
-        <div class="container">
-            <input type="checkbox" id="check">
-            
-            <!-- login -->
-                <div class="login form">
-                    <header>Form Login</header>
-                <form action="#">
-                    <input type="text" placeholder="Masukkan email">
-                    <input type="password" placeholder="Masukkan password">
-                    <a href="#">Lupa password?</a>
-                    <input type="button" value="login" class="button">
-                </form>
-                <div class="signup">
-                    <span>Belum Punya Akun?
-                        <label for="check">Daftar</label>
-                    </span>
-                </div>
-            </div>
-            <!-- register -->
-            <div class="registration form">
-                <header>Form Registrasi</header>
-                <form action="#">
-                    <input type="text" placeholder="Masukkan email">
-                    <input type="password" placeholder="Masukkan password">
-                    <input type="password" placeholder="Masukkan ulang password">
-                    <input type="button" class="button" value="Daftar">
-                </form>
-                <div class="signup">
-                    <span class="signup">
-                        <label for="check">Login</label>
-                    </span>
-                </div>
+<body>
+<!-- Navbar -->
+<%- include('layouts/navbar.ejs') %>
+
+    <!--  Main Content -->
+    <div class="container">
+        <input type="checkbox" id="check">
+
+        <!-- login -->
+        <div class="login form">
+            <header>Form Login</header>
+            <form action="#">
+                <input type="text" placeholder="Masukkan email">
+                <input type="password" placeholder="Masukkan password">
+                <a href="#">Lupa password?</a>
+                <input type="button" value="login" class="button">
+            </form>
+            <div class="signup">
+                <span>Belum Punya Akun?
+                    <label for="check">Daftar</label>
+                </span>
             </div>
         </div>
-    </body>
+        <!-- register -->
+        <div class="registration form">
+            <header>Form Registrasi</header>
+            <form action="#">
+                <input type="text" placeholder="Masukkan email">
+                <input type="password" placeholder="Masukkan password">
+                <input type="password" placeholder="Masukkan ulang password">
+                <input type="button" class="button" value="Daftar">
+            </form>
+            <div class="signup">
+                <span class="signup">
+                    <label for="check">Login</label>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

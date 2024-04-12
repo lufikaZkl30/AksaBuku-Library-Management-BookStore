@@ -227,7 +227,7 @@ span {
 }  
 
 .icons a:hover {
-    color: bisque;
+    color: rgb(189, 150, 103);
     transform: translateY(-5px);
     transition: all .40s ease;
 }
