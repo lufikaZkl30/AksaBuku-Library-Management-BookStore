@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../layouts/header.ejs') %>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <%- include('adminnavbar.ejs') %>
+
+  <h2>Data Buku</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Judul</th>
+        <th>Penulis</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% books.forEach(function(book) { %>
+        <tr class="icons">
+          <td><%= book.judul %></td>
+          <td><%= book.author %></td>
+          <td>
+            <span class="edit-icon icon" onclick="editBook('<%= book._id %>')"><i class="fas fa-pencil-alt"></i></span>
+            <span class="delete-icon icon" onclick="deleteBook('<%= book._id %>')"><i class="fas fa-times"></i></span>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <script>
+    function editBook(id) {
+      window.location.href = '/admin/editbooks/' + id;
+    }
+
+    function deleteBook(id) {
+      if (confirm('Yakin ingin menghapus buku ini?')) {
+        fetch('/api/books/' + id, {
+          method: 'DELETE'
+        })
+        .then(response => {
+          if (response.status === 404) {
+            throw new Error('Buku tidak ditemukan.');
+          } else if (!response.ok) {
+            throw new Error('Gagal menghapus buku.');
+          }
+          window.location.reload(); // Refresh jika penghapusan berhasil
+        })
+        .catch(error => {
+          console.error('Error deleting book:', error.message);
+          alert(error.message); // Tampilkan pesan kesalahan jika ada
+        });
+      }
+    }
+  </script>
+</body>
+<link rel="stylesheet" href="../css/booklists.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</html>

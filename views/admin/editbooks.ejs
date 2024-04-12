@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../layouts/header.ejs') %>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <%- include('adminnavbar.ejs') %>
+
+  <!-- Form Edit Buku -->
+  <h2>Formulir Edit Buku</h2>
+  <form action="/api/books/<%= book._id %>" method="POST">
+    <label for="judul">Judul:</label>
+    <input type="text" id="judul" name="judul" value="<%= book.judul %>" required><br>
+    
+    <label for="author">Penulis:</label>
+    <input type="text" id="author" name="author" value="<%= book.author %>" required><br>
+    
+    <label for="penerbit">Penerbit:</label>
+    <input type="text" id="penerbit" name="penerbit" value="<%= book.penerbit %>" required><br>
+    
+    <label for="imageUrl">URL Gambar:</label>
+    <input type="text" id="imageUrl" name="imageUrl" value="<%= book.imageUrl %>" required><br>
+    
+    <label for="sinopsis">Sinopsis:</label>
+    <textarea id="sinopsis" name="sinopsis" rows="4" required><%= book.sinopsis %></textarea><br>
+    
+    <label for="tanggal">Tanggal Terbit:</label>
+    <input type="date" id="tanggal" name="tanggal" value="<%= book.tanggal %>" required><br>
+    
+    <label for="halaman">Jumlah Halaman:</label>
+    <input type="number" id="halaman" name="halaman" value="<%= book.halaman %>" required><br>
+    
+    <label for="harga">Harga:</label>
+    <input type="number" id="harga" name="harga" value="<%= book.harga %>" required><br>
+
+    <label for="isbn">ISBN:</label>
+    <input type="text" id="isbn" name="isbn" value="<%= book.isbn %>" required><br>
+    
+    <label for="kategori">Kategori:</label>
+    <select id="kategori" name="kategori" required>
+      <option value="Novel" <%= book.kategori === 'Novel' ? 'selected' : '' %>>Novel</option>
+      <option value="Inspirasi" <%= book.kategori === 'Inspirasi' ? 'selected' : '' %>>Inspirasi</option>
+    </select><br>
+
+    <button type="submit">Simpan Perubahan</button>
+    </form>
+</body>
+<link rel="stylesheet" href="../../css/addbooks.css">
+</html>

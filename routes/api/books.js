@@ -1,56 +1,61 @@
-const {Router} = require('express')
-const router = Router();
+const express = require('express');
+const router = express.Router();
 const Books = require('../../models/books');
 
-//GET
-router.get('/', async (req,res) => {
+router.get('/:id?', async (req, res) => {
   try {
-    const items = await Books.find(); //selesaikan dulu findnya
-    res.status(200).json(items) 
-  } catch (error){
-    res.status(500).json({message: error.message})
-  }
-})
-
-//POST
-router.post('/', async(req,res) => {
-	try {
-		const newBooks = new Books(req.body)
-		const savedBooks = await newBooks.save()
-		if(!savedBooks) {
-			res.status(500).json({message: 'Internal server error'})
-		}
-		res.status(200).json(savedBooks)
-	} catch (error){
-		res.status(500).json({message: error.message})
-	}
-})
-	
-//PUT
-router.put('/:id', async(req,res) => {
-  try {
-    const updatedBooks = await Books.findByIdAndUpdate(req.params.id, req.body, {new: true})
-    if(!updatedBooks){
-      res.status(404).json({message: 'Not found'})
+    if (req.params.id) {
+      const book = await Books.findById(req.params.id);
+      if (!book) {
+        return res.status(404).json({ message: 'Book not found' });
+      }
+      res.json(book);
+    } else {
+      const books = await Books.find({});
+      res.json(books);
     }
-    res.status(200).json(updatedBooks)
-  } catch (error) {
-    res.status(500).json({message: error.message})
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
-})
+});
 
-//DELETE
-router.delete('/:id', async(req,res) => {
+
+router.post('/', async (req, res) => {
+  const book = new Books(req.body);
   try {
-    const deletedBooks = await Books.findByIdAndDelete(req.params.id)
-    if(!deletedBooks){
-      res.status(404).json({message: 'Not found'})
-    }
-    res.status(200).json('Deleted sucessfully')
-  } catch (error) {
-    res.status(500).json({message: error.message})
+    const newBook = await book.save();
+    res.redirect('/admin/booklists');
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
-})
+});
+
+router.post('/:id', async (req, res) => {
+  const { id } = req.params;
+  const updates = req.body;
+  try {
+    const updatedBook = await Books.findByIdAndUpdate(id, updates, { new: true });
+    if (!updatedBook) {
+      return res.status(404).json({ message: 'Book not found' });
+    }
+    res.redirect('/admin/booklists');
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedBook = await Books.findByIdAndDelete(id);
+    if (!deletedBook) {
+      return res.status(404).json({ message: 'Buku tidak ditemukan.' });
+    }
+    res.status(200).json({});
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 
-  module.exports = router
+module.exports = router;
