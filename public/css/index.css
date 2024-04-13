@@ -192,7 +192,7 @@ span {
 /* text diskon coretan */
 .products .price-dis {
     color: #4a4a4a;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: lighter;
     text-decoration: line-through;
 }
