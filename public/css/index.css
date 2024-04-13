@@ -232,12 +232,12 @@ span {
     transition: all .40s ease;
 }
 .icons-footer a:hover {
-    color: bisque;
+    color: rgb(189, 150, 103);
     transform: translateY(-5px);
     transition: all .40s ease;
 }
 li:hover {
-    color: bisque;
+    color: rgb(189, 150, 103);
     transform: translateY(-3px) translateX(-5px);
     transition: all .40s ease;
 

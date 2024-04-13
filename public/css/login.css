@@ -78,14 +78,14 @@ body{
     text-decoration: underline;
 }
 .form input.button {
-    color: #fff;
-    background-color:grey;
-    font-size: 1.2rem;
+    color: black;
+    font-size: 2rem;
     font-weight: 500;
     letter-spacing: 1px;
     margin-top: 1.7rem;
     cursor: pointer;
     transition: 0.4s;
+    font-weight: 10px;
 }
 .form input .button:hover {
     background: rgb(43, 43, 0);
@@ -104,5 +104,5 @@ body{
 
 /* hover */
 .button:hover {
-    background-color: bisque;
+    background-color: rgb(189, 150, 103);
 }
