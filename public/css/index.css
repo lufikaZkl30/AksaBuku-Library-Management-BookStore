@@ -177,6 +177,14 @@ span {
     padding: 20px;
 }
 
+/* tidak diskon */
+.products .card .box .price-real {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 /* text diskon coretan */
 .products .card .box .price-dis {
     color: red;

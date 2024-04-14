@@ -105,6 +105,7 @@ span {
     color: red;
     font-size: 20px;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .products .card .box .btn{
