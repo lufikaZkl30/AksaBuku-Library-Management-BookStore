@@ -45,17 +45,28 @@ body{
 
 form {
   margin: 0px 30px 60px 30px;
+  padding: 40px;
+  align-items: center;
+  background-color: #ddd;
+  border-radius: 10px;
 }
 
 h2{
   padding: 120px 30px 30px;
   font-size: 30px;
+  position: relative;
+  text-align: center;
+  font-family: peanut;
 }
 
 label {
   display: block;
   font-weight: bold;
   margin-top: 20px;
+  font-family: biasa;
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
 input[type="text"],
@@ -68,6 +79,7 @@ select {
   border-radius: 4px;
   box-shadow: none;
   resize: vertical;
+  font-family: biasa;
 }
 
 select {
@@ -81,8 +93,10 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 button:hover {
   background-color: #45a049;
 }
+

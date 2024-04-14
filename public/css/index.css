@@ -38,7 +38,6 @@ Body {
     width: 100%;
 }
 
-
 /* home */
 .content {
     background-image: url(/assets/img/bg-utama2.png);
@@ -177,24 +176,25 @@ span {
     align-items: center;
     padding: 20px;
 }
-.products .card .box .price {
+
+/* text diskon coretan */
+.products .card .box .price-dis {
     color: red;
     font-size: 20px;
     font-weight: bold;
+}
+
+.products .card .box .price {
+    color: #4a4a4a;
+    font-size: 15px;
+    font-weight: lighter;
+    text-decoration: line-through;
 }
 
 /* diskon item */
 .discount {
     background-color: pink;
     font-weight: 100;
-}
-
-/* text diskon coretan */
-.products .price-dis {
-    color: #4a4a4a;
-    font-size: 15px;
-    font-weight: lighter;
-    text-decoration: line-through;
 }
 
 .products .card .discount {
