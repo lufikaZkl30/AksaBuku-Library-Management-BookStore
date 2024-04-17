@@ -5,7 +5,7 @@ body{
 }
 
 footer{
-    padding: 30px 7% 50px;
+    padding: 30px 5% 50px;
     font-family: biasa;
 }
 
@@ -14,7 +14,7 @@ footer{
     position: absolute;
     display:inline-block;
     margin-right: 10vh;
-    left: 15vh;
+    left: 10vh;
     right: 20vh;
     bottom: 5vh;
     font-size: 20px;
@@ -34,6 +34,7 @@ a{color: #fff;}
     right: 0;
     bottom: 0;
 }
+
 
 .footer-content h4 {
     color: white;
