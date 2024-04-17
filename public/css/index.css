@@ -125,7 +125,10 @@ span {
     display: flex;
     border-radius: 10px;
     grid-template-columns: repeat(outo-fit, minmax(320px, 1fr));
+}.card {
+    margin-left: 9vh;
 }
+
 .products .card{
     width: 310px;
     background-color: white;
