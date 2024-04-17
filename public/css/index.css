@@ -127,6 +127,7 @@ span {
     grid-template-columns: repeat(outo-fit, minmax(320px, 1fr));
 }.card {
     margin-left: 9vh;
+    align-content: center;
 }
 
 .products .card{
