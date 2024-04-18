@@ -129,6 +129,8 @@ span {
 .card {
     margin-left: 9vh;
     align-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .products .card{
@@ -212,6 +214,8 @@ span {
 
 .products{
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .products .card .discount {
