@@ -209,6 +209,10 @@ span {
     font-weight: 100;
 }
 
+.products{
+    align-items: center;
+}
+
 .products .card .discount {
     position: absolute;
     top: 1rem; left: 1rem;
