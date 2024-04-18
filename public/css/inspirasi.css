@@ -130,3 +130,9 @@ span {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.truncate-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
