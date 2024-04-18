@@ -52,6 +52,11 @@ const bukuSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ['Novel', 'Inspirasi']
+  },
+  promo: {
+    type: String,
+    required: false,
+    enum: ['Enable', 'Disable']
   }
 });
 

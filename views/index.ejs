@@ -14,19 +14,20 @@
             <h1>Aksa Buku</h1>
             <p>Memulai pertualangan buku tanpa batas,<br>
                 Memberikan rekomendasi buku terbaru dan populer</p>
-            <button>Shop Now</button>
+            <button id="shop-now-btn">Shop Now</button>
         </div>
         <div class="column"></div>
     </section>
         <!-- end intro -->
 
         <!-- border -->
-        <section class="banner">
-            <div class="banner-img">
-                <img src="/assets/img/banner/banner-1.png">
-            </div>
-            <div class="banner-img">
+        <section class="banner" id="banner-section">
+            <div class="banner-img" id="banner-img-one">
                 <img src="/assets/img/banner/banner-2.png">
+            </div>
+
+            <div class="banner-img" id="banner-img-two">
+                <img src="/assets/img/banner/banner-1.png">
             </div>
         </section>
         <!-- end border -->
@@ -34,7 +35,7 @@
         <!-- produk -->
         <h1 class="pheading"> Products <span>Hot</span></h1>
         
-        <section class="sec">
+        <section class="sec" id="section-1">
             <div class="products">
                 <!-- card 1 -->
                 <div class="card">
@@ -85,7 +86,7 @@
         <!-- end produk -->
         
         <!-- produk diskon -->
-        <h1 class="pheading"> Products <span>Discount</span></h1>
+        <h1 class="pheading" id="section-2"> Products <span>Discount</span></h1>
         <section class="sec">
             <div class="products">
                 <!-- card 1 -->
@@ -162,5 +163,22 @@
         <!-- footer -->
         <%- include('layouts/footer.ejs') %>
         <script src="fungsi.js"></script>
+
+        <script>
+            document.getElementById('shop-now-btn').addEventListener('click', function() {
+                const goToBanner = document.getElementById('banner-section');
+                goToBanner.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            document.getElementById('banner-img-one').addEventListener('click', function() {
+                const bannerSection1 = document.getElementById('section-1');
+                bannerSection1.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            document.getElementById('banner-img-two').addEventListener('click', function() {
+                const bannerSection2 = document.getElementById('section-2');
+                bannerSection2.scrollIntoView({ behavior: 'smooth' });
+            });
+        </script>
 </body>
 </html>
