@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('layouts/header.ejs') %>
+    <link rel="stylesheet" href="/css/paymentPage.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('layouts/navbar.ejs') %>
+
+    <div class="container">
+        <h1>Pembayaran</h1>
+        <div class="book-details">
+            <div class="image-container">
+                <img src="<%= book.imageUrl %>" alt="<%= book.judul %>">
+            </div>
+            <div class="info-container">
+                <table>
+                    <tr>
+                        <td>Judul:</td>
+                        <td><%= book.judul %></td>
+                    </tr>
+                    <tr>
+                        <td>Penulis:</td>
+                        <td><%= book.author %></td>
+                    </tr>
+                    <tr>
+                        <td>Harga:</td>
+                        <td>Rp <%= book.harga.toLocaleString('id-ID') %></td>
+                    </tr>
+                    <tr>
+                        <td>ISBN:</td>
+                        <td><%= book.isbn %></td>
+                    </tr>
+                </table>
+                <form action="/payment/process" method="post">
+                    <input type="hidden" name="bookId" value="<%= book._id %>">
+                    <label for="nama">Nama:</label><br>
+                    <input type="text" id="nama" name="nama" required><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="alamat">Alamat:</label><br>
+                    <textarea id="alamat" name="alamat" required></textarea><br>
+                    <label for="jumlah">Jumlah:</label><br>
+                    <input type="number" id="jumlah" name="jumlah" min="1" value="1" required><br>
+                    <button type="submit" class="btn">Proses Pembayaran</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('layouts/footer.ejs') %>
+</body>
+</html>

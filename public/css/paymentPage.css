@@ -1,3 +1,4 @@
+/* font untuk h3 */
 @font-face {
   font-family: barett;
   src: url(/assets/font/Barett\ Street.ttf);
@@ -15,6 +16,7 @@
   src: url(/assets/font/Hello\ Mickeys.ttf);
 }
 
+
 *{
   margin: 0;
   padding: 0;
@@ -31,29 +33,25 @@ html {
   height: 100%;
 }
 
-body{
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-size: 16px;
+Body {
+  height: 100vh;
+  width: 100%;
 }
 
 .container {
-  max-width: 1200px;
-  padding: 20px;
-}
-
-.container h1{
-  padding: 100px 0 10px 0;
-  font-weight: bold;
-  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 120px 20px 30px 20px;
+  font-size: 20px;
 }
 
 .book-details {
   display: flex;
+  margin-top: 20px;
 }
 
 .image-container {
-  margin-right: 50px;
+  margin-right: 20px;
 }
 
 .image-container img {
@@ -69,7 +67,6 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  text-align: justify;
 }
 
 table td {
@@ -82,38 +79,34 @@ table td:first-child {
   width: 120px;
 }
 
-.sinopsis {
-  max-height: 100px;
-  overflow: hidden;
-  white-space: pre-line;
-  line-height: 20px;
+form {
+  margin-top: 20px;
+}
+
+label {
   margin-bottom: 5px;
 }
 
-.expand-btn {
-  background: none;
-  border: none;
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-  display: inline-block;
-  margin-top: 5px;
+input[type="text"],
+input[type="email"],
+textarea,
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.expand-btn:hover {
-  color: darkblue;
-}
-
-.btn {
+button[type="submit"] {
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
-.btn:hover {
+button[type="submit"]:hover {
   background-color: #0056b3;
 }

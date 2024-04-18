@@ -1,15 +1,15 @@
 <div class="container-novel">
     <section class="sec">
-        <h1 class="pheading"> Buku Inspirasi</h1>
+        <h1 class="pheading"><%= title %></h1>
         <div class="products">
             <% books.forEach(function(book) { %>
                 <div class="card" onclick="showBookDetail('<%= book._id %>')">
                 <div class="img"><img src="<%= book.imageUrl %>"></div>
-                <div class="desc">Buku Inspirasi</div>
-                <div class="title"><%= book.judul %></div>
+                <div class="desc"><%= title %></div>
+                <div class="title truncate-text"><%= book.judul %></div>
                 <div class="penulis">Penulis: <%= book.author %></div>
                 <div class="box">
-                    <div class="price">Rp. <%= book.harga %></div>
+                    <div class="price">Rp. <%= book.harga.toLocaleString('id-ID') %></div>
                     <button class="btn">Buy Now</button>
                 </div>
             </div>

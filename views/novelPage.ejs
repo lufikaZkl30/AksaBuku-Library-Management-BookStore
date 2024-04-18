@@ -3,7 +3,13 @@
     <head>
         <%- include('layouts/header.ejs') %>
         <!-- css for novel -->
-        <link rel="stylesheet" href="/css/inspirasi.css">
+        <link rel="stylesheet" href="/css/buku.css">
+
+        <script>
+            function showBookDetail(bookId) {
+                window.location.href = '/novel/' + bookId;
+            }
+        </script>
     </head>
     <body>
         <!-- Navbar -->
@@ -17,3 +23,4 @@
     <!-- <script src="/javascript/fungsi.js"></script>  -->
 </body>
 </html>
+

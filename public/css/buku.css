@@ -63,7 +63,6 @@ span {
 .products{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    margin-left: 10vh;
 }
 
 .products .card{
@@ -130,4 +129,10 @@ span {
 .title:hover, .penulis:hover{
     text-decoration: underline;
     cursor: pointer;
+}
+
+.truncate-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
