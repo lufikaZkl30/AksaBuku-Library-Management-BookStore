@@ -251,6 +251,29 @@ span {
     box-shadow: var(--box-shadow);
     transition: .2s linear;
 }
+.review .review-slider .box:hover{
+    box-shadow: 1px 1px 10px 4px var(--#7d6215);
+}
+
+.review .review-slider .box .img-review {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+}
+
+.review .review-slider .box p {
+    padding: 1rem 0;
+    line-height: 1.8;
+    color: var(--liner-color);
+    font-size: 1.5rem;
+}
+.review .review-slider .box h3 {
+    padding: 1rem 0;
+    line-height: 1.8;
+    color: var(--liner-color);
+    font-size: 1.5rem;
+}
+
 
 
 
