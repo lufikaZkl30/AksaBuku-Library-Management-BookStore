@@ -59,13 +59,42 @@
       
       <label for="kategori">Kategori*</label>
       <select id="kategori" name="kategori" required>
-        <option value="Novel">Novel</option>
-        <option value="Inspirasi">Inspirasi</option>
+        <option value="novel">Novel</option>
+        <option value="inspirasi">Inspirasi</option>
+        <option value="sejarah">Sejarah</option>
+        <option value="komik">Komik</option>
+        <option value="resepmasakan">Resep & Masakan</option>
+        <option value="bisnisekonomi">Bisnis & Ekonomi</option>
+        <option value="bahasaasing">Bahasa Asing</option>
+        <option value="medis">Medis</option>
       </select><br>
-      
+
+      <label for="promo">Promo</label>
+        <select id="promo" name="promo">
+          <option value="Disable">Disable</option>
+          <option value="Enable">Enable</option>  
+        </select><br><br>
+
+        <div id="diskonField" style="display: none;">
+          <label for="diskon">Diskon: (dalam persen)</label>
+          <input type="number" name="diskon" id="diskon">
+        </div>
+        <br>
+    
       <button type="submit">Tambah Buku</button>
     </form>
     <%- include('../layouts/footer.ejs') %>
+
+    <script>
+      document.getElementById('promo').addEventListener('change', function() {
+        const diskonField = document.getElementById('diskonField');
+        if (this.value === 'Enable') {
+            diskonField.style.display = 'block';
+        } else {
+            diskonField.style.display = 'none';
+        }
+    });
+    </script>
 </body>
 <link rel="stylesheet" href="../css/addbooks.css">
 </html>

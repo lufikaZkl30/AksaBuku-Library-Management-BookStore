@@ -12,18 +12,18 @@
   <h2>Data Buku</h2>
   <table>
     <thead>
-      <tr>
-        <th>Judul</th>
-        <th>Penulis</th>
-        <th>Aksi</th>
-      </tr>
+        <tr>
+            <th>Judul</th>
+            <th>Penulis</th>
+            <th>Aksi</th>
+        </tr>
     </thead>
     <tbody>
-      <% books.forEach(function(book) { %>
+        <% books.forEach(function(book) { %>
         <tr class="icons">
-          <td><%= book.judul %></td>
-          <td><%= book.author %></td>
-          <td>
+            <td><%= book.judul %></td>
+            <td><%= book.author %></td>
+            <td>
             <span class="edit-icon icon" onclick="editBook('<%= book._id %>')"><i class="fas fa-pencil-alt"></i></span>
             <span class="delete-icon icon" onclick="deleteBook('<%= book._id %>')"><i class="fas fa-times"></i></span>
           </td>
@@ -48,11 +48,11 @@
           } else if (!response.ok) {
             throw new Error('Gagal menghapus buku.');
           }
-          window.location.reload(); // Refresh jika penghapusan berhasil
+          window.location.reload();
         })
         .catch(error => {
           console.error('Error deleting book:', error.message);
-          alert(error.message); // Tampilkan pesan kesalahan jika ada
+          alert(error.message);
         });
       }
     }
