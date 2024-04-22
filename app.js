@@ -1,4 +1,4 @@
-//IMPORT
+//IMPORT MODULES
   var express = require('express');
   const dotenv = require('dotenv');
   const bodyParser = require('body-parser');
@@ -63,12 +63,13 @@
 //----------------
 
 //PAGES
+  /*Index*/
   app.get("/", (req, res) => {
     res.render("index.ejs", {title: 'Beranda'});
   });
 
+  /*Buku-Buku*/
   function handleKategori(app, kategori){
-    const kategoriCap = kategori.charAt(0).toUpperCase() + kategori.slice(1);
     const judulKategori = {
         'novel': 'Buku Novel',
         'inspirasi': 'Buku Inspirasi',
@@ -82,7 +83,7 @@
 
     app.get(`/${kategori}`, async (req, res) => {
       try {
-          const books = await Books.find({ kategori: kategoriCap });
+          const books = await Books.find({ kategori: kategori });
           res.render(`buku/${kategori}Page`, { books, title: judulKategori[kategori] });
       } catch (err) {
           res.status(500).json({ message: err.message });
@@ -112,53 +113,16 @@
   handleKategori(app, 'medis');
 
 
-// app.get('/novel', async (req, res) => {
-//   try {
-//     const novel = await Books.find({kategori: 'Novel'});
-//     res.render('novelPage', { books: novel, title: 'Buku Novel'});
-//   } catch (err) {
-//     res.status(500).json({message: err.message});
-//   }
-// });
-
-// app.get('/inspirasi', async (req, res) => {
-//   try {
-//     const inspi = await Books.find({kategori: 'Inspirasi'});
-//     res.render('inspirasiPage', {books: inspi, title: 'Buku Inspirasi'});
-//   } catch (err) {
-//     res.status(500).json({message: err.message });
-//   }
-// });
-
-// app.get('/novel/:id', async (req, res) => {
-//   try {
-//       const book = await Books.findById(req.params.id);
-//       if (!book) {
-//           return res.status(404).json({ message: 'Buku tidak ditemukan.' });
-//       }
-//       res.render('detailBuku', { book, title: 'Detail Buku' });
-//   } catch (err) {
-//       res.status(500).json({ message: err.message });
-//   }
-// });
-
-// app.get('/inspirasi/:id', async (req, res) => {
-//   try {
-//       const book = await Books.findById(req.params.id);
-//       if (!book) {
-//           return res.status(404).json({ message: 'Buku tidak ditemukan.' });
-//       }
-//       res.render('detailBuku', { book, title: 'Detail Buku' });
-//   } catch (err) {
-//       res.status(500).json({ message: err.message });
-//   }
-// });
-
-
+  /*Login & Sign Up*/
   app.get("/login", (req, res) => {
-        res.render("login.ejs", {title: 'login'});
-      });
+    res.render("login.ejs", {title: 'Login'});
+  });
 
+  app.get("/signup", (req, res) => {
+    res.render("signup.ejs", {title: 'Daftar'});
+  });
+
+  /*Contact & Form*/
   app.get("/contact", (req, res) => {
     res.render("contact.ejs", {title: 'Hubungi Kami', msgCode: messageCode});
   });
@@ -167,19 +131,7 @@
     res.render("form.ejs", {title: 'Form Peminjaman'});
   });
 
-  app.get("/sukses", (req, res) => {
-    res.render("sukses.ejs", {title: 'Sukses Meminjam'});
-  });
-
-  app.get("/signup", (req, res) => {
-    res.render("signup.ejs", {title: 'Daftar'});
-  });
-
-  app.get("/login", (req, res) => {
-    res.render("login.ejs", {title: 'login'});
-  });
-
-  //Admin
+  /*Admin Page*/
   app.get("/admin/addbooks", (req, res) => {
     res.render("admin/addbooks.ejs", {title: 'Tambah Buku'});
   });
@@ -205,6 +157,7 @@
     }
   });
 
+  /*Payment*/
   app.get('/payment/:id', async (req, res) => {
     try {
         const book = await Books.findById(req.params.id);
@@ -216,7 +169,6 @@
         res.status(500).json({ message: err.message });
     }
 });
-
 //----------------
 
 //POST REQUEST
