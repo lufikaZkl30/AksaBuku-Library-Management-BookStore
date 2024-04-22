@@ -1,56 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <%- include('layouts/header.ejs') %>
-        <!-- css for form -->
-        <link rel="stylesheet" href="/css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
-
 <body>
-<!-- Navbar -->
-<%- include('layouts/navbar.ejs') %>
 
-    <!--  Main Content -->
-    <div class="container">
-        <input type="checkbox" id="check">
-
-        <!-- login -->
-        <div class="login form">
-            <div class="header">Form Login</div>
-            <form action="#">
-                <input type="text" placeholder="Masukkan email">
-                <input type="password" placeholder="Masukkan password">
-                <a href="#">Lupa password?</a>
-                <input type="button" value="login" class="button">
-            </form>
-            <div class="signup">
-                <span>Belum Punya Akun?
-                    <label for="check">Daftar</label>
-                </span>
+    <div class="form-container">
+        <h2>Login</h2>
+        <form action="views/login.ejs" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="username" placeholder="Enter your name" required autocomplete="off">
             </div>
-        </div>
-        <!-- end login -->
-
-        <!-- register -->
-        <div class="registration form">
-            <div class="header">Form Registrasi</div>
-            <form action="#">
-                <input type="text" placeholder="Masukkan email">
-                <input type="password" placeholder="Masukkan password">
-                <input type="password" placeholder="Masukkan ulang password">
-                <input type="button" class="button" value="Daftar">
-            </form>
-            <div class="signup">
-                <span class="signup">
-                    <label for="check">Login</label>
-                </span>
+            <div class="form-group">
+                <label for="name">Password:</label>
+                <input type="password" name="password" id="password" placeholder="password" required>
             </div>
-        </div>
-        <!-- end register -->
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+        <p>Tidak punya akun? <a href="/signup">Signup</a></p>
     </div>
-    <!-- box login and register -->
     
 </body>
-
 </html>
