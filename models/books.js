@@ -51,8 +51,22 @@ const bukuSchema = new mongoose.Schema({
   kategori: {
     type: String,
     required: true,
-    enum: ['Novel', 'Inspirasi']
+    enum: ['novel', 'inspirasi', 'sejarah', 'komik', 'resepmasakan', 'bisnisekonomi', 'bahasaasing', 'medis']
+  },
+  promo: {
+    type: String,
+    required: false,
+    enum: ['Disable', 'Enable']
+  },
+  diskon: {
+    type: Number,
+    validate: {
+      validator: function () {
+          return this.promo === 'Enable' ? !!this.diskon : true;
+      },
+      message: 'Diskon hanya dapat ditentukan jika promo diaktifkan.'
   }
+}
 });
 
 module.exports = mongoose.model('Books', bukuSchema);

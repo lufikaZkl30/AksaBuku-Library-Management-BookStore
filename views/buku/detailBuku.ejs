@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../layouts/header.ejs') %>
+    <link rel="stylesheet" href="../css/detailbuku.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('../layouts/navbar.ejs') %>
+    <div class="container">
+        <h1>Detail Buku</h1>
+        <div class="book-details">
+            <div class="image-container">
+                <img src="<%= book.imageUrl %>" alt="<%= book.judul %>">
+            </div>
+            <div class="info-container">
+                <table>
+                    <tr>
+                        <td>Judul:</td>
+                        <td><%= book.judul %></td>
+                    </tr>
+                    <tr>
+                        <td>Penulis:</td>
+                        <td><%= book.author %></td>
+                    </tr>
+                    <tr>
+                        <td>Penerbit:</td>
+                        <td><%= book.penerbit %></td>
+                    </tr>
+                    <tr>
+                        <td>Sinopsis:</td>
+                        <td>
+                        <div id="tabel-sinopsis" class="tabel-sinopsis">
+                            <div id="sinopsis" class="sinopsis">
+                                <%= book.sinopsis %>
+                            </div>
+                                <button id="expand-btn" class="expand-btn">See more</button>
+                                <button id="collapse-btn" class="expand-btn" style="display: none;">See less</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Terbit:</td>
+                        <td><%= book.tanggal %> <%= book.bulan %> <%= book.tahun %></td>
+                    </tr>
+                    <tr>
+                        <td>Halaman:</td>
+                        <td><%= book.halaman %> halaman</td>
+                    </tr>
+                    <tr>
+                        <td>Harga:</td>
+                        <td>Rp <%= book.harga.toLocaleString('id-ID') %></td>
+                    </tr>
+                    <tr>
+                        <td>ISBN:</td>
+                        <td><%= book.isbn %></td>
+                    </tr>
+                </table>
+                <button class="btn" onclick="payment('<%= book._id %>')">Buy Now</button>
+            </div>
+        </div>
+    </div>  
+
+    <!-- Footer -->
+    <%- include('../layouts/footer.ejs') %>
+
+    <!-- Javascript -->
+    <script src="../javascript/sinopsis.js"></script>
+    <script src="../javascript/paymentpage.js"></script>
+</body>
+</html>

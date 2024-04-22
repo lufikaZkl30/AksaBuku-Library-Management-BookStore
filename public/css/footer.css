@@ -75,3 +75,31 @@ a{color: #fff;}
     color: #d6d6d6;
     transition: all .40s ease;
 }
+
+.langganan {
+    display: flex;
+    align-items: center;
+}
+
+input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    flex: 1;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+

@@ -70,7 +70,6 @@ table {
   border-collapse: collapse;
   margin-bottom: 20px;
   text-align: justify;
-  margin-bottom: 100px;
 }
 
 table td {
@@ -103,4 +102,18 @@ table td:first-child {
 
 .expand-btn:hover {
   color: darkblue;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
 }

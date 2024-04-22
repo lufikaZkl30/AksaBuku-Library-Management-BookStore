@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../layouts/header.ejs') %>
+        <link rel="stylesheet" href="../css/buku.css">
+
+        <script>
+            function showBookDetail(bookId) {
+                window.location.href = '/komik/' + bookId;
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <%- include('../layouts/navbar.ejs') %>
+
+        <%- include('../layouts/buku.ejs') %>
+
+        <%- include('../layouts/footer.ejs') %>
+</body>
+</html>

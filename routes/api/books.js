@@ -19,7 +19,6 @@ router.get('/:id?', async (req, res) => {
   }
 });
 
-
 router.post('/', async (req, res) => {
   const book = new Books(req.body);
   try {
@@ -56,6 +55,5 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
 
 module.exports = router;

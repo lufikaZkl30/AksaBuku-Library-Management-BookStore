@@ -1,0 +1,121 @@
+/* font untuk h3 */
+@font-face {
+  font-family: barett;
+  src: url(/assets/font/Barett\ Street.ttf);
+}
+
+/* font navbar */
+@font-face {
+  font-family: peanut ;
+  src: url(/assets/font/Peanut\ Butter.ttf);
+}
+
+/* font text biasa */
+@font-face {
+  font-family: biasa;
+  src: url(/assets/font/Hello\ Mickeys.ttf);
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-padding-top: 6rem;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  background: url(/assets/img/bg-book.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 120px 8px 30px 8px;
+  font-size: 18px;
+}
+
+.book-details {
+  display: flex;
+  margin-top: 20px;
+}
+
+h1{
+  text-align: center;
+  font-family: barett;
+  font-size: 30px;
+}
+
+.image-container {
+  margin-right: 20px;
+}
+
+.image-container img {
+  max-width: 400px;
+  height: auto;
+}
+
+.info-container {
+  flex-grow: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+table td:first-child {
+  font-weight: bold;
+  width: 120px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
