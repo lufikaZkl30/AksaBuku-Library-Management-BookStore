@@ -56,9 +56,26 @@
     
     <label for="kategori">Kategori:</label>
     <select id="kategori" name="kategori" required>
-      <option value="Novel" <%= book.kategori === 'Novel' ? 'selected' : '' %>>Novel</option>
-      <option value="Inspirasi" <%= book.kategori === 'Inspirasi' ? 'selected' : '' %>>Inspirasi</option>
+      <option value="novel" <%= book.kategori === 'novel' ? 'selected' : '' %>>Novel</option>
+      <option value="inspirasi" <%= book.kategori === 'inspirasi' ? 'selected' : '' %>>Inspirasi</option>
+      <option value="sejarah" <%= book.kategori === 'sejarah' ? 'selected' : '' %>>Sejarah</option>
+      <option value="komik" <%= book.kategori === 'komik' ? 'selected' : '' %>>Komik</option>
+      <option value="resepmasakan" <%= book.kategori === 'resepmasakan' ? 'selected' : '' %>>Resep & Masakan</option>
+      <option value="bisnisekonomi" <%= book.kategori === 'bisnisekonomi' ? 'selected' : '' %>>Bisnis & Ekonomi</option>
+      <option value="bahasaasing" <%= book.kategori === 'bahasaasing' ? 'selected' : '' %>>Bahasa Asing</option>
+      <option value="medis" <%= book.kategori === 'medis' ? 'selected' : '' %>>Medis</option>
     </select><br>
+
+    <label for="promo">Promo</label>
+    <select id="promo" name="promo">
+      <option value="Disable" <%= book.promo === 'Disable' ? 'selected' : '' %>>Disable</option>
+      <option value="Enable" <%= book.promo === 'Enable' ? 'selected' : '' %>>Enable</option>
+    </select><br>
+
+    <% if (book.promo === 'Enable') { %>
+      <label for="diskon">Diskon:</label>
+      <input type="number" name="diskon" id="diskon" value="<%= book.diskon %>">
+    <% } %>
 
     <button type="submit">Simpan Perubahan</button>
     </form>
