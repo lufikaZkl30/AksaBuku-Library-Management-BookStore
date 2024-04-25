@@ -65,8 +65,17 @@ const bukuSchema = new mongoose.Schema({
           return this.promo === 'Enable' ? !!this.diskon : true;
       },
       message: 'Diskon hanya dapat ditentukan jika promo diaktifkan.'
+    }
+  },
+  rentbook: {
+    type: String,
+    required: false,
+    enum: ['Disable', 'Enable']
+  },
+  pdfPath: {
+    type: String,
+    required: false
   }
-}
 });
 
 module.exports = mongoose.model('Books', bukuSchema);
