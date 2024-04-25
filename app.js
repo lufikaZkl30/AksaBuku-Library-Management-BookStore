@@ -67,8 +67,18 @@ app.use((req, res, next) => {
 
 //PAGES
 /*Index*/
-app.get("/", (req, res) => {
-  res.render("index.ejs", {title: 'Beranda'});
+app.get("/", async (req, res) => {
+  try{
+    const latestBooks = await Books.find().sort({ createdAt: 1 }).limit(3);
+    const discountBooks = await Books.find({ promo: "Enable" });
+    const popularBooks = await Books.aggregate([
+      { $sample: { size: 3 } }
+    ]);
+    res.render("index.ejs", {title: 'Beranda', books: latestBooks, popularBooks: popularBooks, discountBooks: discountBooks});
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 /*Buku-Buku*/
@@ -137,20 +147,6 @@ app.get('/rentbook/:id', async (req, res) => {
       res.status(500).json({ message: err.message });
   }
 });
-
-
-app.get('/admin/addrentbooks/:id', async (req, res) => {
-  try {
-    const book = await Books.findById(req.params.id);
-    if (!book) {
-      return res.status(404).json({ message: 'Buku tidak ditemukan' });
-    }
-    res.render('admin/addrentbooks.ejs', { title: 'Tambah Rent Book', book: book });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
 
 app.get('/readbook/:id', async (req, res) => {
   try {

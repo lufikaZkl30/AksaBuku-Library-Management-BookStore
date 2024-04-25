@@ -17,16 +17,23 @@
               <div class="info-containers">
                 <h3><%= book.judul %></h3>
                 <h4>Penulis: <%= book.author %></h4><br>
-                <button class="btn" onclick="">Read Now</button>
+                <button class="btn" id="read-now">Read Now</button>
               </div>
           </div>
       </div>
 
-      <div content-pdf>
+      <div class= "content-pdf" id="content-pdf">
         <embed src="../pdf/<%= book.pdfPath %>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" height="700" width="990">
       </div>
   
       <!-- Footer -->
       <%- include('layouts/footer.ejs') %>
+
+      <script>
+        document.getElementById('read-now').addEventListener('click', function() {
+            const goToBanner = document.getElementById('content-pdf');
+            goToBanner.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>

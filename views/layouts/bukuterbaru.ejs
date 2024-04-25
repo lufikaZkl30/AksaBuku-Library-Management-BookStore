@@ -1,0 +1,45 @@
+<div class="container-novel">
+    <section class="sec">
+        <div class="products">
+            <% 
+                function handleKategori(kategori){
+                    const judulKategori = {
+                        'novel': 'Buku Novel',
+                        'inspirasi': 'Buku Inspirasi',
+                        'sejarah': 'Buku Sejarah',
+                        'komik': 'Buku Komik',
+                        'resepmasakan': 'Buku Resep & Masakan',
+                        'bisnisekonomi': 'Buku Bisnis & Ekonomi',
+                        'bahasaasing': 'Buku Bahasa Asing',
+                        'medis': 'Buku Medis'
+                    };
+
+                    return judulKategori[kategori] || 'Kategori Tidak Diketahui';
+                }
+                const latestBooks = books.slice(0, 3);
+                latestBooks.forEach(function(book) { 
+            %>
+                <div class="card" onclick="showBookDetail('<%= book._id %>', '<%= book.kategori %>')">
+                    <div class="img"><img src="<%= book.imageUrl %>"></div>
+                    <div class="desc" style="text-transform: capitalize">
+                        <%= handleKategori(book.kategori) %>
+                    </div>
+                    <div class="title truncate-text"><%= book.judul %></div>
+                    <div class="penulis">Penulis: <%= book.author %></div>
+                    <div class="box">
+                        <div class="price">Rp. <%= book.harga.toLocaleString('id-ID') %></div>
+                        <button class="btn">Buy Now</button>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+</div>
+
+
+
+<script>
+    function showBookDetail(bookId, kategori) {
+        window.location.href = '/' + kategori + '/' + bookId;
+    }
+</script>

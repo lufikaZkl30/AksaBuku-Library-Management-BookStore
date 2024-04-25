@@ -1,0 +1,28 @@
+<div class="container-novel">
+  <section class="sec">
+      <div class="products">
+        <% discountBooks.forEach(function(book) { %>
+              <div class="card" onclick="showBookDetail('<%= book._id %>', '<%= book.kategori %>')">
+                <span class="discount">-<%= book.diskon %>%</span>
+                  <div class="img"><img src="<%= book.imageUrl %>" alt="<%= book.judul %>"></div>
+                  <div class="desc" style="text-transform: capitalize">Buku <%= book.kategori %></div>
+                  <div class="title truncate-text"><%= book.judul %></div>
+                  <div class="penulis">Penulis: <%= book.author %></div>
+                  <div class="box">
+                      <div class="price-dis">
+                        <span class="price">Rp. <%= book.harga.toLocaleString('id-ID') %></span><br>
+                        Rp. <%= (book.harga - (book.harga * book.diskon / 100)).toLocaleString('id-ID') %>
+                      </div>
+                      <button class="btn">Buy Now</button>
+                  </div>
+              </div>
+          <% }); %>
+      </div>
+  </section>
+</div>
+
+<script>
+  function showBookDetail(bookId, kategori) {
+      window.location.href = '/' + kategori + '/' + bookId;
+  }
+</script>
