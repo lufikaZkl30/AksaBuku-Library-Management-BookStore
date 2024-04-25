@@ -69,20 +69,20 @@
         <option value="medis">Medis</option>
       </select><br>
 
-      <label for="promo">Promo</label>
-        <select id="promo" name="promo">
+      <label for="promo">Promo*</label>
+        <select id="promo" name="promo" required>
           <option value="Disable">Disable</option>
           <option value="Enable">Enable</option>  
-        </select><br><br>
+        </select><br>
 
         <div id="diskonField" style="display: none;">
+          <br>
           <label for="diskon">Diskon: (dalam persen)</label>
           <input type="number" name="diskon" id="diskon">
+          <br>
         </div>
-        <br>
-    
-      <button type="submit">Tambah Buku</button>
     </form>
+
     <%- include('../layouts/footer.ejs') %>
 
     <script>

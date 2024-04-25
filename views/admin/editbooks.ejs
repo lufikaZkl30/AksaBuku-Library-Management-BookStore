@@ -72,13 +72,35 @@
       <option value="Enable" <%= book.promo === 'Enable' ? 'selected' : '' %>>Enable</option>
     </select><br>
 
-    <% if (book.promo === 'Enable') { %>
-      <label for="diskon">Diskon:</label>
+    <div id="diskonField" style="display: none;">
+      <br>
+      <label for="diskon">Diskon: (dalam persen)</label>
       <input type="number" name="diskon" id="diskon" value="<%= book.diskon %>">
-    <% } %>
-
+      <br>
+    </div>
     <button type="submit">Simpan Perubahan</button>
     </form>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const promo = document.getElementById('promo');
+        const diskonField = document.getElementById('diskonField');
+  
+        if (promo.value === 'Enable') {
+          diskonField.style.display = 'block';
+        } else {
+          diskonField.style.display = 'none';
+        }
+  
+        promo.addEventListener('change', function () {
+            if (this.value === 'Enable') {
+              diskonField.style.display = 'block';
+            } else {
+              diskonField.style.display = 'none';
+            }
+        });
+    });
+    </script>
 </body>
 <link rel="stylesheet" href="../../css/addbooks.css">
 </html>

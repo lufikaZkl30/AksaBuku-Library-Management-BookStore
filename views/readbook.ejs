@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('layouts/header.ejs') %>
+        <link rel="stylesheet" href="/css/readbook.css">
+    </head>
+
+    <body>
+        <%- include('layouts/navbar.ejs') %>
+
+        <div class="container-book">
+          <h1>Detail Buku</h1>
+          <div class="book-details">
+              <div class="image-containers">
+                  <img src="<%= book.imageUrl %>" alt="<%= book.judul %>">
+              </div>
+              <div class="info-containers">
+                <h3><%= book.judul %></h3>
+                <h4>Penulis: <%= book.author %></h4><br>
+                <button class="btn" id="read-now">Read Now</button>
+              </div>
+          </div>
+      </div>
+
+      <div class= "content-pdf" id="content-pdf">
+        <embed src="../pdf/<%= book.pdfPath %>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" height="700" width="990">
+      </div>
+  
+      <!-- Footer -->
+      <%- include('layouts/footer.ejs') %>
+
+      <script>
+        document.getElementById('read-now').addEventListener('click', function() {
+            const goToBanner = document.getElementById('content-pdf');
+            goToBanner.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

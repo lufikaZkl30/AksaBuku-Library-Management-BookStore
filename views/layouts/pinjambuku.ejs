@@ -1,0 +1,24 @@
+<div class="container-novel">
+  <section class="sec">
+      <h1 class="pheading"><%= title %></h1>
+      <div class="products">
+        <% books.forEach(function(book) { %>
+          <div class="card" onclick="showBookDetail('<%= book._id %>')">
+            <div class="img"><img src="<%= book.imageUrl %>"></div>
+            <div class="desc"><%= title %></div>
+            <div class="title truncate-text"><%= book.judul %></div>
+            <div class="penulis">Penulis: <%= book.author %></div>
+            <div class="box">
+                <button class="btn" onclick="readBook('<%= book._id %>')">Baca Buku</button>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+  </section>
+</div>
+
+<script>
+  function readBook(bookId) {
+      window.location.href = `/book/${bookId}`;
+  }
+</script>
