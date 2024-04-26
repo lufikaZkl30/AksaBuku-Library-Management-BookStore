@@ -4,30 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
-
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
 
 </head>
 <body>
 
     <div class="form-container">
         <h2>Signup</h2>
-        <form action="/signup" method="post">
+        <%- include('partials/messages.ejs') %>
+        <form action="/signup" method="POST">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="username" placeholder="Enter your name" required autocomplete="off">
+                <input type="name" id="name" name="name" 
+                class="form-control" placeholder="Name"
+                value="<%= typeof name != 'undefined' ? name : '' %>"
+                required autocomplete="off"/>
             </div>
             <div class="form-group">
-                <label for="name">Email:</label>
-                <input type="taxt" name="email" id="email" placeholder="Email" required>
+                <label for="name">Username:</label>
+                <input type="uname" id="uname" name="uname" 
+                class="form-control"placeholder="Username (tanpa spasi)" 
+                value="<%= typeof uname != 'undefined' ? uname : '' %>"
+                required autocomplete="off" onkeypress="return event.charCode !== 32"/>
             </div>
             <div class="form-group">
-                <label for="name">Password:</label>
-                <input type="password" name="password" id="password" placeholder="password" required>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" 
+                class="form-control"placeholder="08xxxxxxx" 
+                value="<%= typeof phone != 'undefined' ? phone : '' %>"
+                required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" 
+                class="form-control" placeholder="Email" 
+                value="<%= typeof email != 'undefined' ? email : '' %>" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" 
+                class="form-control" placeholder="Password"
+                value="<%= typeof password != 'undefined' ? password : '' %>" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Confirm Password:</label>
+                <input type="password" name="password2" id="password2" 
+                class="form-control" placeholder="Confirm Password" 
+                value="<%= typeof password2 != 'undefined' ? password2 : '' %>" required>
             </div>
             <button type="submit" class="submit-btn">Signup</button>
         </form>
+
+        <p>
+            Sudah Punya Akun? <a href="/login">Login</a>
+        </p>
     </div>
-    
 </body>
 </html>
