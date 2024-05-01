@@ -10,9 +10,6 @@ const flash = require('connect-flash');
 const passport = require('passport');
 //----------------
 
-//AUTH CONFIG
-const { ensureAuthenticated, forwardAuthenticated} = require("./config/auth");
-
 //APP
 var app = express();
 app.set('view engine', 'ejs');
@@ -21,8 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 //----------------
 
-//PASSPORT
+//CONFIG
 require('./config/passport')(passport);
+const { ensureAuthenticated, isAdmin } = require('./config/auth');
 //----------------
 
 //VARIABEL
@@ -213,11 +211,11 @@ app.use('/', usersRouter);
   });
 
   /*Admin Page*/
-  app.get("/admin/addbooks", (req, res) => {
+  app.get("/admin/addbooks", isAdmin, (req, res) => {
     res.render("admin/addbooks.ejs", {title: 'Tambah Buku', user: req.user});
   });
 
-  app.get('/admin/booklists', async (req, res) => {
+  app.get('/admin/booklists', isAdmin, async (req, res) => {
     try {
       const books = await Books.find({});
       res.render('admin/booklists.ejs', { title: 'Daftar Buku', books: books, user: req.user});
@@ -226,7 +224,7 @@ app.use('/', usersRouter);
     }
   });
 
-  app.get('/admin/editbooks/:id', async (req, res) => {
+  app.get('/admin/editbooks/:id', isAdmin, async (req, res) => {
     try {
       const book = await Books.findById(req.params.id);
       if (!book) {
