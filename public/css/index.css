@@ -185,7 +185,7 @@ span {
 }
 
 /* tidak diskon */
-.products .card .box .price-real {
+.products .card .box .price{
     color: red;
     font-size: 20px;
     font-weight: bold;
@@ -199,7 +199,7 @@ span {
     font-weight: bold;
 }
 
-.products .card .box .price {
+.products .card .box .price-real {
     color: #4a4a4a;
     font-size: 15px;
     font-weight: lighter;
@@ -365,4 +365,10 @@ li:hover {
         border: 1rem solid rgb(67, 81, 93);
         display: block;
     }
+}
+
+.truncate-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
