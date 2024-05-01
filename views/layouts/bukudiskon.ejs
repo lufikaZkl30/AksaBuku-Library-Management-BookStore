@@ -1,16 +1,34 @@
 <div class="container-novel">
   <section class="sec">
       <div class="products">
+        <% 
+        function handleKategori(kategori){
+            const judulKategori = {
+                'novel': 'Buku Novel',
+                'inspirasi': 'Buku Inspirasi',
+                'sejarah': 'Buku Sejarah',
+                'komik': 'Buku Komik',
+                'resepmasakan': 'Buku Resep & Masakan',
+                'bisnisekonomi': 'Buku Bisnis & Ekonomi',
+                'bahasaasing': 'Buku Bahasa Asing',
+                'medis': 'Buku Medis'
+            };
+
+            return judulKategori[kategori] || 'Kategori Tidak Diketahui';
+        }
+        %>
         <% discountBooks.forEach(function(book) { %>
               <div class="card" onclick="showBookDetail('<%= book._id %>', '<%= book.kategori %>')">
                 <span class="discount">-<%= book.diskon %>%</span>
                   <div class="img"><img src="<%= book.imageUrl %>" alt="<%= book.judul %>"></div>
-                  <div class="desc" style="text-transform: capitalize">Buku <%= book.kategori %></div>
+                  <div class="desc" style="text-transform: capitalize">
+                    <%= handleKategori(book.kategori) %>
+                  </div>
                   <div class="title truncate-text"><%= book.judul %></div>
-                  <div class="penulis">Penulis: <%= book.author %></div>
+                  <div class="penulis truncate-text">Penulis: <%= book.author %></div>
                   <div class="box">
                       <div class="price-dis">
-                        <span class="price">Rp. <%= book.harga.toLocaleString('id-ID') %></span><br>
+                        <span class="price-real">Rp. <%= book.harga.toLocaleString('id-ID') %></span><br>
                         Rp. <%= (book.harga - (book.harga * book.diskon / 100)).toLocaleString('id-ID') %>
                       </div>
                       <button class="btn">Buy Now</button>

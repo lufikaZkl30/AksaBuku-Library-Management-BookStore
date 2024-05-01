@@ -26,7 +26,14 @@
                     </tr>
                     <tr>
                         <td>Harga:</td>
-                        <td>Rp <%= book.harga.toLocaleString('id-ID') %></td>
+                        <% if (book.promo === 'Enable') { %>
+                            <td class="price-dis">
+                                <span class="price-real">Rp. <%= book.harga.toLocaleString('id-ID') %></span><br>
+                                Rp. <%= (book.harga - (book.harga * book.diskon / 100)).toLocaleString('id-ID') %>
+                            </td>
+                        <% } else { %>
+                            <td>Rp <%= book.harga.toLocaleString('id-ID') %></td>
+                        <% } %>
                     </tr>
                     <tr>
                         <td>ISBN:</td>

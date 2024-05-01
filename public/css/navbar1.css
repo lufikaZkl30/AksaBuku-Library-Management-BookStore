@@ -57,7 +57,7 @@ header .icons a{
     display: inline-block;
 }
 
-.dropdown-content {
+.dropdown-content, .dropdown-user {
     display: none;
     position: absolute;
     margin-bottom: 60px;
@@ -65,20 +65,40 @@ header .icons a{
     min-width: 200px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    padding: 6px;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content, .dropdown:hover .dropdown-user {
     display: block;
 }
 
-.dropdown-content a {
-    padding: 10px 10px;
+.dropdown-content a{
+    padding: 8px 8px;
     text-decoration: none;
     display: block;
     font-size: 16px;
     color: #333;
+    border-bottom: 1px solid #a7a7a7;
 }
 
-.dropdown-content a:hover {
-  color: black;
+.dropdown-content a:hover, .dropdown-user a:hover {
+    color: black;
+}
+
+.dropdown .dropdown-user h2 {
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+}
+
+.dropdown .dropdown-user a {
+    font-size: 12px;
+}
+
+.dropdown .dropdown-user .profile-img{
+    width: 40px; 
+    height: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

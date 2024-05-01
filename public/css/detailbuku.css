@@ -117,3 +117,16 @@ table td:first-child {
 .btn:hover {
   background-color: #0056b3;
 }
+
+.price-dis {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.price-real {
+  color: #000000;
+  font-size: 15px;
+  font-weight: lighter;
+  text-decoration: line-through;
+}
