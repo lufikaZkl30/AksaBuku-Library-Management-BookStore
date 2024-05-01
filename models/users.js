@@ -17,9 +17,9 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  imageUrl: {
+  profileImage: {
     type: String,
-    required: false
+    default: 'public/assets/img/default-user-icon.jpg',
   },
   created:{
     type: Date,
@@ -29,7 +29,8 @@ const userSchema = new mongoose.Schema({
   role: { 
     type: String, 
     enum: ['user', 'admin'], 
-    default: 'user' }
+    default: 'user' 
+  }
 });
 
 module.exports = mongoose.model('Users', userSchema);
