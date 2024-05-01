@@ -166,6 +166,7 @@ span {
 .products .card .penulis{
     padding: 2px;
     margin-left: 20px;
+    margin-right: 20px;
     font-size: 12px;
 }
 
@@ -371,4 +372,9 @@ li:hover {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.price{
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

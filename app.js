@@ -53,9 +53,9 @@ db.once('open', ()=> console.log("Connected to MongoDB"));
 
 //MIDDLEWARE
 app.use(session({
-  secret: 'tempatrahasia',
+  secret: 'secret',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false
 }));
 
 app.use(passport.initialize());
@@ -89,11 +89,21 @@ app.use('/', usersRouter);
   app.get("/", async (req, res) => {
     try{
       const latestBooks = await Books.find().sort({ createdAt: 1 }).limit(3);
-      const discountBooks = await Books.find({ promo: "Enable" });
+      const discountBooks = await Books.aggregate([
+        {$match: {promo: "Enable"}},
+        {$sample: { size: 3 }}
+      ]);
       const popularBooks = await Books.aggregate([
         { $sample: { size: 3 } }
       ]);
-      res.render("index.ejs", {title: 'Beranda', books: latestBooks, popularBooks: popularBooks, discountBooks: discountBooks});
+      res.render("index.ejs", 
+      {
+        title: 'Beranda', 
+        books: latestBooks, 
+        popularBooks: popularBooks, 
+        discountBooks: discountBooks, 
+        user: req.user
+      });
     } catch (err) {
       console.error(err);
       res.status(500).send('Internal Server Error');
@@ -101,7 +111,7 @@ app.use('/', usersRouter);
   });
 
   /*Buku-Buku*/
-  function handleKategori(app, kategori){
+  function handleBuku(app, kategori){
     const judulKategori = {
         'novel': 'Buku Novel',
         'inspirasi': 'Buku Inspirasi',
@@ -116,7 +126,7 @@ app.use('/', usersRouter);
     app.get(`/${kategori}`, async (req, res) => {
       try {
           const books = await Books.find({ kategori: kategori });
-          res.render(`buku/${kategori}Page`, { books, title: judulKategori[kategori] });
+          res.render(`buku/${kategori}Page`, { books, title: judulKategori[kategori], user: req.user});
       } catch (err) {
           res.status(500).json({ message: err.message });
       }
@@ -128,28 +138,28 @@ app.use('/', usersRouter);
           if (!book || book.kategori.toLowerCase() !== kategori) {
               return res.status(404).json({ message: 'Buku tidak ditemukan.' });
           }
-          res.render('buku/detailBuku', { book, title: 'Detail Buku' });
+          res.render('buku/detailBuku', { book, title: 'Detail Buku', user: req.user});
       } catch (err) {
           res.status(500).json({ message: err.message });
       }
     });
   }
 
-  handleKategori(app, 'novel');
-  handleKategori(app, 'inspirasi');
-  handleKategori(app, 'sejarah');
-  handleKategori(app, 'komik');
-  handleKategori(app, 'resepmasakan');
-  handleKategori(app, 'bisnisekonomi');
-  handleKategori(app, 'bahasaasing');
-  handleKategori(app, 'medis');
+  handleBuku(app, 'novel');
+  handleBuku(app, 'inspirasi');
+  handleBuku(app, 'sejarah');
+  handleBuku(app, 'komik');
+  handleBuku(app, 'resepmasakan');
+  handleBuku(app, 'bisnisekonomi');
+  handleBuku(app, 'bahasaasing');
+  handleBuku(app, 'medis');
 
 
   /*Pinjam Buku*/
   app.get("/rentbook", async (req, res) => {
     try {
         const books = await Books.find({ rentbook: "Enable" });
-        res.render("rentbook.ejs", { books, title: "Peminjaman Buku" });
+        res.render("rentbook.ejs", { books, title: "Peminjaman Buku", user: req.user });
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -161,7 +171,7 @@ app.use('/', usersRouter);
         if (!book) {
             return res.status(404).json({ message: 'Buku tidak ditemukan.' });
         }
-        res.render('buku/detailBuku', { book, title: 'Detail Buku' });
+        res.render('buku/detailBuku', { book, title: 'Detail Buku', user: req.user});
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -173,7 +183,7 @@ app.use('/', usersRouter);
         if (!book) {
             return res.status(404).json({ message: 'Buku tidak ditemukan.' });
         }
-        res.render('readbook', { book, title: 'Baca Buku', pdfPath: book.pdfPath });
+        res.render('readbook', { book, title: 'Baca Buku', pdfPath: book.pdfPath, user: req.user });
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -182,31 +192,35 @@ app.use('/', usersRouter);
 
   /*Login & Sign Up*/
   app.get("/login", (req, res) => {
-    res.render("login.ejs", {title: 'Login'});
+    res.render("users/login.ejs", {title: 'Login', user: req.user});
   });
 
   app.get("/signup", (req, res) => {
-    res.render("signup.ejs", {title: 'Daftar'});
+    res.render("users/signup.ejs", {title: 'Daftar', user: req.user});
+  });
+
+  app.get("/logout", (req, res) => {
+    res.render("users/logout.ejs", {title: 'Logout', user: req.user});
   });
 
   /*Contact & Form*/
   app.get("/contact", (req, res) => {
-    res.render("contact.ejs", {title: 'Hubungi Kami', msgCode: messageCode});
+    res.render("contact.ejs", {title: 'Hubungi Kami', msgCode: messageCode, user: req.user});
   });
 
   app.get("/form", (req, res) => {
-    res.render("form.ejs", {title: 'Form Peminjaman'});
+    res.render("form.ejs", {title: 'Form Peminjaman', user: req.user});
   });
 
   /*Admin Page*/
   app.get("/admin/addbooks", (req, res) => {
-    res.render("admin/addbooks.ejs", {title: 'Tambah Buku'});
+    res.render("admin/addbooks.ejs", {title: 'Tambah Buku', user: req.user});
   });
 
   app.get('/admin/booklists', async (req, res) => {
     try {
       const books = await Books.find({});
-      res.render('admin/booklists.ejs', { title: 'Daftar Buku', books: books });
+      res.render('admin/booklists.ejs', { title: 'Daftar Buku', books: books, user: req.user});
     } catch (err) {
       res.status(500).json({ message: err.message });
     }
@@ -218,7 +232,7 @@ app.use('/', usersRouter);
       if (!book) {
         return res.status(404).json({ message: 'Buku tidak ditemukan' });
       }
-      res.render('admin/editbooks.ejs', { title: 'Edit Buku', book: book });
+      res.render('admin/editbooks.ejs', { title: 'Edit Buku', book: book, user: req.user });
     } catch (err) {
       res.status(500).json({ message: err.message });
     }
@@ -231,7 +245,7 @@ app.use('/', usersRouter);
         if (!book) {
             return res.status(404).json({ message: 'Book not found' });
         }
-        res.render('paymentPage', {title: 'Payment', book});
+        res.render('paymentPage', {title: 'Payment', book, user: req.user});
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -273,7 +287,7 @@ app.use('/', usersRouter);
       }  
         console.log('Message sent: %s' + info.messageId);
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-        res.render("contact.ejs", { title: 'Hubungi Kami'});
+        res.render("contact.ejs", { title: 'Hubungi Kami', user: req.user});
     });
 
     //Thank You Email

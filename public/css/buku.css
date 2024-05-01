@@ -102,13 +102,6 @@ span {
     padding: 20px;
 }
 
-.products .card .box .price {
-    color: red;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
 .products .card .box .btn{
     font-size: 13px;
     color: black;
@@ -116,6 +109,8 @@ span {
     font-weight: 900;
     border:1px solid black ;
     border-radius: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .products .card .box .btn:hover{
@@ -137,4 +132,28 @@ span {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.price{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.price-real {
+    color: #000000;
+    font-size: 15px;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+.discount {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    padding: .7rem 1rem;
+    font-size: 15px;
+    color: var(--white);
+    background-color: rgba(255, 0, 0, 0.492);
+    z-index: 1;
+    border-radius: 2rem;
+    font-weight: bolder;
 }

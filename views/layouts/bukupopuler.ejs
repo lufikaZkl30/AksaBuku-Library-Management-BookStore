@@ -1,13 +1,39 @@
 <div class="container-novel" id="section-1">
     <div class="products">
+        <% 
+        function handleKategori(kategori){
+            const judulKategori = {
+                'novel': 'Buku Novel',
+                'inspirasi': 'Buku Inspirasi',
+                'sejarah': 'Buku Sejarah',
+                'komik': 'Buku Komik',
+                'resepmasakan': 'Buku Resep & Masakan',
+                'bisnisekonomi': 'Buku Bisnis & Ekonomi',
+                'bahasaasing': 'Buku Bahasa Asing',
+                'medis': 'Buku Medis'
+            };
+
+            return judulKategori[kategori] || 'Kategori Tidak Diketahui';
+        }
+        %>
       <% popularBooks.forEach(function(book) { %>
             <div class="card" onclick="showBookDetail('<%= book._id %>', '<%= book.kategori %>')">
                 <div class="img"><img src="<%= book.imageUrl %>"></div>
-                <div class="desc" style="text-transform: capitalize">Buku <%= book.kategori %></div>
+                <div class="desc" style="text-transform: capitalize">
+                    <%= handleKategori(book.kategori) %>
+                </div>
                 <div class="title truncate-text"><%= book.judul %></div>
-                <div class="penulis">Penulis: <%= book.author %></div>
+                <div class="penulis truncate-text">Penulis: <%= book.author %></div>
                 <div class="box">
-                    <div class="price">Rp. <%= book.harga.toLocaleString('id-ID') %></div>
+                    <% if (book.promo === 'Enable') { %>
+                        <div class="price-dis">
+                            <span class="price-real">Rp. <%= book.harga.toLocaleString('id-ID') %></span><br>
+                            Rp. <%= (book.harga - (book.harga * book.diskon / 100)).toLocaleString('id-ID') %>
+                        </div>
+                    <% } else { %>
+                        <div class="price">Rp <%= book.harga.toLocaleString('id-ID') %>
+                        </div>
+                    <% } %>
                     <button class="btn">Buy Now</button>
                 </div>
             </div>

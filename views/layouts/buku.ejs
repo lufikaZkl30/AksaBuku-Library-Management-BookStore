@@ -4,12 +4,23 @@
         <div class="products">
             <% books.forEach(function(book) { %>
                 <div class="card" onclick="showBookDetail('<%= book._id %>')">
+                    <% if (book.promo === 'Enable') { %>
+                        <span class="discount">-<%= book.diskon %>%</span>
+                    <% } %>
                 <div class="img"><img src="<%= book.imageUrl %>"></div>
                 <div class="desc"><%= title %></div>
                 <div class="title truncate-text"><%= book.judul %></div>
-                <div class="penulis">Penulis: <%= book.author %></div>
+                <div class="penulis truncate-text">Penulis: <%= book.author %></div>
                 <div class="box">
-                    <div class="price">Rp. <%= book.harga.toLocaleString('id-ID') %></div>
+                    <% if (book.promo === 'Enable') { %>
+                        <div class="price-dis">
+                            <span class="price-real">Rp. <%= book.harga.toLocaleString('id-ID') %></span><br>
+                            Rp. <%= (book.harga - (book.harga * book.diskon / 100)).toLocaleString('id-ID') %>
+                        </div>
+                    <% } else { %>
+                        <div class="price">Rp <%= book.harga.toLocaleString('id-ID') %>
+                        </div>
+                    <% } %>
                     <button class="btn">Buy Now</button>
                 </div>
             </div>

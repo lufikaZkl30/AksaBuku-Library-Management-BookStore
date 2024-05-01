@@ -5,7 +5,7 @@ const passport = require("passport");
 
 const User = require("../../models/users");
 
-//sign up post
+//SIGN IN POST
 router.post("/signup", (req, res) => {
   const { name, uname, phone, email, password, password2 } = req.body;
   let errors = [];
@@ -71,7 +71,6 @@ router.post("/signup", (req, res) => {
         bcrypt.genSalt(10, (err, salt) =>
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
-            //Set password to hash
             newUser.password = hash;
 
             //Save user
@@ -89,20 +88,22 @@ router.post("/signup", (req, res) => {
   }
 });
 
-//Login Handle
+//LOGIN POST
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: "/index",
+    successRedirect: "/",
     failureRedirect: "/login",
     failureFlash: true,
   })(req, res, next);
 });
 
-//logout handle
+
+//LOGOUT
 router.get("/logout", (req, res) => {
-  req.logout();
-  req.flash("success_msg", "Anda berhasil Log out");
-  res.redirect("/login");
+  req.logout(function(err) {
+    req.flash("success_msg", "Anda berhasil Log out");
+    res.redirect("/");
+  })
 });
 
 module.exports = router;
