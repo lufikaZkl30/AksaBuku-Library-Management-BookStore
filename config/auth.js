@@ -1,9 +1,17 @@
+const express = require('express');
+const router = express.Router();
+
 module.exports = {
   ensureAuthenticated: function (req, res, next) {
-    if (req.isAuthenticated()) {
+  if (req.isAuthenticated()) {
       return next();
-    }
-    req.flash("error_msg", "harap login untuk melihat halaman ini");
-    res.redirect("/login");
-  },
-};
+  }
+  res.redirect('/login');
+},
+  isAdmin: function (req, res, next) {
+  if (req.isAuthenticated() && req.user.role === 'admin') {
+      return next();
+  }
+  res.redirect('/login');
+}
+}
