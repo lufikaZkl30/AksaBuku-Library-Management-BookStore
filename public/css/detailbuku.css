@@ -133,8 +133,13 @@ table td:first-child {
 }
 
 /* user Review */
+.container-rev {
+  margin-left: 10vh;
+  margin-bottom: 10vh;
+}
 
-
+.box-user {
+}
 
 
 
