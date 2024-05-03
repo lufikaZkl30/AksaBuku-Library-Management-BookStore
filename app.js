@@ -130,7 +130,7 @@ app.use('/cart', cartRouter);
     app.get(`/${kategori}`, async (req, res) => {
       try {
           const books = await Books.find({ kategori: kategori });
-          res.render(`buku/${kategori}Page`, { books, title: judulKategori[kategori], user: req.user});
+          res.render(`buku/${kategori}Page`, { books, title: judulKategori[kategori], kategori: judulKategori[kategori], user: req.user});
       } catch (err) {
           res.status(500).json({ message: err.message });
       }
@@ -147,6 +147,16 @@ app.use('/cart', cartRouter);
           res.status(500).json({ message: err.message });
       }
     });
+
+    /*Jelajah*/
+    app.get(`/jelajah`, async (req, res) => {
+      try {
+        const books = await Books.find();
+          res.render(`buku/jelajah`, { books, title: "Jelajah", user: req.user, kategori: judulKategori[kategori]});
+      } catch (err) {
+          res.status(500).json({ message: err.message });
+      }
+    });
   }
 
   handleBuku(app, 'novel');
@@ -157,7 +167,6 @@ app.use('/cart', cartRouter);
   handleBuku(app, 'bisnisekonomi');
   handleBuku(app, 'bahasaasing');
   handleBuku(app, 'medis');
-
 
   /*Pinjam Buku*/
   app.get("/rentbook", async (req, res) => {
