@@ -35,7 +35,7 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   font-size: 16px;
-  background: url(/assets/img/bg-detailbook.png);
+  background: url(/assets/img/bg-detailbook4.png);
 }
 
 .container {
@@ -131,3 +131,10 @@ table td:first-child {
   font-weight: lighter;
   text-decoration: line-through;
 }
+
+/* user Review */
+
+
+
+
+
