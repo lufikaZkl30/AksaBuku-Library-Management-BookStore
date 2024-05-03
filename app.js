@@ -82,6 +82,12 @@ const usersRouter = require('./routes/api/users');
 app.use('/', usersRouter);
 //----------------
 
+//ROUTER - USERS
+const Cart = require('./models/cartitem');
+const cartRouter = require('./routes/api/carts');
+app.use('/cart', cartRouter);
+//----------------
+
 //PAGES
   /*Index*/
   app.get("/", async (req, res) => {
@@ -200,6 +206,20 @@ app.use('/', usersRouter);
   app.get("/logout", (req, res) => {
     res.render("users/logout.ejs", {title: 'Logout', user: req.user});
   });
+
+  app.get('/keranjang', ensureAuthenticated, async (req, res) => {
+    try {
+      const cart = await Cart.findOne({ user: req.user.id }).populate('items.product');
+      if (!cart) {
+        return res.render('users/keranjang', { title: 'Keranjang Belanja', items: [] });
+      }
+      res.render('users/keranjang', { title: 'Keranjang Belanja', items: cart.items });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Terjadi kesalahan saat menampilkan keranjang' });
+    }
+  });
+  
 
   /*Contact & Form*/
   app.get("/contact", (req, res) => {

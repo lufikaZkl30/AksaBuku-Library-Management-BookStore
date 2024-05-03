@@ -63,6 +63,7 @@
                         <td><%= book.isbn %></td>
                     </tr>
                 </table>
+                <button class="btn" onclick="addCart('<%= book._id %>')" data-bookid="<%= book._id %>">Add To Cart</button>
                 <button class="btn" onclick="payment('<%= book._id %>')">Buy Now</button>
             </div>
         </div>
@@ -81,5 +82,27 @@
     <!-- Javascript -->
     <script src="../javascript/sinopsis.js"></script>
     <script src="../javascript/paymentpage.js"></script>
+    <!-- <script src="../javascript/keranjang.js"></script> -->
+    <script>
+        function addCart(productId) {
+            fetch('/cart/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ productId: productId }) // Change 'bookId' to 'productId'
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Buku berhasil ditambahkan ke keranjang.');
+                } else {
+                    console.error('Gagal menambahkan buku ke keranjang.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+          }          
+    </script>
 </body>
 </html>
