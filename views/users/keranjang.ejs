@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja</title>
+</head>
+<body>
+    <h1>Keranjang Belanja</h1>
+    <% if (items.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama Barang</th>
+                    <th>Harga Satuan</th>
+                    <th>Jumlah</th>
+                    <th>Total Harga</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% items.forEach(item => { %>
+                    <tr>
+                        <td><%= item.product.judul %></td>
+                        <td>Rp <%= item.harga.toLocaleString('id-ID') %></td>
+                        <td><%= item.jumlah %></td>
+                        <td>Rp <%= item.totalHarga.toLocaleString('id-ID') %></td>
+                        <td>
+                            <form action="/cart/update/<%= item._id %>" method="POST">
+                                <input type="number" name="jumlah" value="<%= item.jumlah %>">
+                                <button type="submit">Edit</button>
+                            </form>
+                            <form action="/cart/delete/<%= item._id %>" method="POST">
+                                <button type="submit">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>Keranjang belanja Anda kosong.</p>
+    <% } %>
+</body>
+</html>
