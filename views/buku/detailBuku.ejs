@@ -63,14 +63,13 @@
                         <td><%= book.isbn %></td>
                     </tr>
                 </table>
+                
                 <button class="btn" onclick="addCart('<%= book._id %>')" data-bookid="<%= book._id %>">Add To Cart</button>
                 <button class="btn" onclick="payment('<%= book._id %>')">Buy Now</button>
             </div>
         </div>
     </div>  
-
         
-   
     <!-- Footer -->
     <%- include('../layouts/footer.ejs') %>
 
