@@ -23,19 +23,19 @@ router.get('/view', ensureAuthenticated, async (req, res) => {
 router.post('/add', ensureAuthenticated, async (req, res) => {
   try {
     const { productId, quantity = 1 } = req.body;
-
-    // console.log('Product ID:', productId);
-    // console.log('Quantity:', quantity);
     
     const product = await Product.findById(productId);
     if (!product) {
       // console.log('Product not found:', productId);
       return res.status(404).json({ message: 'Buku tidak ditemukan' });
     }
+
+    const usedQuantity = quantity !== undefined ? quantity : 1;
+    const cart = await Cart.findOne({ user: req.user.id });
     
     // Total harga
     const harga = product.harga;
-    const totalHarga = harga * quantity;
+    const totalHarga = harga * usedQuantity;
 
     if (isNaN(totalHarga)) {
       // console.log('Invalid total harga:', totalHarga);
@@ -44,25 +44,42 @@ router.post('/add', ensureAuthenticated, async (req, res) => {
     
     const newItem = {
       product: productId,
-      quantity: quantity,
+      quantity: usedQuantity,
       harga: product.harga,
       totalHarga: totalHarga
     };
 
-    const cart = await Cart.findOne({ user: req.user.id });
-
     if (!cart) {
       const newCart = new Cart({
         user: req.user.id,
-        items: [newItem],
-        totalItems: quantity,
-        totalHarga
+        items: [{
+          product: productId,
+          quantity: usedQuantity,
+          harga: product.harga,
+          totalHarga: product.harga * usedQuantity
+        }],
+        totalItems: usedQuantity,
+        totalHarga: product.harga * usedQuantity
       });
       await newCart.save();
     } else {
-      cart.items.push(newItem);
-      cart.totalItems += quantity;
-      cart.totalHarga += totalHarga;
+      let itemIndex = cart.items.findIndex(item => item.product.toString() === productId);
+
+      if (itemIndex !== -1) {
+        cart.items[itemIndex].quantity += usedQuantity;
+        cart.items[itemIndex].totalHarga += product.harga * usedQuantity;
+      } else {
+        cart.items.push({
+          product: productId,
+          quantity: usedQuantity,
+          harga: product.harga,
+          totalHarga: product.harga * usedQuantity
+        });
+      }
+
+      cart.totalItems += usedQuantity;
+      cart.totalHarga += product.harga * usedQuantity;
+
       await cart.save();
     }
 
@@ -77,7 +94,7 @@ router.post('/add', ensureAuthenticated, async (req, res) => {
 router.post('/update/:itemId', ensureAuthenticated, async (req, res) => {
   try {
     const itemId = req.params.itemId;
-    const { quantity } = req.body;
+    const { operation } = req.body;
 
     const cart = await Cart.findOne({ user: req.user.id });
     if (!cart) {
@@ -89,23 +106,29 @@ router.post('/update/:itemId', ensureAuthenticated, async (req, res) => {
       return res.status(404).json({ message: 'Item tidak ditemukan di keranjang' });
     }
 
-    if (quantity <= 0) {
-      cart.items = cart.items.filter(item => item._id != itemId);
+    if (operation === 'increase') {
+      item.quantity += 1;
+      item.totalHarga = item.harga * item.quantity;
+    } else if (operation === 'decrease') {
+      const newQuantity = item.quantity - 1;
+      if (newQuantity <= 0) {
+        return res.status(400).json({ message: 'Quantity tidak dapat kurang dari 1' });
+      }
+      item.quantity = newQuantity;
+      item.totalHarga = item.harga * newQuantity;
     } else {
-      item.quantity = quantity;
-      item.totalHarga = item.harga * quantity;
+      return res.status(400).json({ message: 'Operasi tidak valid' });
     }
 
-    // Update totalItems and totalHarga
     cart.totalItems = cart.items.reduce((total, item) => total + item.quantity, 0);
     cart.totalHarga = cart.items.reduce((total, item) => total + item.totalHarga, 0);
 
     await cart.save();
 
-    res.status(200).json({ message: 'Jumlah item berhasil diubah' });
+    res.status(200).json({ message: 'Quantity item berhasil diubah' });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: 'Terjadi kesalahan saat mengubah jumlah item' });
+    res.status(500).json({ message: 'Terjadi kesalahan saat mengubah quantity item' });
   }
 });
 

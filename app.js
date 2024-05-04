@@ -82,10 +82,14 @@ const usersRouter = require('./routes/api/users');
 app.use('/', usersRouter);
 //----------------
 
-//ROUTER - USERS
+//ROUTER - CARTS
 const Cart = require('./models/cartitem');
 const cartRouter = require('./routes/api/carts');
 app.use('/cart', cartRouter);
+//----------------
+
+//ROUTER - FEATURE (FIND, SORT, SEARCH)
+const featureRouter = require('./routes/feature');
 //----------------
 
 //PAGES
@@ -130,7 +134,7 @@ app.use('/cart', cartRouter);
     app.get(`/${kategori}`, async (req, res) => {
       try {
           const books = await Books.find({ kategori: kategori });
-          res.render(`buku/${kategori}Page`, { books, title: judulKategori[kategori], user: req.user});
+          res.render(`buku/${kategori}Page`, { books, title: judulKategori[kategori], kategori: judulKategori[kategori], user: req.user});
       } catch (err) {
           res.status(500).json({ message: err.message });
       }
@@ -147,7 +151,33 @@ app.use('/cart', cartRouter);
           res.status(500).json({ message: err.message });
       }
     });
-  }
+
+    /*Jelajah*/
+    app.get(`/jelajah`, async (req, res) => {
+      try {
+        const { keyword, sortBy, promo } = req.query;
+        let books;
+
+        if (keyword) {
+          books = await featureRouter.searchBooks(keyword);
+          if (sortBy) {
+            books = await featureRouter.sortBooks(books, sortBy);
+          }
+        } else {
+          books = await featureRouter.sortBooks(null, sortBy);
+        }
+
+        if (promo === 'enable') {
+          const filteredBooks = await featureRouter.filterBooks(books);
+          books = filteredBooks;
+        }
+
+        res.render(`buku/jelajah`, { books, title: "Jelajah", user: req.user, kategori: judulKategori[kategori] });
+      } catch (err) {
+        res.status(500).json({ message: err.message });
+      }
+  });
+}
 
   handleBuku(app, 'novel');
   handleBuku(app, 'inspirasi');
@@ -157,7 +187,6 @@ app.use('/cart', cartRouter);
   handleBuku(app, 'bisnisekonomi');
   handleBuku(app, 'bahasaasing');
   handleBuku(app, 'medis');
-
 
   /*Pinjam Buku*/
   app.get("/rentbook", async (req, res) => {
