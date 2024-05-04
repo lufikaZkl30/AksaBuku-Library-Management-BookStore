@@ -19,7 +19,7 @@ const sortBooks = async (sortBy, books) => {
   } else if (sortBy === 'descPrice') {
     sortQuery = { harga: -1 };
   }
-  const results = books ? books.sort(sortQuery) : await Books.find().sort(sortQuery);
+  const results = await Books.find().sort(sortQuery);
   return results;
 };
 

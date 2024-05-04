@@ -160,16 +160,16 @@ const featureRouter = require('./routes/feature');
 
         if (keyword) {
           books = await featureRouter.searchBooks(keyword);
-          if (sortBy) {
-            books = await featureRouter.sortBooks(books, sortBy);
-          }
         } else {
-          books = await featureRouter.sortBooks(null, sortBy);
+          books = await Books.find();
+        }
+
+        if (sortBy) {
+          books = await featureRouter.sortBooks(sortBy, books);
         }
 
         if (promo === 'enable') {
-          const filteredBooks = await featureRouter.filterBooks(books);
-          books = filteredBooks;
+          books = await featureRouter.filterBooks();
         }
 
         res.render(`buku/jelajah`, { books, title: "Jelajah", user: req.user, kategori: judulKategori[kategori] });

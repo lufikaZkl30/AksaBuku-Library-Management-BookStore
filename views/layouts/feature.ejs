@@ -1,17 +1,42 @@
-<div class="fiturbox">
-  <form action="/jelajah" method="GET">
+<div class="fiturbox" style="display: flex">
+  <form action="/jelajah" method="GET" style="margin-right: 50px;">
     <input type="text" name="keyword" placeholder="Cari judul atau author...">
     <button type="submit">Cari</button>
   </form>
 
-  <form action="/jelajah" method="GET">
-    <select name="sortBy" id="sortBy">
-      <option value="">Tidak disortir</option>
+  <form action="/jelajah" method="GET" id="sortForm" style="margin-right: 50px;">
+    <select name="sortBy" id="sortBy" >
+      <option value="">No sorting</option>
       <option value="ascJudul">Judul (A-Z)</option>
       <option value="descJudul">Judul (Z-A)</option>
-      <option value="ascPrice">Harga Tertinggi</option>
-      <option value="descPrice">Harga Terendah</option>
+      <option value="ascPrice">Harga Terendah</option>
+      <option value="descPrice">Harga Tertinggi</option>
     </select>
-    <button type="submit">Terapkan</button>
+    <button type="submit">Sortir</button>
+  </form>
+
+  <form action="/jelajah" method="GET">
+    <select name="promo" id="promo">
+      <option value="">All</option>
+      <option value="enable">Promo</option>
+    </select>
+    <button type="submit">Filter</button>
   </form>
 </div>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const sortBy = urlParams.get('sortBy');
+  const promo = urlParams.get('promo');
+
+  const selectSortBy = document.getElementById('sortBy');
+  const selectPromo = document.getElementById('promo');
+
+  if (sortBy) {
+    selectSortBy.value = sortBy;
+  }
+
+  if(promo) {
+    selectPromo.value = promo;
+  }
+</script>
