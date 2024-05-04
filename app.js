@@ -82,10 +82,14 @@ const usersRouter = require('./routes/api/users');
 app.use('/', usersRouter);
 //----------------
 
-//ROUTER - USERS
+//ROUTER - CARTS
 const Cart = require('./models/cartitem');
 const cartRouter = require('./routes/api/carts');
 app.use('/cart', cartRouter);
+//----------------
+
+//ROUTER - FEATURE (FIND, SORT, SEARCH)
+const featureRouter = require('./routes/feature');
 //----------------
 
 //PAGES
@@ -151,13 +155,29 @@ app.use('/cart', cartRouter);
     /*Jelajah*/
     app.get(`/jelajah`, async (req, res) => {
       try {
-        const books = await Books.find();
-          res.render(`buku/jelajah`, { books, title: "Jelajah", user: req.user, kategori: judulKategori[kategori]});
+        const { keyword, sortBy, promo } = req.query;
+        let books;
+
+        if (keyword) {
+          books = await featureRouter.searchBooks(keyword);
+          if (sortBy) {
+            books = await featureRouter.sortBooks(books, sortBy);
+          }
+        } else {
+          books = await featureRouter.sortBooks(null, sortBy);
+        }
+
+        if (promo === 'enable') {
+          const filteredBooks = await featureRouter.filterBooks(books);
+          books = filteredBooks;
+        }
+
+        res.render(`buku/jelajah`, { books, title: "Jelajah", user: req.user, kategori: judulKategori[kategori] });
       } catch (err) {
-          res.status(500).json({ message: err.message });
+        res.status(500).json({ message: err.message });
       }
-    });
-  }
+  });
+}
 
   handleBuku(app, 'novel');
   handleBuku(app, 'inspirasi');

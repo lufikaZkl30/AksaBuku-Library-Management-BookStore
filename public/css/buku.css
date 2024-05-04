@@ -14,52 +14,48 @@
     font-family: biasa;
     src: url(/assets/font/Hello\ Mickeys.ttf);
 }
-  
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}  
+
 
 body{
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-}
-
-.container-novel   {
-    padding: 10px;
-    font-size: 20px;
     background: url(/assets/img/bg-book.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+.container-book   {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.sec {
+    padding: 10px 5%;
+}
+
+.fiturbox{
+    padding-top: 100px;
+}
+
 /* judul */
 .pheading {
     text-align: center;
-    margin: 50px 0;
     color: black;
     font-family:barett;
-}
-
-/* produk */
-.sec {
-    padding: 10px 5%;
-    margin-top: 10vh;
+    margin: 50px 0px;
 }
 
 span {
     color: rgb(155, 61, 61);
 }
 
+/* Bagian produk */
 .products{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -74,10 +70,23 @@ span {
     padding: 5px;
     margin-bottom: 20px;
 }
-.products .card .penulis{
-    padding: 2px;
-    margin-left: 20px;
+
+.card:hover{
+    cursor: pointer;
 }
+
+.discount {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    padding: .7rem 1rem;
+    font-size: 15px;
+    color: var(--white);
+    background-color: rgba(255, 0, 0, 0.492);
+    z-index: 1;
+    border-radius: 2rem;
+    font-weight: bolder;
+}
+
 .products .card img {
     height: 250px;
     width: 100%;
@@ -95,6 +104,29 @@ span {
     padding: 0 20px;
 }
 
+.products .card .penulis{
+    padding: 2px;
+    margin-left: 20px;
+}
+
+.title:hover, .penulis:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.price{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.price-real {
+    color: #000000;
+    font-size: 15px;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+/* Harga dan Button */
 .products .card .box {
     display: flex;
     justify-content: space-between;
@@ -119,41 +151,8 @@ span {
     color: white;
 }
 
-.card:hover{
-    cursor: pointer;
-}
-
-.title:hover, .penulis:hover{
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 .truncate-text {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
-
-.price{
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.price-real {
-    color: #000000;
-    font-size: 15px;
-    font-weight: lighter;
-    text-decoration: line-through;
-}
-
-.discount {
-    position: absolute;
-    top: 1rem; left: 1rem;
-    padding: .7rem 1rem;
-    font-size: 15px;
-    color: var(--white);
-    background-color: rgba(255, 0, 0, 0.492);
-    z-index: 1;
-    border-radius: 2rem;
-    font-weight: bolder;
 }
