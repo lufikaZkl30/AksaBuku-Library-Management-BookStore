@@ -143,40 +143,19 @@ const featureRouter = require('./routes/feature');
     app.get(`/${kategori}/:id`, async (req, res) => {
       try {
           const book = await Books.findById(req.params.id);
+          
           if (!book || book.kategori.toLowerCase() !== kategori) {
               return res.status(404).json({ message: 'Buku tidak ditemukan.' });
           }
-          res.render('buku/detailBuku', { book, title: 'Detail Buku', user: req.user});
+          res.render('buku/detailBuku', { 
+            book, 
+            title: 'Detail Buku', 
+            user: req.user
+          });
       } catch (err) {
           res.status(500).json({ message: err.message });
       }
     });
-
-    /*Jelajah*/
-    app.get(`/jelajah`, async (req, res) => {
-      try {
-        const { keyword, sortBy, promo } = req.query;
-        let books;
-
-        if (keyword) {
-          books = await featureRouter.searchBooks(keyword);
-          if (sortBy) {
-            books = await featureRouter.sortBooks(books, sortBy);
-          }
-        } else {
-          books = await featureRouter.sortBooks(null, sortBy);
-        }
-
-        if (promo === 'enable') {
-          const filteredBooks = await featureRouter.filterBooks(books);
-          books = filteredBooks;
-        }
-
-        res.render(`buku/jelajah`, { books, title: "Jelajah", user: req.user, kategori: judulKategori[kategori] });
-      } catch (err) {
-        res.status(500).json({ message: err.message });
-      }
-  });
 }
 
   handleBuku(app, 'novel');
@@ -187,6 +166,34 @@ const featureRouter = require('./routes/feature');
   handleBuku(app, 'bisnisekonomi');
   handleBuku(app, 'bahasaasing');
   handleBuku(app, 'medis');
+
+  /*Jelajah*/
+  app.get(`/jelajah`, async (req, res) => {
+    try {
+      const { keyword, sortBy, promo } = req.query;
+      let books;
+
+      if (keyword) {
+        books = await featureRouter.searchBooks(keyword);
+      } else {
+        books = await Books.find();
+      }
+
+      if (sortBy) {
+        books = await featureRouter.sortBooks(sortBy, books);
+      }
+
+      if (promo === 'enable') {
+        books = await featureRouter.filterBooks();
+      }
+      res.render(`buku/jelajah`, { 
+        books, title: "Jelajah", 
+        user: req.user
+      });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
 
   /*Pinjam Buku*/
   app.get("/rentbook", async (req, res) => {
@@ -204,7 +211,11 @@ const featureRouter = require('./routes/feature');
         if (!book) {
             return res.status(404).json({ message: 'Buku tidak ditemukan.' });
         }
-        res.render('buku/detailBuku', { book, title: 'Detail Buku', user: req.user});
+        res.render('buku/detailBuku', { 
+          book, 
+          title: 'Detail Buku', 
+          user: req.user
+        });
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -221,7 +232,7 @@ const featureRouter = require('./routes/feature');
         res.status(500).json({ message: err.message });
     }
   });
-
+  
 
   /*Login & Sign Up*/
   app.get("/login", (req, res) => {
@@ -247,6 +258,10 @@ const featureRouter = require('./routes/feature');
       console.error(err);
       res.status(500).json({ message: 'Terjadi kesalahan saat menampilkan keranjang' });
     }
+  });  
+
+  app.get('/profil', ensureAuthenticated, async (req, res) => {
+    res.render('users/profil', { title: 'Profil', user: req.user });
   });  
 
   /*Contact & Form*/
