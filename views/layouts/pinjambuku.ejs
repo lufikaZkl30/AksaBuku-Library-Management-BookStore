@@ -3,7 +3,7 @@
       <h1 class="pheading"><%= title %></h1>
       <div class="products">
         <% books.forEach(function(book) { %>
-          <div class="card" onclick="showBookDetail('<%= book._id %>')">
+          <div class="card" onclick="showBookDetail('<%= book._id %>','<%= book.kategori %>')">
             <div class="img"><img src="<%= book.imageUrl %>"></div>
             <div class="desc"><%= title %></div>
             <div class="title truncate-text"><%= book.judul %></div>

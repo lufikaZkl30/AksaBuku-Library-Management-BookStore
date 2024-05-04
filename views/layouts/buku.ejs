@@ -1,14 +1,15 @@
-<div class="container-novel">
+<div class="container-book">
+    <%- include ('feature.ejs')  %>
     <section class="sec">
         <h1 class="pheading"><%= title %></h1>
         <div class="products">
             <% books.forEach(function(book) { %>
-                <div class="card" onclick="showBookDetail('<%= book._id %>')">
+                <div class="card" onclick="showBookDetail('<%= book._id %>','<%= book.kategori %>')">
                     <% if (book.promo === 'Enable') { %>
                         <span class="discount">-<%= book.diskon %>%</span>
                     <% } %>
                 <div class="img"><img src="<%= book.imageUrl %>"></div>
-                <div class="desc"><%= title %></div>
+                <div class="desc"><%= kategori %></div>
                 <div class="title truncate-text"><%= book.judul %></div>
                 <div class="penulis truncate-text">Penulis: <%= book.author %></div>
                 <div class="box">

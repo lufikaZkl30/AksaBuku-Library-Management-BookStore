@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keranjang Belanja</title>
+    <%- include('../layouts/header.ejs') %>
 </head>
 <body>
+    <a href="/">Back</a>
+    <a href="/jelajah">Tambah Item</a>
     <h1>Keranjang Belanja</h1>
     <% if (items.length > 0) { %>
         <table>
@@ -23,13 +23,14 @@
                     <tr>
                         <td><%= item.product.judul %></td>
                         <td>Rp <%= item.harga.toLocaleString('id-ID') %></td>
-                        <td><%= item.jumlah %></td>
+                        <td><%= item.quantity %></td>
                         <td>Rp <%= item.totalHarga.toLocaleString('id-ID') %></td>
                         <td>
-                            <form action="/cart/update/<%= item._id %>" method="POST">
-                                <input type="number" name="jumlah" value="<%= item.jumlah %>">
-                                <button type="submit">Edit</button>
-                            </form>
+                            <div class="quantity-set">
+                                <button class="quantity-btn minus" data-item-id="<%= item._id %>">-</button>
+                                <input type="number" name="quantity" class="quantity-input" value="<%= item.quantity %>" min="1">
+                                <button class="quantity-btn plus" data-item-id="<%= item._id %>">+</button>
+                            </div>
                             <form action="/cart/delete/<%= item._id %>" method="POST">
                                 <button type="submit">Hapus</button>
                             </form>
@@ -41,5 +42,33 @@
     <% } else { %>
         <p>Keranjang belanja Anda kosong.</p>
     <% } %>
+
+    <script>
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+            button.addEventListener('click', async (e) => {
+            const itemId = e.target.dataset.itemId;
+            const operation = e.target.classList.contains('plus') ? 'increase' : 'decrease';
+        
+            try {
+                const response = await fetch(`/cart/update/${itemId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ operation })
+                });
+        
+                const data = await response.json();
+                if (response.ok) {
+                location.reload();
+                } else {
+                alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            });
+        });
+    </script>
 </body>
 </html>
