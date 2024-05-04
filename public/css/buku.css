@@ -30,6 +30,22 @@ body{
     list-style: none;
 }
 
+/* pencarian */
+.fiturbox {
+    padding-top: 10vh;
+    justify-content: center;
+}
+
+input {
+    padding: 5px;
+    border-radius: 10px;
+}
+
+select {
+    padding: 5px;
+    border-radius: 10px;
+}
+
 .container-book   {
     padding: 10px;
     font-size: 20px;
