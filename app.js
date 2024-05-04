@@ -249,6 +249,10 @@ const featureRouter = require('./routes/feature');
     }
   });  
 
+  app.get('/profil', ensureAuthenticated, async (req, res) => {
+    res.render('users/profil', { title: 'Profil', user: req.user });
+  });  
+
   /*Contact & Form*/
   app.get("/contact", (req, res) => {
     res.render("contact.ejs", {title: 'Hubungi Kami', msgCode: messageCode, user: req.user});
