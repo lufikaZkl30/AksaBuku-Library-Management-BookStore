@@ -218,8 +218,7 @@ app.use('/cart', cartRouter);
       console.error(err);
       res.status(500).json({ message: 'Terjadi kesalahan saat menampilkan keranjang' });
     }
-  });
-  
+  });  
 
   /*Contact & Form*/
   app.get("/contact", (req, res) => {
