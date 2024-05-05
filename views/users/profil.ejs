@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <%- include('../layouts/header.ejs') %>
+    
+
     <link rel="stylesheet" href="/css/profil.css">
 </head>
 
 <body>
-    <!-- awalah -->
+    <!-- akun settings -->
     <div class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-3 mb-4">
             Account settings
@@ -93,7 +95,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Birthday</label>
-                                    <input type="text" class="form-control" value="May 3, 1995">
+                                    <input type="date" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Country</label>
@@ -103,6 +105,8 @@
                                         <option>UK</option>
                                         <option>Germany</option>
                                         <option>France</option>
+                                        <option>Indonesia</option>
+                                        <option>Jepang</option>
                                     </select>
                                 </div>
                             </div>
@@ -131,10 +135,6 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Google+</label>
-                                    <input type="text" class="form-control" value>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">LinkedIn</label>
                                     <input type="text" class="form-control" value>
                                 </div>
                                 <div class="form-group">
@@ -249,5 +249,9 @@
             <button type="button" class="btn btn-default">Cancel</button>
         </div>
     </div>
+
+    <!-- khusus fungsi profil -->
+    <%- include('../layouts/scriptProfil.ejs') %>
+
 </body >
 </html >

@@ -61,6 +61,20 @@ label.btn {
     opacity   : 0;
 }
 
+h4 {
+    font-size: 30px;
+}
+
+a {
+    font-size: 20px;
+}
+
+label {
+    font-size: 20px;
+}
+
+
+/* tulisan General */
 .account-settings-links .list-group-item.active {
     font-weight: bold !important;
 }
