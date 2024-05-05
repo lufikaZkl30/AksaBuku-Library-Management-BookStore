@@ -1,0 +1,65 @@
+@font-face {
+    font-family: barett;
+    src: url(/assets/font/Barett\ Street.ttf);
+}
+
+/* font navbar */
+@font-face {
+    font-family: peanut ;
+    src: url(/assets/font/Peanut\ Butter.ttf);
+}
+
+/* font text biasa */
+@font-face {
+    font-family: biasa;
+    src: url(/assets/font/Hello\ Mickeys.ttf);
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-image: url();
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+h1 {
+    margin-top: 10vh;
+    text-align: center;
+    font-family: peanut;
+    font-size: 30px;
+}
+
+.purchase {
+    display: flex;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-family: biasa;
+}
+
+.purchase-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.purchase-info p {
+    margin: 5px 0;
+}
+
+.purchase-image {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.purchase-image img {
+    max-width: 100%;
+    height: auto;
+}
