@@ -49,6 +49,17 @@ body{
     font-family: biasa;
 }
 
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
 .btn-back-tambah .left{
     position: absolute;
     margin-top: 10vh;
@@ -101,8 +112,6 @@ body{
     width: 50px;
 }
 
-
-
 .btn-hapus {
     padding: 2px;
     border-radius: 10px;
@@ -147,21 +156,4 @@ th, td {
 th {
     background-color: #f2f2f2;
     text-align: center;
-}
-
-.icon {
-    cursor: pointer;
-}
-
-.edit-icon {
-    color: green;
-}
-
-.delete-icon {
-    color: red;
-    margin-left: 50px;
-}
-
-.edit-icon:hover, .delete-icon:hover {
-    opacity: 0.7;
 }
