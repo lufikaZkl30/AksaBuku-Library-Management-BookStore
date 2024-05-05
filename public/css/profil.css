@@ -1,3 +1,21 @@
+@font-face {
+    font-family: barett;
+    src: url(/assets/font/Barett\ Street.ttf);
+}
+
+/* font navbar */
+@font-face {
+    font-family: peanut ;
+    src: url(/assets/font/Peanut\ Butter.ttf);
+}
+
+/* font text biasa */
+@font-face {
+    font-family: biasa;
+    src: url(/assets/font/Hello\ Mickeys.ttf);
+}
+
+
 body {
     background: #f5f5f5;
     margin-top: 20px;
@@ -47,6 +65,7 @@ label.btn {
 .card {
     background-clip: padding-box;
     box-shadow     : 0 1px 4px rgba(24, 28, 33, 0.012);
+    font-family: biasa;
 }
 
 .row-bordered {
@@ -61,8 +80,10 @@ label.btn {
     opacity   : 0;
 }
 
+/* desain ukuran  */
 h4 {
     font-size: 30px;
+    font-family: peanut;
 }
 
 a {
@@ -73,11 +94,23 @@ label {
     font-size: 20px;
 }
 
+.form-control {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 17px;
+    height: 30px;
+}
+
+.fotm-label {
+}
+
+
 
 /* tulisan General */
 .account-settings-links .list-group-item.active {
     font-weight: bold !important;
 }
+/* end tulisan General */
 
 html:not(.dark-style) .account-settings-links .list-group-item.active {
     background: transparent !important;
