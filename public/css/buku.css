@@ -17,9 +17,7 @@
 
 
 body{
-    background: url(/assets/img/bg-book.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: linear-gradient(90deg, rgb(255, 255, 255) 60%, #524331 40.1%);
 }
 
 *{
