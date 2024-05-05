@@ -211,22 +211,6 @@ const featureRouter = require('./routes/feature');
     }
   });
 
-  app.get('/rentbook/:id', async (req, res) => {
-    try {
-        const book = await Books.findById(req.params.id);
-        if (!book) {
-            return res.status(404).json({ message: 'Buku tidak ditemukan.' });
-        }
-        res.render('buku/detailBuku', { 
-          book, 
-          title: 'Detail Buku', 
-          user: req.user
-        });
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
-  });
-
   app.get('/readbook/:id', async (req, res) => {
     try {
         const book = await Books.findById(req.params.id);
@@ -253,20 +237,7 @@ const featureRouter = require('./routes/feature');
     res.render("users/logout.ejs", {title: 'Logout', user: req.user});
   });
 
-  app.get('/keranjang', ensureAuthenticated, async (req, res) => {
-    try {
-      const cart = await Cart.findOne({ user: req.user.id }).populate('items.product');
-      if (!cart) {
-        return res.render('users/keranjang', { title: 'Keranjang Belanja', items: [] });
-      }
-      res.render('users/keranjang', { title: 'Keranjang Belanja', items: cart.items });
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: 'Terjadi kesalahan saat menampilkan keranjang' });
-    }
-  }); 
-  
-  
+  /* Users */
   app.get('/profil', ensureAuthenticated, (req, res) => {
     Profil.findOne({ user: req.user.id }).then(profil => {
         res.render('users/viewprofil.ejs', {
@@ -286,25 +257,35 @@ const featureRouter = require('./routes/feature');
         })
       })
   })
-
-  app.get('/admin/userlists', isAdmin, async (req, res) => {
+  app.get('/keranjang', ensureAuthenticated, async (req, res) => {
     try {
-      const users = await Users.find();
-
-      res.render('admin/userlists', { title: "Daftar User", users, user: req.user });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Internal Server Error');
+      const cart = await Cart.findOne({ user: req.user.id }).populate('items.product');
+      if (!cart) {
+        return res.render('users/keranjang', { title: 'Keranjang Belanja', items: [] });
+      }
+      res.render('users/keranjang', { title: 'Keranjang Belanja', items: cart.items });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Terjadi kesalahan saat menampilkan keranjang' });
     }
-  })
-
+  }); 
+  
   /*Contact & Form*/
   app.get("/contact", (req, res) => {
     res.render("contact.ejs", {title: 'Hubungi Kami', msgCode: messageCode, user: req.user});
   });
 
-  app.get("/form", (req, res) => {
-    res.render("form.ejs", {title: 'Form Peminjaman', user: req.user});
+  app.get('/form/:id', async (req, res) => {
+    try {
+      const books = await Books.findById(req.params.id);
+      const users = await Users.find();
+      if (!book) {
+          return res.status(404).json({ message: 'Buku tidak ditemukan.' });
+      }
+      res.render('form.ejs', { books, users, title: 'Baca Buku', user: req.user });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
   });
 
   /*Admin Page*/
@@ -332,6 +313,17 @@ const featureRouter = require('./routes/feature');
       res.status(500).json({ message: err.message });
     }
   });
+
+  app.get('/admin/userlists', isAdmin, async (req, res) => {
+    try {
+      const users = await Users.find();
+
+      res.render('admin/userlists', { title: "Daftar User", users, user: req.user });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+  })
 
   /*Payment*/
   app.get('/payment/:id', async (req, res) => {
