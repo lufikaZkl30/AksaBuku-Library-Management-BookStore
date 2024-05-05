@@ -3,6 +3,32 @@
       <a href="/" class="logo">Aksa Buku</a>
       <a href="/admin/booklists" class="isi">Book List</a>
       <a href="/admin/addbooks" class="isi">Add Book</a>
+      <a href="/admin/userlists" class="isi">User List</a>
+
+      <div class="icons">
+        <a href="/keranjang" class='bx bxs-shopping-bags'></a>
+        <li class="dropdown">
+            <% if (!user) { %>
+                <a href="/login" class='bx bxs-user'></a>
+            <% } else { %>
+                <a>
+                    <img src= "../assets/img/default-user-icon.jpg"  
+                    class="profile-img rounded-circle" style="width: 30px; height: 30px;">
+                </a>
+                <div class="dropdown-user">
+                    <h2>@<%= user.uname %></h2>
+                    <hr>
+                    <a href="/profil">Profil</a>
+                    <hr>
+                    <a href="/">Riwayat Pembelian</a>
+                    <hr>
+                    <a href="/">Riwayat Peminjaman</a>
+                    <hr>
+                    <a href="/logout">Logout</a>
+                </div>
+            <% } %>
+        </li>
+    </div>
       <link rel="stylesheet" href="/public/css/add.css">
   </nav>
 </header>

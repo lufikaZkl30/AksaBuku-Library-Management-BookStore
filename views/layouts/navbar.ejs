@@ -16,7 +16,7 @@
             </div>
         </li>
         <a href="/contact" class="isi">Hubungi Kami</a>
-        <a href="/form" class="isi">Peminjaman</a>
+        <a href="/rentbook" class="isi">Peminjaman</a>
 
         <div class="icons">
             <a href="/keranjang" class='bx bxs-shopping-bags'></a>
@@ -25,12 +25,12 @@
                     <a href="/login" class='bx bxs-user'></a>
                 <% } else { %>
                     <a>
-                        <img src= <%= user.profileImage %> alt = <%= user.username %>  
+                        <img src= <%= user.profileImage %>  
                         class="profile-img rounded-circle" style="width: 30px; height: 30px;">
                     </a>
                     <div class="dropdown-user">
-                        <h2>@<%= user.username %></h2>
-                        <img src= <%= user.profileImage %> alt =<%= user.username %> 
+                        <h2>@<%= user.uname %></h2>
+                        <img src= <%= user.profileImage %> 
                         class="profile-img rounded-circle">
                         <hr>
                         <a href="/profil">Profil</a>

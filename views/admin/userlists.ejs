@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../layouts/header.ejs') %>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <%- include('adminnavbar.ejs') %>
+    <h2>User List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(function(user){ %>
+                <tr>
+                    <td><%= user.uname %></td>
+                    <td><%= user.name %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.role %></td>
+                    <td>
+                        <form action = '/profile/<%= user._id %>' method="POST">
+                            <select name="role" value= <%= user.role %>>
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+                            </select>
+                            <button type="submit">Edit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <span class="delete-icon icon" onclick="deleteUser('<%= user._id %>')"><i class="fas fa-times"></i></span>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <script>
+        function deleteUser(id) {
+            if (confirm('Yakin ingin menghapus user ini?')) {
+                fetch('/profile/' + id, {
+                    method: 'DELETE'
+            })
+            .then(response => {
+                if (response.status === 404) {
+                throw new Error('User tidak ditemukan.');
+                } else if (!response.ok) {
+                throw new Error('Gagal menghapus user.');
+                }
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error('Error deleting book:', error.message);
+                alert(error.message);
+            });
+            }
+        }
+    </script>
+    </body>
+    <link rel="stylesheet" href="../css/userlists.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</html>

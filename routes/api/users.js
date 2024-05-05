@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 
 const User = require("../../models/users");
+const Profil = require("../../models/profil");
 
 //SIGN IN POST
 router.post("/signup", (req, res) => {
@@ -37,7 +38,8 @@ router.post("/signup", (req, res) => {
 
   //Check errors
   if (errors.length > 0) {
-    res.render("signup", {
+    res.render("users/signup", {
+      title: "Sign Up",
       errors,
       name,
       uname,
@@ -50,7 +52,8 @@ router.post("/signup", (req, res) => {
     User.findOne({ email: email }).then((user) => {
       if (user) {
         errors.push({ msg: "Email sudah terdaftar" });
-        res.render("signup", {
+        res.render("users/signup", {
+          title: "Sign Up",
           errors,
           name,
           uname,
@@ -76,7 +79,22 @@ router.post("/signup", (req, res) => {
             //Save user
             newUser
               .save()
-              .then((user) => {
+              .then(async(user) => {
+                const newProfil = new Profil({
+                  user: user._id,
+                  bio: '',
+                  birthday: '',
+                  country: '',
+                  company:'',
+                  website: '',
+                  twitter: '',
+                  facebook: '',
+                  googlePlus: '',
+                  instagram: '',
+                  linkedin: ''
+                });
+                await newProfil.save();
+                
                 req.flash("success_msg", "Anda berhasil registrasi, Silahkan Login");
                 res.redirect("/login");
               })
