@@ -30,6 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% let totalKeseluruhanHarga = 0; %>
                         <% items.forEach(item=> { %>
                             <tr>
                                 <td>
@@ -58,16 +59,24 @@
                                     </form>
                                 </td>
                             </tr>
+                            <% totalKeseluruhanHarga += item.totalHarga; %>
                             <% }); %>
                     </tbody>
                 </table>
+                <div class="total-keseluruhan-harga">
+                    <h4 style="text-align: end">Total Keseluruhan Harga: Rp <%= totalKeseluruhanHarga.toLocaleString('id-ID') %></h4>
+                </div>
+                <button class="btn-pembayaran btn-back-tambah" onclick="invoice()">Pembayaran</button>
                 <% } else { %>
                     <p>Keranjang belanja Anda kosong.</p>
                     <% } %>
             </div>
-
-    
     <script>
+        function invoice() {
+            window.location.href = '/invoice/<%= cart._id %>';
+        }
+
+
         document.querySelectorAll('.quantity-btn').forEach(button => {
             button.addEventListener('click', async (e) => {
                 const itemId = e.target.dataset.itemId;

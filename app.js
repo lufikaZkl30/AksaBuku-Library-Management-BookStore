@@ -263,13 +263,26 @@ const featureRouter = require('./routes/feature');
       if (!cart) {
         return res.render('users/keranjang', { title: 'Keranjang Belanja', items: [] });
       }
-      res.render('users/keranjang', { title: 'Keranjang Belanja', items: cart.items });
+      res.render('users/keranjang', { title: 'Keranjang Belanja', items: cart.items, cart:cart });
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: 'Terjadi kesalahan saat menampilkan keranjang' });
     }
   }); 
-  
+
+  /*Payment*/
+  app.get('/payment/:id', async (req, res) => {
+    try {
+        const book = await Books.findById(req.params.id);
+        if (!book) {
+            return res.status(404).json({ message: 'Book not found' });
+        }
+        res.render('paymentPage', {title: 'Payment', book, user: req.user});
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+  });
+
   /*Contact & Form*/
   app.get("/contact", (req, res) => {
     res.render("contact.ejs", {title: 'Hubungi Kami', msgCode: messageCode, user: req.user});
@@ -324,19 +337,6 @@ const featureRouter = require('./routes/feature');
         res.status(500).send('Internal Server Error');
     }
   })
-
-  /*Payment*/
-  app.get('/payment/:id', async (req, res) => {
-    try {
-        const book = await Books.findById(req.params.id);
-        if (!book) {
-            return res.status(404).json({ message: 'Book not found' });
-        }
-        res.render('paymentPage', {title: 'Payment', book, user: req.user});
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
-  });
 //----------------
 
 //POST REQUEST
