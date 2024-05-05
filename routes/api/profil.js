@@ -4,6 +4,7 @@ const User = require('../../models/users');
 const Profil = require('../../models/profil');
 const { isAdmin } = require('../../config/auth');
 
+//ADMIN - VIEW
 router.get('/view', isAdmin, async (req, res) => {
     try {
         const users = await User.find();
@@ -14,6 +15,7 @@ router.get('/view', isAdmin, async (req, res) => {
     }
 });
 
+//ADMIN - DELETE
 router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -28,6 +30,21 @@ router.delete('/:id', async (req, res) => {
         res.status(200).json({});
     } catch (err) {
     res.status(500).json({ message: err.message });
+    }
+});
+
+//ADMIN - EDIT ROLE
+router.post('/:id', async (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    try {
+        const updatedUser = await User.findByIdAndUpdate(id, updates, { new: true });
+        if (!updatedUser) {
+        return res.status(404).json({ message: 'User not found' });
+        }
+        res.redirect('/admin/userlists');
+    } catch (err) {
+        res.status(400).json({ message: err.message });
     }
 });
 

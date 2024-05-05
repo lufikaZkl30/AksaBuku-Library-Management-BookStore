@@ -15,7 +15,9 @@
                 <th>Username</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Aksi</th>
+                <th>Role</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +26,16 @@
                     <td><%= user.uname %></td>
                     <td><%= user.name %></td>
                     <td><%= user.email %></td>
+                    <td><%= user.role %></td>
+                    <td>
+                        <form action = '/profile/<%= user._id %>' method="POST">
+                            <select name="role" value= <%= user.role %>>
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+                            </select>
+                            <button type="submit">Edit</button>
+                        </form>
+                    </td>
                     <td>
                         <span class="delete-icon icon" onclick="deleteUser('<%= user._id %>')"><i class="fas fa-times"></i></span>
                     </td>
