@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../layouts/header.ejs') %>
+    
+
+    <link rel="stylesheet" href="/css/profil.css">
+</head>
+
+<body>
+    <div class="container light-style flex-grow-1 container-p-y">
+        <h4 class="font-weight-bold py-3 mb-4">
+            Account settings
+        </h4>
+        <a href="/editprofil">Setting</a>
+        <div class="card overflow-hidden">
+            <div class="row no-gutters row-bordered row-border-light">
+                <div class="col-md-3 pt-0">
+                    <div class="list-group list-group-flush account-settings-links">
+                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                            href="#account-general">General</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-info">Info</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-social-links">Social links</a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content" action="/profile" method="POST">
+                        <div class="tab-pane fade active show" id="account-general">
+                            <div class="card-body media align-items-center">
+                                <img src=<%= user.profileImage %> alt
+                                    class="d-block ui-w-80">
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Username</label>
+                                    <h5><%= user.uname %></h5>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Name</label>
+                                    <h5><%= user.name %></h5>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">E-mail</label>
+                                    <input type="text" name="email" class="form-control mb-1" value= <%= user.email %> >
+                                    <!-- <div class="alert alert-warning mt-3">
+                                        Your email is not confirmed. Please check your inbox.<br>
+                                        <a href="javascript:void(0)">Resend confirmation</a>
+                                    </div> -->
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Company</label>
+                                    <h5><%= profil.company %></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-info">
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Bio</label>
+                                    <h5> <%= profil.bio %> </h5>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Birthday</label>
+                                    <h5> <%= profil.birthday %> </h5>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Country</label>
+                                    <h5> <%= profil.country %> </h5>
+                                </div>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body pb-2">
+                                <h6 class="mb-4">Contacts</h6>
+                                <div class="form-group">
+                                    <label class="form-label">Phone</label>
+                                    <h5> <%= user.phone %> </h5>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Website</label>
+                                    <h5> <%= profil.website %> </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-social-links">
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Twitter</label>
+                                    <h5> <%= profil.twitter %></h5>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Facebook</label>
+                                    <h5> <%= profil.facebook %></h5>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Google+</label>
+                                    <h5> <%= profil.googlePlus %></h5>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Instagram</label>
+                                    <h5> <%= profil.instagram %></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- khusus fungsi profil -->
+    <%- include('../layouts/scriptProfil.ejs') %>
+</body >
+</html >

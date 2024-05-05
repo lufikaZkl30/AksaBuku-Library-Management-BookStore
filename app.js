@@ -77,7 +77,7 @@ app.use('/api/books', booksRouter);
 //----------------
 
 //ROUTER - USERS
-const users = require('./models/users');
+const Users = require('./models/users');
 const usersRouter = require('./routes/api/users');
 app.use('/', usersRouter);
 //----------------
@@ -86,6 +86,12 @@ app.use('/', usersRouter);
 const Cart = require('./models/cartitem');
 const cartRouter = require('./routes/api/carts');
 app.use('/cart', cartRouter);
+//----------------
+
+//ROUTER - PROFILE
+const Profil = require('./models/profil');
+const profilRouter = require('./routes/api/profil');
+app.use('/profile', profilRouter);
 //----------------
 
 //ROUTER - FEATURE (FIND, SORT, SEARCH)
@@ -258,11 +264,39 @@ const featureRouter = require('./routes/feature');
       console.error(err);
       res.status(500).json({ message: 'Terjadi kesalahan saat menampilkan keranjang' });
     }
-  });  
+  }); 
+  
+  
+  app.get('/profil', ensureAuthenticated, (req, res) => {
+    Profil.findOne({ user: req.user.id }).then(profil => {
+        res.render('users/viewprofil.ejs', {
+          title: 'Profil',
+          user: req.user,
+          profil: profil
+        })
+      })
+  })
 
-  app.get('/profil', ensureAuthenticated, async (req, res) => {
-    res.render('users/profil', { title: 'Profil', user: req.user });
-  });  
+  app.get('/editprofil', ensureAuthenticated, (req, res) => {
+    Profil.findOne({ user: req.user.id }).then(profil => {
+        res.render('users/editprofil.ejs', {
+          title: 'Edit Profil',
+          user: req.user,
+          profil: profil
+        })
+      })
+  })
+
+  app.get('/admin/userlists', isAdmin, async (req, res) => {
+    try {
+      const users = await Users.find();
+
+      res.render('admin/userlists', { title: "Daftar User", users, user: req.user });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+  })
 
   /*Contact & Form*/
   app.get("/contact", (req, res) => {

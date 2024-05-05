@@ -8,45 +8,54 @@ const profilSchema = new mongoose.Schema({
   },
   bio: {
     type: String,
-    required: false
+    required: false,
+    default:''
   },
   birthday: {
     type: Date,
-    required: false
+    required: false,
+    default:''
   },
   country: {
     type: String,
     required: false,
     default: '',
-    enum: ['USA', 'Canada', 'UK', 'Germany', 'France', 'Indonesia', 'South Korea', 'Japan']
+    enum: ['', 'USA', 'Canada', 'UK', 'Germany', 'France', 'Indonesia', 'South Korea', 'Japan']
   },
   company: {
     type: String,
+    default:'',
     required: false
   },
   website: {
     type: String,
-    required: false
+    required: false,
+    default:''
   },
   twitter: {
     type: String, 
-    required: false
+    required: false,
+    default:''
   },
   facebook: {
     type: String, 
-    required: false
+    required: false,
+    default:''
   },
   googlePlus: {
     type: String, 
-    required: false
+    required: false,
+    default:''
   },
   instagram: {
     type: String, 
-    required: false
+    required: false,
+    default:''
   },
   linkedin: {
     type: String, 
-    required: false
+    required: false,
+    default:''
   }
 });
 

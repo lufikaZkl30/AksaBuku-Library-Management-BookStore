@@ -82,11 +82,11 @@ router.post("/signup", (req, res) => {
               .then(async(user) => {
                 const newProfil = new Profil({
                   user: user._id,
-                  bio: null,
-                  birthday: null,
-                  country: null,
-                  company: null,
-                  website: null,
+                  bio: '',
+                  birthday: '',
+                  country: '',
+                  company:'',
+                  website: '',
                   twitter: '',
                   facebook: '',
                   googlePlus: '',
