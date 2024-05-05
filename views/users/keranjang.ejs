@@ -1,72 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../layouts/header.ejs') %>
-</head>
-<body>
-    <a href="/">Back</a>
-    <a href="/jelajah">Tambah Item</a>
-    <h1>Keranjang Belanja</h1>
-    <% if (items.length > 0) { %>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nama Barang</th>
-                    <th>Harga Satuan</th>
-                    <th>Jumlah</th>
-                    <th>Total Harga</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% items.forEach(item => { %>
-                    <tr>
-                        <td><%= item.product.judul %></td>
-                        <td>Rp <%= item.harga.toLocaleString('id-ID') %></td>
-                        <td><%= item.quantity %></td>
-                        <td>Rp <%= item.totalHarga.toLocaleString('id-ID') %></td>
-                        <td>
-                            <div class="quantity-set">
-                                <button class="quantity-btn minus" data-item-id="<%= item._id %>">-</button>
-                                <input type="number" name="quantity" class="quantity-input" value="<%= item.quantity %>" min="1">
-                                <button class="quantity-btn plus" data-item-id="<%= item._id %>">+</button>
-                            </div>
-                            <form action="/cart/delete/<%= item._id %>" method="POST">
-                                <button type="submit">Hapus</button>
-                            </form>
-                        </td>
-                    </tr>
-                <% }); %>
-            </tbody>
-        </table>
-    <% } else { %>
-        <p>Keranjang belanja Anda kosong.</p>
-    <% } %>
+        <link rel="stylesheet" href="/css/Keranjang.css">
 
+</head>
+
+<body>
+    <!-- intro belanja -->
+    <div class="btn-back-tambah">
+        <button class="left"><a href="/">Back</a></button>
+        <button class="right"><a href="/jelajah">Tambah Item</a></button>
+    </div>
+
+    <!-- container -->
+    <div class="container">
+        <h1>Keranjang Belanja</h1>
+        <% if (items.length> 0) { %>
+            <div class="purphase-info">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama Barang</th>
+                            <th>Harga Satuan</th>
+                            <th>Jumlah</th>
+                            <th>Total Harga</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% items.forEach(item=> { %>
+                            <tr>
+                                <td>
+                                    <%= item.product.judul %>
+                                </td>
+                                <td>Rp <%= item.harga.toLocaleString('id-ID') %>
+                                </td>
+                                <td>
+                                    <%= item.quantity %>
+                                </td>
+                                <td class="box-harga">Rp <%= item.totalHarga.toLocaleString('id-ID') %>
+                                </td>
+                                <td class="add-jumlah">
+                                    <!-- box min -->
+                                    <div class="quantity-set">
+                                        <button class="quantity-btn minus" data-item-id="<%= item._id %>">-</button>
+                                        <!-- kotak input jumlah -->
+                                        <input type="number" name="quantity" 
+                                        class="quantity-input"
+                                            value="<%= item.quantity %>" min="1">
+                                        <!-- box plus -->
+                                        <button class="quantity-btn plus" data-item-id="<%= item._id %>">+</button>
+                                    </div>
+                                    <form action="/cart/delete/<%= item._id %>" method="POST">
+                                        <button class="btn-hapus" type="submit">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                    <p>Keranjang belanja Anda kosong.</p>
+                    <% } %>
+            </div>
+
+    
     <script>
         document.querySelectorAll('.quantity-btn').forEach(button => {
             button.addEventListener('click', async (e) => {
-            const itemId = e.target.dataset.itemId;
-            const operation = e.target.classList.contains('plus') ? 'increase' : 'decrease';
-        
-            try {
-                const response = await fetch(`/cart/update/${itemId}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ operation })
-                });
-        
-                const data = await response.json();
-                if (response.ok) {
-                location.reload();
-                } else {
-                alert(data.message);
+                const itemId = e.target.dataset.itemId;
+                const operation = e.target.classList.contains('plus') ? 'increase' : 'decrease';
+
+                try {
+                    const response = await fetch(`/cart/update/${itemId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ operation })
+                    });
+
+                    const data = await response.json();
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        alert(data.message);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
                 }
-            } catch (error) {
-                console.error('Error:', error);
-            }
             });
         });
     </script>
