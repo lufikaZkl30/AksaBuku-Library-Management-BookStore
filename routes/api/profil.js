@@ -34,7 +34,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 //ADMIN - EDIT ROLE
-router.post('/:id', async (req, res) => {
+router.post('adedit/:id', async (req, res) => {
     const { id } = req.params;
     const updates = req.body;
     try {
@@ -52,11 +52,11 @@ router.post('/:id', async (req, res) => {
 // Edit Profil POST
 router.post("/edit", async (req, res) => {
     try {
-        const { bio, birthday, country, company, website, twitter, facebook, googlePlus, instagram, linkedin, uname, name, email, phone } = req.body;
+        const { bio, birthday, country, company, website, twitter, facebook, googlePlus, instagram, linkedin} = req.body;
 
         const updatedProfil = await Profil.findOneAndUpdate(
         { user: req.user.id },
-        { bio, birthday, country, company, website, twitter, facebook, googlePlus, instagram, linkedin, uname, name, email, phone },
+        { bio, birthday, country, company, website, twitter, facebook, googlePlus, instagram, linkedin},
         { new: true }
         );
 

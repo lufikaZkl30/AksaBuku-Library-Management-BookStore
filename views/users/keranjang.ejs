@@ -66,17 +66,12 @@
                 <div class="total-keseluruhan-harga">
                     <h4 style="text-align: end">Total Keseluruhan Harga: Rp <%= totalKeseluruhanHarga.toLocaleString('id-ID') %></h4>
                 </div>
-                <button class="btn-pembayaran btn-back-tambah" onclick="invoice()">Pembayaran</button>
+                <button class="btn-pembayaran btn-back-tambah">Pembayaran</button>
                 <% } else { %>
                     <p>Keranjang belanja Anda kosong.</p>
                     <% } %>
             </div>
     <script>
-        function invoice() {
-            window.location.href = '/invoice/<%= cart._id %>';
-        }
-
-
         document.querySelectorAll('.quantity-btn').forEach(button => {
             button.addEventListener('click', async (e) => {
                 const itemId = e.target.dataset.itemId;
