@@ -1,4 +1,5 @@
-# Projek Aksa Buku merupakan projek Ujian Tengah Semester Back End
+# Projek Aksa Buku
+Merupakan projek Ujian Tengah Semester Back End
 Kelas: TI - D
 Semester: 4
 
