@@ -44,7 +44,10 @@
         <div class="footer-content">
             <h4>Langganan Newsletter</h4>
             <p>Dapatkan berita terbaru tentang penawaran dan promo kami dengan berlangganan newsletter.</p>
-            <form class="langganan" action="#" method="post">
+            <div id="subscribe-alert" class="alert" style="display: none;">
+                Terima kasih sudah berlangganan newsletter kami!
+            </div>
+            <form class="langganan" action="/api/subscription/subscribe" method="post">
                 <input type="email" name="email" placeholder="Masukkan email Anda" required>
                 <button type="submit">Berlangganan</button>
             </form>
@@ -59,4 +62,33 @@
         </div> -->
     </footer>
     <!-- end footer -->
+
+    <script>
+        const form = document.getElementById('subscribe-form');
+        const alert = document.getElementById('subscribe-alert');
+    
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email-input').value;
+            
+            try {
+                const response = await fetch('/api/subscription/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                });
+                
+                if (response.ok) {
+                    alert.style.display = 'block';
+                    document.getElementById('email-input').value = '';
+                } else {
+                    throw new Error('Gagal berlangganan');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    </script>
 </body>

@@ -34,7 +34,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 //ADMIN - EDIT ROLE
-router.post('adedit/:id', async (req, res) => {
+router.post('/adedit/:id', async (req, res) => {
     const { id } = req.params;
     const updates = req.body;
     try {
