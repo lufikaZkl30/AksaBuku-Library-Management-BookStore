@@ -28,7 +28,7 @@
                     <td><%= user.email %></td>
                     <td><%= user.role %></td>
                     <td>
-                        <form action = '/profile/adedit<%= user._id %>' method="POST">
+                        <form action = '/profile/adedit/<%= user._id %>' method="POST">
                             <select name="role" value= <%= user.role %>>
                                 <option value="admin">Admin</option>
                                 <option value="user">User</option>

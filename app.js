@@ -309,7 +309,7 @@ app.use('/api/subscription', subscriptionRoutes);
 
   /*Admin Page*/
   app.get("/admin/addbooks", isAdmin, (req, res) => {
-    res.render('admin/emaillists', { title: 'List Email Berlangganan', user: req.user, emails });
+    res.render('admin/addbooks', { title: 'Tambah Buku', user: req.user });
   });
 
   app.get('/admin/emaillists', async (req, res) => {
