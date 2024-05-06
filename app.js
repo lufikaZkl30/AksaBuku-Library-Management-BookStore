@@ -98,6 +98,12 @@ app.use('/profile', profilRouter);
 const featureRouter = require('./routes/feature');
 //----------------
 
+//ROUTER - NEWSLETTER
+const Subscription = require('./models/subscription');
+const subscriptionRoutes = require('./routes/api/subscription');
+app.use('/api/subscription', subscriptionRoutes);
+//--------------
+
 //PAGES
   /*Index*/
   app.get("/", async (req, res) => {
@@ -303,7 +309,17 @@ const featureRouter = require('./routes/feature');
 
   /*Admin Page*/
   app.get("/admin/addbooks", isAdmin, (req, res) => {
-    res.render("admin/addbooks.ejs", {title: 'Tambah Buku', user: req.user});
+    res.render('admin/emaillists', { title: 'List Email Berlangganan', user: req.user, emails });
+  });
+
+  app.get('/admin/emaillists', async (req, res) => {
+    try {
+        const emails = await Subscription.find({});
+        res.render('admin/emaillists.ejs', { title: 'List Email Berlangganan', user: req.user, emails });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Terjadi kesalahan saat memuat data.' });
+      }
   });
 
   app.get('/admin/booklists', isAdmin, async (req, res) => {
@@ -402,10 +418,3 @@ const featureRouter = require('./routes/feature');
     console.log(`http://localhost:${port}`);
   });
 //--------------
-
-
-
-
-
-
-

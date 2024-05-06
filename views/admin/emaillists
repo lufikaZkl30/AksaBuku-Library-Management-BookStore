@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%= include('layouts/header.ejs')  %>
+</head>
+
+<body>
+  <h1>List Email Berlangganan</h1>
+  <ul>
+      <% emails.forEach(email => { %>
+          <li><%= email.email %></li>
+      <% }); %>
+  </ul>
+
+    <form action="/api/subscription/sendemail" method="POST">
+      <div>
+          <label for="subject">Subject:</label><br>
+          <input type="text" id="subject" name="subject" required>
+      </div>
+      <div>
+          <label for="message">Message:</label><br>
+          <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <div>
+          <label for="recipients">Recipients (comma-separated):</label><br>
+          <input type="text" id="recipients" name="recipients" required>
+      </div>
+      <button type="submit">Send Email</button>
+  </form>
+</body>
+
+</html>
