@@ -22,3 +22,7 @@ localhost:8080
 - Menggunakan Mongo DB
 - Gunakan database mongodb://localhost:27017
 - Import file [Database Buku](public/DatabaseBuku.csv) ke dalam database aksabuku, collection books
+
+
+## Demo Youtube
+[Demo Web](https://youtu.be/NXzSvJvCZNw) [Video Presentasi](https://youtu.be/FFrZ-iFIgV4)
