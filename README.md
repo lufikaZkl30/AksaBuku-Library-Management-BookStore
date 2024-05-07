@@ -25,4 +25,4 @@ localhost:8080
 
 
 ## Demo Youtube
-[Demo Web](https://youtu.be/NXzSvJvCZNw) [Video Presentasi](https://youtu.be/FFrZ-iFIgV4)
+- [Demo Web](https://youtu.be/NXzSvJvCZNw) - [Video Presentasi](https://youtu.be/FFrZ-iFIgV4)
