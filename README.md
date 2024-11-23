@@ -1,5 +1,6 @@
 # Projek Aksa Buku
-Merupakan projek Ujian Tengah Semester Back End
+Projek untuk UTS mata kuliah Back End, yang merupakan website peminjaman dan pembelian buku, dengan fokus pada penyediaan buku-buku beragam.
+
 Kelas: TI - D
 Semester: 4
 
@@ -7,6 +8,14 @@ Semester: 4
 - 535220187 – Jessica Ho
 - 535220223 – Lufika Ayu
 - 535220226 – Parveen Uzma
+
+## Fitur Dikembangkan:
+- Auto update hot products
+- Fitur sort, search, dan filter buku
+- Sistem cart
+- CRUD pada Admin page
+- Sign up dan Login
+- Edit profile
 
 ## Demo Youtube
 - [Demo Web](https://youtu.be/NXzSvJvCZNw)
