@@ -314,7 +314,7 @@ app.use('/api/subscription', subscriptionRoutes);
     res.render('admin/addbooks', { title: 'Tambah Buku', user: req.user });
   });
 
-  app.get('/admin/emaillists', async (req, res) => {
+  app.get('/admin/emaillists', isAdmin, async (req, res) => {
     try {
         const emails = await Subscription.find({});
         res.render('admin/emaillists.ejs', { title: 'List Email Berlangganan', user: req.user, emails });
