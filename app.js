@@ -6,6 +6,7 @@ const nodemailer = require('nodemailer');
 const randomstring = require('randomstring');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require('passport');
 //----------------
@@ -53,7 +54,8 @@ db.once('open', ()=> console.log("Connected to MongoDB"));
 app.use(session({
   secret: 'secret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
 }));
 
 app.use(passport.initialize());
@@ -414,7 +416,10 @@ app.use('/api/subscription', subscriptionRoutes);
 
 
 //LISTEN TO PORT
+if (process.env.NODE_ENV !== 'production') {
   app.listen(port, ()=>{
     console.log(`http://localhost:${port}`);
   });
+}
+module.exports = app;
 //--------------
