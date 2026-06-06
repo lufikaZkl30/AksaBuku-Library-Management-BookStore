@@ -12,10 +12,12 @@ Semester: 4
 ## Fitur Dikembangkan:
 - Auto update hot products
 - Fitur sort, search, dan filter buku
-- Sistem cart
-- CRUD pada Admin page
-- Sign up dan Login
-- Edit profile
+- Sistem keranjang belanja (Cart System)
+- CRUD pada Admin page (User, Book, & Newsletter Management)
+- Sign up, Login, dan Edit Profile (Autentikasi aman dengan Bcrypt)
+- Peminjaman buku dengan E-reader / PDF Viewer terintegrasi
+- Sistem pengiriman email otomatis (Nodemailer) pada form Contact Us
+- Sistem Berlangganan Email (Newsletter)
 
 ## Demo Youtube
 - [Demo Web](https://youtu.be/NXzSvJvCZNw)
@@ -23,17 +25,26 @@ Semester: 4
 - [Video Presentasi](https://youtu.be/FFrZ-iFIgV4)
 
 
-## Panduan run website:
-- Buka di terminal
-```bash
-npm run start
-```
-- Buka web di 
-```bash
-localhost:8080
-```
+## Panduan Instalasi dan Menjalankan Website (Lokal):
+1. **Buka terminal** dan arahkan ke folder project ini.
+2. **Install dependencies (modul yang dibutuhkan)**:
+   ```bash
+   npm install
+   ```
+3. **Setup Environment Variables**:
+   - Buat file baru bernama `.env` di folder utama.
+   - Buka file `.env.example`, copy isinya, lalu *paste* ke dalam file `.env` yang baru dibuat.
+   - Sesuaikan nilai-nilai di dalam `.env` jika diperlukan (seperti `MONGO_URI` atau sandi email).
+4. **Jalankan aplikasi**:
+   ```bash
+   npm start
+   ```
+5. Buka web di browser Anda pada alamat: `http://localhost:8080`
 
-## Panduan database:
-- Menggunakan Mongo DB
-- Gunakan database mongodb://localhost:27017
-- Import file [Database Buku](public/DatabaseBuku.csv) ke dalam database aksabuku, collection books
+## Panduan Setup Database (Lokal):
+Panduan ini jika Anda menjalankan database di komputer lokal, bukan menggunakan MongoDB Atlas (Cloud).
+1. Pastikan Anda sudah menginstal MongoDB dan **MongoDB Compass**.
+2. Gunakan koneksi database lokal: `mongodb://localhost:27017`
+3. Buka MongoDB Compass dan buat database baru dengan nama **`aksabuku`**.
+4. Di dalam database tersebut, buat sebuah collection dengan nama **`books`**.
+5. Import file [Database Buku (CSV)](public/DatabaseBuku.csv) ke dalam collection `books` tersebut agar data buku langsung tersedia.

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Books = require('../../models/books');
+const { isAdmin } = require('../../config/auth');
 
 router.get('/:id?', async (req, res) => {
   try {
@@ -19,7 +20,7 @@ router.get('/:id?', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', isAdmin, async (req, res) => {
   const book = new Books(req.body);
   try {
     const newBook = await book.save();
@@ -29,7 +30,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.post('/:id', async (req, res) => {
+router.post('/:id', isAdmin, async (req, res) => {
   const { id } = req.params;
   const updates = req.body;
   try {
@@ -43,7 +44,7 @@ router.post('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAdmin, async (req, res) => {
   const { id } = req.params;
   try {
     const deletedBook = await Books.findByIdAndDelete(id);

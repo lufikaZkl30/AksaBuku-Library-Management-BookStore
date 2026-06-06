@@ -6,6 +6,7 @@ const nodemailer = require('nodemailer');
 const randomstring = require('randomstring');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require('passport');
 //----------------
@@ -53,7 +54,8 @@ db.once('open', ()=> console.log("Connected to MongoDB"));
 app.use(session({
   secret: 'secret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
 }));
 
 app.use(passport.initialize());
@@ -312,7 +314,7 @@ app.use('/api/subscription', subscriptionRoutes);
     res.render('admin/addbooks', { title: 'Tambah Buku', user: req.user });
   });
 
-  app.get('/admin/emaillists', async (req, res) => {
+  app.get('/admin/emaillists', isAdmin, async (req, res) => {
     try {
         const emails = await Subscription.find({});
         res.render('admin/emaillists.ejs', { title: 'List Email Berlangganan', user: req.user, emails });
@@ -414,7 +416,10 @@ app.use('/api/subscription', subscriptionRoutes);
 
 
 //LISTEN TO PORT
+if (process.env.NODE_ENV !== 'production') {
   app.listen(port, ()=>{
     console.log(`http://localhost:${port}`);
   });
+}
+module.exports = app;
 //--------------
