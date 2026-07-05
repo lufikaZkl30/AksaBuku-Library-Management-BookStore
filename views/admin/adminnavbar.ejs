@@ -6,13 +6,13 @@
       <a href="/admin/userlists" class="isi">User List</a>
 
       <div class="icons">
-        <a href="/keranjang" class='bx bxs-shopping-bags'></a>
-        <li class="dropdown">
+        <a href="/keranjang" class='bx bxs-shopping-bags' aria-label="Keranjang Belanja"></a>
+        <div class="dropdown">
             <% if (!user) { %>
-                <a href="/login" class='bx bxs-user'></a>
+                <a href="/login" class='bx bxs-user' aria-label="Login"></a>
             <% } else { %>
-                <a>
-                    <img src= "../assets/img/default-user-icon.jpg"  
+                <a href="#" aria-label="Profil Pengguna">
+                    <img src= "../assets/img/default-user-icon.jpg" alt="Admin Profile"
                     class="profile-img rounded-circle" style="width: 30px; height: 30px;">
                 </a>
                 <div class="dropdown-user">
@@ -20,14 +20,14 @@
                     <hr>
                     <a href="/profil">Profil</a>
                     <hr>
-                    <a href="/">Riwayat Pembelian</a>
+                    <a href="/coming-soon">Riwayat Pembelian</a>
                     <hr>
-                    <a href="/">Riwayat Peminjaman</a>
+                    <a href="/coming-soon">Riwayat Peminjaman</a>
                     <hr>
                     <a href="/logout">Logout</a>
                 </div>
             <% } %>
-        </li>
+        </div>
     </div>
       <link rel="stylesheet" href="/public/css/add.css">
   </nav>

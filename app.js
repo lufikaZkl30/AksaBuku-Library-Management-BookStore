@@ -9,6 +9,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require('passport');
+const compression = require('compression');
 //----------------
 
 //APP
@@ -16,7 +17,8 @@ const path = require('path');
 var app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(compression());
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: '30d' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 //----------------
@@ -73,11 +75,23 @@ app.use(passport.session());
 app.use(flash());
 //----------------
 
-//FLASH MIDDLEWARE
-app.use((req, res, next) => {
+//FLASH MIDDLEWARE & GLOBALS
+const Cart = require('./models/cartitem');
+app.use(async (req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
+
+  if (req.isAuthenticated()) {
+    try {
+      const cart = await Cart.findOne({ user: req.user.id });
+      res.locals.cartCount = cart ? cart.items.length : 0;
+    } catch (err) {
+      res.locals.cartCount = 0;
+    }
+  } else {
+    res.locals.cartCount = 0;
+  }
   next();
 });
 //----------------
@@ -95,7 +109,6 @@ app.use('/', usersRouter);
 //----------------
 
 //ROUTER - CARTS
-const Cart = require('./models/cartitem');
 const cartRouter = require('./routes/api/carts');
 app.use('/cart', cartRouter);
 //----------------
@@ -288,7 +301,16 @@ app.get('/keranjang', ensureAuthenticated, async (req, res) => {
   }
 });
 
+/* Coming Soon */
+app.all('/coming-soon', (req, res) => {
+  res.render('comingSoon', { title: 'Fitur Segera Hadir', user: req.user });
+});
+
 /*Payment*/
+app.all('/payment/process', (req, res) => {
+  res.render('comingSoon', { title: 'Fitur Segera Hadir', user: req.user });
+});
+
 app.get('/payment/:id', async (req, res) => {
   try {
     const book = await Books.findById(req.params.id);

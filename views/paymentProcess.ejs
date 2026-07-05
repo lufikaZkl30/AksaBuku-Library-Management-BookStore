@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('layouts/header.ejs') %>
+    <style>
+        .process-container {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            margin: 100px auto 2rem;
+            max-width: 800px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .process-container h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .process-container p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .process-container .btn-back {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .process-container .btn-back:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('layouts/navbar.ejs') %>
+
+    <div class="process-container">
+        <h1>Pemberitahuan</h1>
+        <p>
+            Maaf, halaman proses pembayaran dan fitur transaksi belum dikembangkan lebih lanjut. <br>
+            Aplikasi ini merupakan bagian dari MVP (Minimum Viable Product) untuk proyek akademik. <br>
+            Terima kasih atas pengertiannya!
+        </p>
+        <a href="/" class="btn-back">Kembali ke Beranda</a>
+    </div>
+
+    <!-- Footer -->
+    <%- include('layouts/footer.ejs') %>
+</body>
+</html>

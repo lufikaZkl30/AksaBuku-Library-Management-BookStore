@@ -9,6 +9,7 @@
     <%- include('layouts/navbar.ejs') %>
     
     <!-- intro -->
+    <main>
     <section class="content">
         <div class="column">
             <h1>Aksa Buku</h1>
@@ -23,26 +24,27 @@
         <!-- border -->
         <section class="banner" id="banner-section">
             <div class="banner-img" id="banner-img-one">
-                <img src="/assets/img/banner/banner-2.png">
+                <img src="/assets/img/banner/banner-2.png" alt="Banner 2">
             </div>
 
             <div class="banner-img" id="banner-img-two">
-                <img src="/assets/img/banner/banner-1.png">
+                <img src="/assets/img/banner/banner-1.png" alt="Banner 1">
             </div>
         </section>
         <!-- end border -->
 
         <!-- produk baru -->
-        <h1 class="pheading"> <span>New</span> Products</h1>
+        <h2 class="pheading"> <span>New</span> Products</h2>
         <%- include('layouts/bukuterbaru.ejs') %>
 
         <!-- produk baru -->
-        <h1 class="pheading" id="section-1"> <span>Hot</span> Products</h1>
+        <h2 class="pheading" id="section-1"> <span>Hot</span> Products</h2>
         <%- include('layouts/bukupopuler.ejs') %>
 
         <!-- produk diskon -->
-        <h1 class="pheading" id="section-2"> <span>Discount</span> Products</h1>
+        <h2 class="pheading" id="section-2"> <span>Discount</span> Products</h2>
         <%- include('layouts/bukudiskon.ejs') %>    
+    </main>
 
         <!-- footer -->
         <%- include('layouts/footer.ejs') %>

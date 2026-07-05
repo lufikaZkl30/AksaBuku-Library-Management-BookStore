@@ -20,7 +20,7 @@
         <% discountBooks.forEach(function(book) { %>
               <div class="card" onclick="showBookDetail('<%= book._id %>', '<%= book.kategori %>')">
                 <span class="discount">-<%= book.diskon %>%</span>
-                  <div class="img"><img src="<%= book.imageUrl %>" alt="<%= book.judul %>"></div>
+                  <div class="img"><img loading="lazy" src="<%= book.imageUrl %>" alt="<%= book.judul %>"></div>
                   <div class="desc" style="text-transform: capitalize">
                     <%= handleKategori(book.kategori) %>
                   </div>

@@ -1,14 +1,14 @@
-@font-face {
+@font-face { font-display: swap;
     font-family: barett;
     src: url(/assets/font/Barett\ Street.ttf);
 }
-@font-face {
+@font-face { font-display: swap;
     font-family: peanut ;
     src: url(/assets/font/Peanut\ Butter.ttf);
 }
 
 /* font text biasa */
-@font-face {
+@font-face { font-display: swap;
   font-family: biasa;
   src: url(/assets/font/Hello\ Mickeys.ttf);
 }
@@ -16,6 +16,8 @@
 header{
     font-family: biasa;
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     padding: 12px 10%;
     background-color: rgba(251, 255, 255, 0.685);
@@ -45,10 +47,31 @@ header{
     color: #181818;
 }
 
+header .icons {
+    display: flex;
+    align-items: center;
+}
+
 header .icons a{
     font-size: 2.5rem;
     color: #333;
     margin-left: 1.5rem;
+    position: relative;
+    text-decoration: none;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #ff3b30;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    line-height: 1;
 }
 
 /* dropdown */

@@ -2,7 +2,7 @@
     <nav class="navbar">
         <a href="/" class="logo">Aksa Buku</a>
         <a href="/" class="isi">Beranda</a>
-        <li class="dropdown">
+        <div class="dropdown">
             <a href="/jelajah" class="isi" id="jelajah">Jelajah</a>
             <div class="dropdown-content">
                 <a href="/novel">Buku Novel</a>
@@ -14,35 +14,39 @@
                 <a href="/bahasaasing">Buku Bahasa Asing</a>
                 <a href="/medis">Buku Medis</a>
             </div>
-        </li>
+        </div>
         <a href="/contact" class="isi">Hubungi Kami</a>
         <a href="/rentbook" class="isi">Peminjaman</a>
 
         <div class="icons">
-            <a href="/keranjang" class='bx bxs-shopping-bags'></a>
-            <li class="dropdown">
+            <a href="/keranjang" class='bx bxs-shopping-bags' aria-label="Keranjang Belanja">
+                <% if (typeof cartCount !== 'undefined' && cartCount > 0) { %>
+                    <span class="cart-badge"><%= cartCount %></span>
+                <% } %>
+            </a>
+            <div class="dropdown">
                 <% if (!user) { %>
-                    <a href="/login" class='bx bxs-user'></a>
+                    <a href="/login" class='bx bxs-user' aria-label="Login"></a>
                 <% } else { %>
-                    <a>
-                        <img src= <%= user.profileImage %>  
-                        class="profile-img rounded-circle" style="width: 30px; height: 30px;">
+                    <a href="#" aria-label="Profil Pengguna">
+                        <img src="/<%= user.profileImage.replace(/^\/+/, '') %>"  
+                        class="profile-img rounded-circle" style="width: 30px; height: 30px;" alt="Profile Picture">
                     </a>
                     <div class="dropdown-user">
                         <h2>@<%= user.uname %></h2>
-                        <img src= <%= user.profileImage %> 
-                        class="profile-img rounded-circle">
+                        <img src="/<%= user.profileImage.replace(/^\/+/, '') %>" 
+                        class="profile-img rounded-circle" alt="Profile Picture">
                         <hr>
                         <a href="/profil">Profil</a>
                         <hr>
-                        <a href="/">Riwayat Pembelian</a>
+                        <a href="/coming-soon">Riwayat Pembelian</a>
                         <hr>
-                        <a href="/">Riwayat Peminjaman</a>
+                        <a href="/coming-soon">Riwayat Peminjaman</a>
                         <hr>
                         <a href="/logout">Logout</a>
                     </div>
                 <% } %>
-            </li>
+            </div>
         </div>
     </nav>
 </header>

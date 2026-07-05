@@ -1,17 +1,17 @@
 /* font untuk h3 */
-@font-face {
+@font-face { font-display: swap;
     font-family: barett;
     src: url(/assets/font/Barett\ Street.ttf);
 }
 
 /* font navbar */
-@font-face {
+@font-face { font-display: swap;
     font-family: peanut ;
     src: url(/assets/font/Peanut\ Butter.ttf);
 }
 
 /* font text biasa */
-@font-face {
+@font-face { font-display: swap;
     font-family: biasa;
     src: url(/assets/font/Hello\ Mickeys.ttf);
 }

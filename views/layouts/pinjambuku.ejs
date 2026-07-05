@@ -4,7 +4,7 @@
       <div class="products">
         <% books.forEach(function(book) { %>
           <div class="card" onclick="showBookDetail('<%= book._id %>','<%= book.kategori %>')">
-            <div class="img"><img src="<%= book.imageUrl %>"></div>
+            <div class="img"><img src="<%= book.imageUrl %>" alt="<%= book.judul %>"></div>
             <div class="desc"><%= title %></div>
             <div class="title truncate-text"><%= book.judul %></div>
             <div class="penulis">Penulis: <%= book.author %></div>
